@@ -1,0 +1,6 @@
+.venv/
+.stfolder/
+__pycache__/
+.DS_Store
+.stignore
+**/.ropeproject
