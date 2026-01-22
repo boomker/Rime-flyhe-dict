@@ -1,0 +1,69 @@
+# 自动同步上游项目变更
+name: auto_update_sougou_dict
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"   # 设置定时任务
+
+jobs:
+  update_sogou_dict:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4.1.7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5.1.1
+        with:
+          python-version: "3.11"  # 你可以根据需要选择 Python 版本
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip install requests pypinyin pypinyin_dict
+
+      - name: Download Sogou Popular Dict
+        run: |
+          LATEST_TAG=$(curl -s https://api.github.com/repos/studyzy/imewlconverter/releases/latest | jq -r .tag_name)
+          wget -P /tmp "https://github.com/studyzy/imewlconverter/releases/download/${LATEST_TAG}/imewlconverter_Linux.tar.gz"
+          mkdir -p /tmp/imewlconverter
+          tar -xvf /tmp/imewlconverter_Linux.tar.gz -C /tmp/imewlconverter
+          python3 tools/python/scel2rime_dict.py
+          mv sogou_popular.dict.yaml sghot.dict.yaml
+
+      - name: Gen diff file
+        run: |
+          awk -F'\t' 'FNR==NR&&NR>10{a[$1]++;w[$1]=$0};FNR!=NR&&FNR>10{b[$1]++}END{for(i in a){if(b[i]<1)print w[i]}}' ./sghot.dict.yaml ./flypy_sghot.dict.yaml >diff_sg.txt
+
+      - name: Incremental update rime quanpin items to shuangpin items
+        run: |
+          python3 ./tools/python/flypy_dict_generator.py -i ./diff_sg.txt -o ./flypy_sghot.dict.yaml -m
+
+      - name: change version for flypy_sghot.dict.yaml
+        run: |
+          today="$(date '+%F')"
+          sed -i "s/version: .*/version: $today/" ./flypy_sghot.dict.yaml
+
+      - name: Remove spam entries for flypy_sghot.dict.yaml
+        run: |
+          bash ./tools/bash/prune_words.sh
+
+      - name: Remove intermediate file
+        run: |
+          rm -f ./diff_sg.txt ./sghot.dict.yaml
+
+      - name: Set env
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push changes
+        run: |
+          git add ./flypy_sghot.dict.yaml
+          git commit -m "Update sougou dict"
+          git push origin main
