@@ -52,7 +52,8 @@ jobs:
 
       - name: Convert sogou scel to rime quanpin dict
         run: |
-          dotnet ./publish/linux-x64/ImeWlConverterCmd -i:scel sogou_net_pop.scel -ft:"rm:eng|rm:num|rm:space|rm:pun" -o:rime sghot.dict.yaml
+          chmod +x ./publish/linux-x64/ImeWlConverterCmd
+          ./publish/linux-x64/ImeWlConverterCmd -i:scel sogou_net_pop.scel -ft:"rm:eng|rm:num|rm:space|rm:pun" -o:rime sghot.dict.yaml
 
       - name: Gen incremental update dict items
         run: |
