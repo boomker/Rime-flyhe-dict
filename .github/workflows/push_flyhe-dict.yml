@@ -22,7 +22,11 @@ jobs:
 
       - name: Update submodule reference
         run: |
-          git submodule update --remote --merge cn_dicts/ext
+          git submodule update --init --recursive
+          cd cn_dicts/ext
+          git fetch origin
+          git checkout origin/main  # 根据实际分支名修改
+          cd ../..
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add cn_dicts/ext
