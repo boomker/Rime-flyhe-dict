@@ -2,6 +2,7 @@
 name: auto_push_flyhe_dict
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
