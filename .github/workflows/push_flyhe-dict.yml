@@ -20,16 +20,25 @@ jobs:
           repository: boomker/rime-fast-xhup
           token: ${{ secrets.RIME_FAST_XHUP_TOKEN }}
           submodules: true
+          persist-credentials: true # 保持凭证
 
       - name: Update submodule reference
         run: |
+          # 配置 Git
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 更新 submodule
           git submodule update --init --recursive
           cd cn_dicts/ext
           git fetch origin
-          git checkout origin/main  # 根据实际分支名修改
-          cd ../..
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout origin/main
+          cd -
+
+          # 提交更改
           git add cn_dicts/ext
           git diff --staged --quiet || git commit -m "chore: update submodule cn_dicts/ext"
+
+      - name: Push changes
+        run: |
           git push
