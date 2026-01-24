@@ -54,7 +54,7 @@ options:
   --input_files [INPUT_FILES ...], -i [INPUT_FILES ...]
                         additional yaml dict files to input
   --word_frequency WORD_FREQUENCY, -w WORD_FREQUENCY
-                        sepc word_frequency
+                        spec word_frequency
   --mode, -m            spec output mode for generate file, w[rite] or a[ppend].
   --type, -t            spec generate filetype for output, yaml or text.
   --out_files [OUT_FILES ...], -o [OUT_FILES ...]

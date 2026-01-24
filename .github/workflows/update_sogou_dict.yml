@@ -61,7 +61,7 @@ jobs:
 
       - name: Incremental update rime quanpin items to flypy items
         run: |
-          python3 ./tools/python/flypy_dict_generator.py -i ./diff_sg.txt -o ./flypy_sghot.dict.yaml -m
+          python3 ./tools/python/flypy_dict_generator.py -i ./diff_sg.txt -o ./flypy_sghot.dict.yaml -m -w 100
 
       - name: change version for flypy_sghot.dict.yaml
         run: |

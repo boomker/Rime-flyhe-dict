@@ -4,11 +4,17 @@
         "flyhe",
         "flypy",
         "imewlconverter",
+        "jianpin",
         "pypinyin",
         "quanpin",
         "scel",
         "sghot",
+        "shengmu",
+        "shuang",
+        "shuangpin",
         "sogou",
-        "xhup"
+        "xhfast",
+        "xhup",
+        "yunmu"
     ]
 }
