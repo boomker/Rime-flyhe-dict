@@ -1,5 +1,5 @@
 # 自动推送 flyhe 字典到 rime-fast-xhup 子模块
-name: auto_push_flyhe-dict
+name: auto_push_flyhe_dict
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
       - "**.dict.yaml"
 
 jobs:
-  push-flyhe-dict:
+  auto_push_flyhe_dict:
     runs-on: ubuntu-latest
 
     steps:
