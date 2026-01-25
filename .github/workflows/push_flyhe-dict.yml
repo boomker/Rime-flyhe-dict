@@ -2,12 +2,12 @@
 name: auto_push_flyhe_dict
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
     paths:
       - "**.dict.yaml"
+  workflow_dispatch:
 
 jobs:
   auto_push_flyhe_dict:
