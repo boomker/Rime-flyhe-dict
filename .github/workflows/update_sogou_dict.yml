@@ -1,10 +1,10 @@
-# 自动同步上游项目变更
+# 自动更新搜狗 scel 词库到 rime 词库
 name: auto_update_sogou_dict
 
 on:
-  workflow_dispatch:
   schedule:
     - cron: "0 0 * * *" # 设置定时任务
+  workflow_dispatch:
 
 # 权限配置
 permissions:
