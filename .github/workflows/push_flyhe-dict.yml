@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - "**.dict.yaml"
+      - "*.dict.yaml"
   workflow_dispatch:
 
 jobs:
