@@ -1,4 +1,4 @@
-# 自动推送 flyhe 字典到 rime-fast-xhup 子模块
+# 自动推送 flyhe 扩展词典到 rime-fast-xhup 子模块
 name: auto_push_flyhe_dict
 
 on:
@@ -7,10 +7,16 @@ on:
       - main
     paths:
       - "*.dict.yaml"
+  workflow_run:
+    workflows:
+      - auto_update_sogou_dict
+    types:
+      - completed
   workflow_dispatch:
 
 jobs:
   auto_push_flyhe_dict:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
 
     steps:

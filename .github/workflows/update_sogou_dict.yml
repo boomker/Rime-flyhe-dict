@@ -3,7 +3,7 @@ name: auto_update_sogou_dict
 
 on:
   schedule:
-    - cron: "0 0 * * *" # 设置定时任务
+    - cron: "30 1 * * *" # 设置定时任务
   workflow_dispatch:
 
 # 权限配置
