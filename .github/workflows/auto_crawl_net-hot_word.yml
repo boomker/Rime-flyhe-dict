@@ -1,5 +1,5 @@
 # 自动更新搜狗 scel 词库到 rime 词库
-name: auto_update_sogou_dict
+name: auto_crawl_net_hot_word
 
 on:
   schedule:
@@ -15,7 +15,7 @@ env:
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
 
 jobs:
-  auto_update_sogou_dict:
+  auto_crawl_net_hot_word:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,13 +27,19 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5.1.1
         with:
-          python-version: "3.13" # 你可以根据需要选择 Python 版本
+          python-version: "3.13"
           cache: pip
 
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          pip install requests pypinyin pypinyin_dict
+          pip install requests pypinyin pypinyin_dict python-dateutil
+
+      - name: Run douyin_hot.py to get latest Douyin hot keywords
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+        run: |
+          python3 ./tools/python/crawl_douyin_hot.py
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
@@ -57,24 +63,17 @@ jobs:
 
       - name: Gen incremental update dict items
         run: |
-          awk -F'\t' 'FNR==NR&&NR>10{a[$1]++;w[$1]=$0};FNR!=NR&&FNR>10{b[$1]++}END{for(i in a){if(b[i]<1)print w[i]}}' ./sghot.dict.yaml ./flypy_sghot.dict.yaml >diff_sg.txt
+          awk -F'\t' 'FNR==NR{a[$1]++;w[$1]=$0};FNR!=NR&&FNR>10{b[$1]++}END{for(i in a){if(b[i]<1)print w[i]}}' ./sghot.dict.yaml ./flypy_sghot.dict.yaml >diff_sg.txt
 
-      - name: Incremental update rime quanpin items to flypy items
+      - name: Run crawl_net_hot_dict.py to update dictionary
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
-          python3 ./tools/python/flypy_dict_generator.py -i ./diff_sg.txt -o ./flypy_sghot.dict.yaml -m -w 100
-
-      - name: change version for flypy_sghot.dict.yaml
-        run: |
-          today="$(date '+%F')"
-          sed -i "s/version: .*/version: $today/" ./flypy_sghot.dict.yaml
-
-      - name: Remove spam entries for flypy_sghot.dict.yaml
-        run: |
-          bash ./tools/bash/prune_words.sh
+          python3 ./tools/python/crawl_net_hot_dict.py
 
       - name: Remove intermediate file
         run: |
-          rm -f ./diff_sg.txt ./sghot.dict.yaml
+          rm -f ./sghot.dict.yaml ./flypy_dyhot.dict.yaml
 
       - name: Set env
         run: |
@@ -84,5 +83,5 @@ jobs:
       - name: Commit and push changes
         run: |
           git add ./flypy_sghot.dict.yaml
-          git commit -m "Update sogou dict"
+          git commit -m "Update hot dict"
           git push origin main
