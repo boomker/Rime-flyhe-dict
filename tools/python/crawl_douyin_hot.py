@@ -243,7 +243,7 @@ def fetch_hot_keywords_from_url(api_url, source_name):
 def fetch_hot_keywords():
     """获取热榜关键词（支持备用源）"""
     # 尝试主数据源
-    print(f"尝试获取数据源: 抖音热榜...")
+    print("尝试获取数据源: 抖音热榜...")
     keywords, error = fetch_hot_keywords_from_url(PRIMARY_API_URL, "抖音热榜")
     
     if keywords:
@@ -252,7 +252,7 @@ def fetch_hot_keywords():
     print(f"抖音热榜获取失败: {error}")
     
     # 尝试备用数据源
-    print(f"尝试获取数据源: 百度热搜...")
+    print("尝试获取数据源: 百度热搜...")
     keywords, error = fetch_hot_keywords_from_url(FALLBACK_API_URL, "百度热搜")
     
     if keywords:

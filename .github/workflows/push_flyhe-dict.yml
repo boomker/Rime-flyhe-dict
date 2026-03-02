@@ -9,7 +9,7 @@ on:
       - "*.dict.yaml"
   workflow_run:
     workflows:
-      - auto_update_sogou_dict
+      - auto_crawl_net-hot_word
     types:
       - completed
   workflow_dispatch:

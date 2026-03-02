@@ -341,6 +341,8 @@ sort: by_weight
         print("  无新条目需要添加")
         return 0
 
+    new_lines.sort(key=lambda x: (len(x.split("\t")[0]), x.split("\t")[1]))
+
     # 追加到现有文件
     if os.path.exists(output_file):
         with open(output_file, "r", encoding="utf-8") as f:
