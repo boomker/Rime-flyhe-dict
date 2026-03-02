@@ -8,23 +8,26 @@
 import os
 import re
 import datetime
+import textwrap
 
 # ==================== 配置 ====================
 # 文件路径配置
 DIFF_SG_FILE = "diff_sg.txt"
 FLYPY_SGHOT_FILE = "flypy_sghot.dict.yaml"
 FLYPY_DYHOT_FILE = "flypy_dyhot.dict.yaml"
-CACHE_FILE = "pinyin_cache.json"
-
-# DeepSeek API 配置 (通过环境变量或 GitHub Secrets 获取)
-DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
-DEEPSEEK_BASE_URL = "https://api.deepseek.com"
-
-# 3天前时间戳
-THREE_DAYS_AGO = (datetime.datetime.now() - datetime.timedelta(days=3)).strftime(
-    "%Y-%m-%d"
-)
 TODAY = datetime.datetime.now().strftime("%Y-%m-%d")
+
+SGHOT_HEADER = textwrap.dedent("""\
+    # Rime dictionary
+    # encoding: utf-8
+
+    ---
+    name: flypy_sghot
+    version: {timestamp}
+    sort: by_weight
+    ...
+
+    """)
 
 
 # ==================== 小鹤双拼转换 ====================
@@ -231,16 +234,7 @@ def wrap_existing_content_with_timestamp(filepath, timestamp):
     # 保留 header
     header = parsed.get("header", "")
     if not header:
-        header = f"""# Rime dictionary
-# encoding: utf-8
-
----
-name: flypy_sghot
-version: {timestamp}
-sort: by_weight
-...
-
-"""
+        header = SGHOT_HEADER.format(timestamp=timestamp)
 
     # 收集所有现有条目
     all_lines = []
@@ -302,16 +296,7 @@ def process_diff_sg_file(diff_file, output_file, timestamp):
                 if "\t" in line:
                     existing_keywords.add(line.split("\t")[0])
     else:
-        header = f"""# Rime dictionary
-# encoding: utf-8
-
----
-name: flypy_sghot
-version: {timestamp}
-sort: by_weight
-...
-
-"""
+        header = SGHOT_HEADER.format(timestamp=timestamp)
         existing_keywords = set()
 
     # 处理 diff_sg.txt 内容
@@ -486,16 +471,7 @@ def merge_dict_files(dyhot_file, sghot_file, timestamp):
                     keyword = line.split("\t")[0]
                     existing_keywords.add(keyword)
     else:
-        header = f"""# Rime dictionary
-# encoding: utf-8
-
----
-name: flypy_sghot
-version: {timestamp}
-sort: by_weight
-...
-
-"""
+        header = SGHOT_HEADER.format(timestamp=timestamp)
         existing_keywords = set()
 
     # 过滤掉已存在的抖音热词

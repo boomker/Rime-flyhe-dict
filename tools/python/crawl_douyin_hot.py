@@ -12,6 +12,7 @@ import re
 import os
 import json
 import datetime
+import textwrap
 from dateutil.relativedelta import relativedelta
 from openai import OpenAI
 
@@ -28,6 +29,18 @@ DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 
 # 拼音缓存文件
 CACHE_FILE = "./pinyin_cache.json"
+
+DYHOT_HEADER = textwrap.dedent("""\
+    # Rime dictionary
+    # encoding: utf-8
+
+    ---
+    name: flyhe_dyhot
+    version: {today}
+    sort: by_weight
+    ...
+
+    """)
 
 # ==================== 辅助函数 ====================
 
@@ -335,16 +348,7 @@ def generate_output(keywords, cache, existing_data):
     three_days_ago = (datetime.datetime.now() - datetime.timedelta(days=3)).strftime('%Y-%m-%d')
     
     # 文件头保持不变
-    header = existing_data['header'] or f"""# Rime dictionary
-# encoding: utf-8
-
----
-name: flyhe_dyhot
-version: {today}
-sort: by_weight
-...
-
-"""
+    header = existing_data['header'] or DYHOT_HEADER.format(today=today)
     
     # 收集所有已有热词（用于去重）
     existing_keywords = set()
