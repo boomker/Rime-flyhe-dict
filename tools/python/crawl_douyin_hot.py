@@ -20,14 +20,14 @@ from openai import OpenAI
 PRIMARY_API_URL = "https://v2.xxapi.cn/api/douyinhot"
 FALLBACK_API_URL = "https://v2.xxapi.cn/api/baiduhot"
 
-OUTPUT_FILE = "/Users/cyzhu/.copaw/projets/crawl_dyhot_word/flyhe_dyhot.dict.yaml"
+OUTPUT_FILE = "./flypy_dyhot.dict.yaml"
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 
 # DeepSeek API 基础URL
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 
 # 拼音缓存文件
-CACHE_FILE = "/Users/cyzhu/.copaw/projets/crawl_dyhot_word/pinyin_cache.json"
+CACHE_FILE = "./pinyin_cache.json"
 
 # ==================== 辅助函数 ====================
 

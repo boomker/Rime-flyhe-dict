@@ -33,7 +33,7 @@ jobs:
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          pip install requests pypinyin pypinyin_dict python-dateutil
+          pip install requests pypinyin pypinyin_dict python-dateutil openai
 
       - name: Run douyin_hot.py to get latest Douyin hot keywords
         env:
