@@ -9,7 +9,7 @@ on:
       - "*.dict.yaml"
   workflow_run:
     workflows:
-      - auto_crawl_net-hot_word
+      - auto_crawl_net_hot_word
     types:
       - completed
   workflow_dispatch:
