@@ -1,183 +1,11 @@
-
 # Rime dictionary
 # encoding: utf-8
 
 ---
 name: flypy_sghot
-version: 2026-03-05
+version: 2026-03-06
 sort: by_weight
 ...
-
-## 2026-03-02 {
-中国第金	vs go di jb	100
-莲见	lm jm	100
-欣文联播	xb wf lm bo	100
-战之巅峰	vj vi dm fg	100
-亏桑提	kv sh ti	100
-樊正东	fj vg ds	100
-浮屠街	fu tu jp	100
-凡希亚好松弛	fj xi ya hc ss ii	100
-阿爸的刀	aa ba de dc	100
-早上坏	zc uh hk	100
-张杰凡希亚强强联合	vh jp fj xi ya ql ql lm he	100
-熬隐	ao yb	100
-血迷宫	xt mi gs	100
-灵虚子	lk xu zi	100
-果宝特攻	go bc te gs	100
-糖分手	th ff uz	100
-崔宸曦第	cv if xi di	100
-昕雯联播	xb wf lm bo	100
-孙银沙	sy yb ua	100
-接仔	jp zd	100
-什金	uf jb	100
-解班	jp bj	100
-积分夺宝卷	ji ff do bc jr	100
-我勒个	wo le ge	100
-阿坝州	aa ba vz	100
-周思成模版	vz si ig mo bj	100
-荣华与炎日之途	rs hx yu yj ri vi tu	100
-星鸣特攻	xk mk te gs	100
-泰国丸美	td go wj mw	100
-凡希亚机位	fj xi ya ji ww	100
-幽邃地库	yz sv di ku	100
-马喽	ma lz	100
-光锥	gl vv	100
-张万森下血了	vh wj sf xx xt le	100
-伊内斯	yi nw si	100
-吗咯	ma ge	100
-卡摸	ka mo	100
-劳帕	lc pa	100
-劳弟	lc di	100
-玛格西男人	ma ge xi nj rf	100
-飞宵	fw xn	100
-定校服	dk xn fu	100
-颠公	dm gs	100
-灵虚子怎么打	lk xu zi zf me da	100
-圆还缺	yr hd qt	100
-少司缘	uc si yr	100
-现眼包	xm yj bc	100
-红问了	hs wf le	100
-月癌	yt ai	100
-夺宝卷	do bc jr	100
-卡拉彼丘	ka la bi qq	100
-迪希亚	di xi ya	100
-啊米诺斯	aa mi no si	100
-泸上阿姨	lu uh aa yi	100
-马尼拉	ma ni la	100
-马拉尼	ma la ni	100
-黑马喽	hw ma lz	100
-阿爆	aa bc	100
-我勒个豆	wo le ge dz	100
-少司缘新皮肤	uc si yr xb pi fu	100
-鹅了么订单	ee le me dk dj	100
-码丽丝	ma li si	100
-辑盗	ji dc	100
-凡希亚真的强	fj xi ya vf de ql	100
-登录少年	dg lu uc nm	100
-蒜台	sr td	100
-下拉如	xx la ru	100
-南蚌	nj bh	100
-幻影特攻	hr yk te gs	100
-登录日	dg lu ri	100
-安塞龙	an sd ls	100
-模版	mo bj	100
-棍丝	gy si	100
-雷犂热刀	lw li re dc	100
-云离	yy li	100
-黑马楼	hw ma lz	100
-副温度	fu wf du	100
-凡希亚	fj xi ya	100
-阿巴基	aa ba ji	100
-棍势	gy ui	100
-凡希亚弹唱	fj xi ya tj ih	100
-时尚八杀	ui uh ba ua	100
-纳维亚	na ww ya	100
-阿爆私密账号	aa bc si mi vh hc	100
-世一绝	ui yi jt	100
-阿巴斯港	aa ba si gh	100
-肥鯮	fw zs	100
-柯然	ke rj	100
-辉月魔君	hv yt mo jy	100
-阿巴斯	aa ba si	100
-小丽龙	xn li ls	100
-基尼齐	ji ni qi	100
-雷霆特攻队	lw tk te gs dv	100
-难崩	nj bg	100
-张杰凡希亚	vh jp fj xi ya	100
-击破特攻	ji po te gs	100
-卡琪娜	ka qi na	100
-想提莫	xl ti mo	100
-尼拉	ni la	100
-凡希亚第一	fj xi ya di yi	100
-兮妃回宫	xi fw hv gs	100
-阿拜多斯	aa bd do si	100
-废物大战僵尸超模版	fw wu da vj jl ui ic mo bj	100
-煮波	vu bo	100
-达咩	da mp	100
-颠公颠婆	dm gs dm po	100
-潘展乐双纪录	pj vj le ul ji lu	100
-光椎	gl vv	100
-猪重八	vu vs ba	100
-晚安安安	wj an an an	100
-蒜薹	sr td	100
-哒咩	da mp	100
-泰裤辣	td ku la	100
-凡希亚第四	fj xi ya di si	100
-阿爆回应	aa bc hv yk	100
-## 2026-03-02 }
-
-## 2026-03-02 {
-三月你好	sj yt ni hc	100
-开学第一天	kd xt di yi tm	100
-最燃的接力	zv rj de jp li	100
-你不必是一朵花	ni bu bi ui yi do hx	100
-快船主场大胜鹈鹕	kk ir vu ih da ug ti hu	100
-晒出我的拼豆作品	ud iu wo de pb dz zo pb	100
-沙特股市大幅下跌	ua te gu ui da fu xx dp	100
-想看刘耀文草稿箱	xl kj lq yc wf cc gc xl	100
-羽毛球终于降价了	yu mc qq vs yu jl jx le	100
-云旗彩虹头跳咆哮	yy qi cd hs tz tn pc xn	100
-被福建的年俗帅到了	bw fu jm de nm su uk dc le	100
-北京国安超级杯夺冠	bw jk go an ic ji bw do gr	100
-开学就开始盼暑假了	kd xt jq kd ui pj uu jx le	100
-孙千的玄学又显灵了	sy qm de xr xt yz xm lk le	100
-挑战把墙画成艺术品	tn vj ba ql hx ig yi uu pb	100
-我就是滇风盛典超燃	wo jq ui dm fg ug dm ic rj	100
-元宵节都有什么习俗	yr xn jp dz yz uf me xi su	100
-陈浚铭大舌头简直甜弟	if jy mk da ue tz jm vi tm di	100
-陈丽君发宝岛巡演花絮	if li jy fa bc dc xy yj hx xu	100
-就这样沉迷偷偷藏不住	jq ve yh if mi tz tz ch bu vu	100
-玫瑰丛生小贝求婚失败	mw gv cs ug xn bw qq hy ui bd	100
-宋亚轩卡点帅得有一套	ss ya xr ka dm uk de yz yi tc	100
-岁月有情时小满回家了	sv yt yz qk ui xn mj hv jx le	100
-檀健次猛火现炒吻痕舞	tj jm ci mg ho xm ic wf hf wu	100
-我要验牌为何突然火了	wo yc yj pd ww he tu rj ho le	100
-早春的油菜花我先拍了	zc iy de yz cd hx wo xm pd le	100
-飞驰记星展示臂力这一块	fw ii ji xk vj ui bi li ve yi kk	100
-猴耳天坑真人版神庙逃亡	hz er tm kg vf rf bj uf mn tc wh	100
-美军战机据称被友军击中	mw jy vj ji ju ig bw yz jy ji vs	100
-孙颖莎新加坡大满贯冠军	sy yk ua xb jx po da mj gr gr jy	100
-与福鱼合拍我的新年大片	yu fu yu he pd wo de xb nm da pm	100
-张凌赫田曦薇颜霸的权威	vh lk he tm xi ww yj ba de qr ww	100
-逐玉雪地里捡到真帅哥了	vu yu xt di li jm dc vf uk ge le	100
-黄景瑜关晓彤给剧粉喂糖了	hl jk yu gr xn ts gw ju ff ww th le	100
-圣地亚哥大师赛将重新抽签	ug di ya ge da ui sd jl is xb iz qm	100
-王楚钦赢得大满贯男单冠军	wh iu qb yk de da mj gr nj dj gr jy	100
-伊朗向美航母发射四枚导弹	yi lh xl mw hh mu fa ue si mw dc dj	100
-浙江地震局辟谣泰顺级地震	ve jl di vf ju pi yc td uy ji di vf	100
-中国军号假如战争今天爆发	vs go jy hc jx ru vj vg jb tm bc fa	100
-江浙沪就这样等美食回归解馋	jl ve hu jq ve yh dg mw ui hv gv jp ij	100
-解锁余茵粉彩风早春中式套装	jp so yu yb ff cd fg zc iy vs ui tc vl	100
-记者实拍伊朗首都德黑兰爆炸	ji ve ui pd yi lh uz du de hw lj bc va	100
-内贾德家属和亲信否认其死亡	nw jx de jx uu he qb xb fz rf qi si wh	100
-看完方穆扬表白原谅了整个世界	kj wj fh mu yh bn bd yr ll le vg ge ui jp	100
-如何评价中国男篮逆转中国台北	ru he pk jx vs go nj lj ni vr vs go td bw	100
-我国海岸线低空经济带加速成型	wo go hd an xm di ks jk ji dd jx su ig xk	100
-幸福在未被发现时叫普通的一天	xk fu zd ww bw fa xm ui jn pu ts de yi tm	100
-伊朗最高领袖哈梅内伊遇袭身亡	yi lh zv gc lk xq ha mw nw yi yu xi uf wh	100
-逐玉这是网友给你找的剧宣网课	vu yu ve ui wh yz gw ni vc de ju xr wh ke	100
-## 2026-03-02 }
-
 ## 2026-03-03 {
 阿斌	aa bb	100
 阿比	aa bi	100
@@ -101084,3 +100912,157 @@ sort: by_weight
 中国海员实拍霍尔木兹海峡现况	vs go hd yr ui pd ho er mu zi hd xx xm kl	100
 中国量子计算稳居国际第一方阵	vs go ll zi ji sr wf ju go ji di yi fh vf	100
 ## 2026-03-05 }
+
+## 2026-03-06 {
+白客	bd ke	100
+柏青	bd qk	100
+侧刀	ce dc	100
+二复	er fu	100
+救市	jq ui	100
+龙井	ls jk	100
+女篮	nv lj	100
+帕劳	pa lc	100
+伺夜	si ye	100
+宋老	ss lc	100
+宋平	ss pk	100
+深巅	uf dm	100
+翟隽	vd jr	100
+张翼	vh yi	100
+许立	xu li	100
+芽芽	ya ya	100
+鱼雷	yu lw	100
+德男士	de nj ui	100
+董煜明	ds yu mk	100
+甘华田	gj hx tm	100
+光电子	gl dm zi	100
+火花摇	ho hx yc	100
+华食展	hx ui vj	100
+卡美罗	ka mw lo	100
+凯洛斯	kd lo si	100
+开幕会	kd mu hv	100
+玫瑰宫	mw gv gs	100
+女神节	nv uf jp	100
+庞永辉	ph ys hv	100
+青咖喱	qk ga li	100
+取色宏	qu se hs	100
+宋兆普	ss vc pu	100
+唐国华	th go hx	100
+庹庆明	to qk mk	100
+沙河市	ua he ui	100
+莎罗朱	ua lo vu	100
+睡眠令	uv mm lk	100
+赵皖平	vc wj pk	100
+真替身	vf ti uf	100
+张曼乐	vh mj le	100
+追杀令	vv ua lk	100
+周世虹	vz ui hs	100
+吴奇隆	wu qi ls	100
+小轩宝	xn xr bc	100
+学雷锋	xt lw fg	100
+姚劲波	yc jb bo	100
+要调休	yc tn xq	100
+摇扇子	yc uj zi	100
+杨某人	yh mz rf	100
+原味鸡	yr ww ji	100
+暗夜玫瑰	an ye mw gv	100
+巴西女篮	ba xi nv lj	100
+错峰休假	co fg xq jx	100
+刀片电池	dc pm dm ii	100
+广汽昊铂	gl qi hc bo	100
+赫尔墨斯	he er mo si	100
+交大安泰	jn da an td	100
+聚飞光电	ju fw gl dm	100
+空军基地	ks jy ji di	100
+明年春晚	mk nm iy wj	100
+青蛇劫起	qk ue jp qi	100
+史诗之怒	ui ui vi nu	100
+郑州警方	vg vz jk fh	100
+战争雷霆	vj vg lw tk	100
+维尔纽斯	ww er nq si	100
+洗头公式	xi tz gs ui	100
+雄狮行动	xs ui xk ds	100
+云南普洱	yy nj pu er	100
+布什尔机场	bu ui er ji ih	100
+北极液化气	bw ji ye hx qi	100
+北京下雪了	bw jk xx xt le	100
+方穆静出国	fh mu jk iu go	100
+经济参考报	jk ji cj kc bc	100
+拉斯塔努拉	la si ta nu la	100
+名字羞耻症	mk zi xq ii vg	100
+魔力歌先生	mo li ge xm ug	100
+瞿桦的初恋	qu hx de iu lm	100
+新英雄本色	xb yk xs bf se	100
+粤工惠平台	yt gs hv pk td	100
+澳大利亚女足	ao da li ya nv zu	100
+翻拍重案六组	fj pd vs an lq zu	100
+长安天街商场	ih an tm jp uh ih	100
+纯真年代编剧	iy vf nm dd bm ju	100
+麻辣拌史铁生	ma la bj ui tp ug	100
+门头沟市监局	mf tz gz ui jm ju	100
+宋平同志逝世	ss pk ts vi ui ui	100
+沙特外交大臣	ua te wd jn da if	100
+中国民航大学	vs go mb hh da xt	100
+伊朗报复美以	yi lh bc fu mw yi	100
+第二代刀片电池	di er dd dc pm dm ii	100
+工业加速器法案	gs ye jx su qi fa an	100
+美国地质调查局	mw go di vi dn ia ju	100
+莎拉的真伪人生	ua la de vf ww rf ug	100
+乌代德空军基地	wu dd de ks jy ji di	100
+微短剧品质盛典	ww dr ju pb vi ug dm	100
+美国国际贸易法院	mw go go ji mc yi fa yr	100
+美国驻迪拜总领馆	mw go vu di bd zs lk gr	100
+女篮世界杯资格赛	nv lj ui jp bw zi ge sd	100
+以色列国防部大楼	yi se lp go fh bu da lz	100
+美国海关与边境保护局	mw go hd gr yu bm jk bc hu ju	100
+美国联邦巡回上诉法院	mw go lm bh xy hv uh su fa yr	100
+## 2026-03-06 }
+
+## 2026-03-06 {
+舞蹈挑战	wu dc tn vj	100
+回到纯真年代	hv dc iy vf nm dd	100
+如果爱真的存在	ru go ai vf de cy zd	100
+社保迎来第六险	ue bc yk ld di lq xm	100
+十二生肖偏心版	ui er ug xn pm xb bj	100
+凤舞九天开机官宣	fg wu jq tm kd ji gr xr	100
+推进祖国统一大业	tv jb zu go ts yi da ye	100
+张金虎备战冠军赛	vh jb hu bw vj gr jy sd	100
+逐玉谢征神级镜头	vu yu xp vg uf ji jk tz	100
+请继续不完美的人生	qk ji xu bu wj mw de rf ug	100
+忍住让我把食欲忍住	rf vu rh wo ba ui yu rf vu	100
+朱慧妍想要妍妍得到	vu hv yj xl yc yj yj de dc	100
+逐玉陈皮糖吻甜齁了	vu yu if pi th wf tm hz le	100
+宝贝就这样萌翻幼儿园	bc bw jq ve yh mg fj yz er yr	100
+两会民间讲解员已到位	ll hv mb jm jl jp yr yi dc ww	100
+媒婆把谐音梗玩明白了	mw po ba xp yb gg wj mk bd le	100
+政府工作报告民生清单	vg fu gs zo bc gc mb ug qk dj	100
+和火花搭子的第一杯奶茶	he ho hx da zi de di yi bw nd ia	100
+建议规制外包同工不同酬	jm yi gv vi wd bc ts gs bu ts iz	100
+建议取消私家车年审制度	jm yi qu xn si jx ie nm uf vi du	100
+建议缩短研究生考录时间	jm yi so dr yj jq ug kc lu ui jm	100
+记忆里的国泰民安白月光	ji yi li de go td mb an bd yt gl	100
+雷军回应把周云杰带出圈	lw jy hv yk ba vz yy jp dd iu qr	100
+林思琪直播盛典彩排路透	lb si qi vi bo ug dm cd pd lu tz	100
+听潮阁直播盛典阵容好强	tk ic ge vi bo ug dm vf rs hc ql	100
+用色环打开我的色彩世界	ys se hr da kd wo de se cd ui jp	100
+纯真年代的爱情大结局点评	iy vf nm dd de ai qk da jp ju dm pk	100
+建议提高农村居民育儿补贴	jm yi ti gc ns cy ju mb yu er bu tp	100
+控糖就是控制三餐的碳水吗	ks th jq ui ks vi sj cj de tj uv ma	100
+拟发行超长期特别国债万亿	ni fa xk ic ih qi te bp go vd wj yi	100
+三角洲猛攻节嘉宾到底是谁	sj jn vz mg gs jp jx bb dc di ui uv	100
+我又把你当成她了模仿挑战	wo yz ba ni dh ig ta le mo fh tn vj	100
+央行开展亿元买断式逆回购	yh hh kd vj yi yr md dr ui ni hv gz	100
+以色列宣布日重新开放领空	yi se lp xr bu ri is xb kd fh lk ks	100
+政府工作报告为何强调休假	vg fu gs zo bc gc ww he ql dn xq jx	100
+这一生爱上什么人都不为过	ve yi ug ai uh uf me rf dz bu ww go	100
+从姓氏推测你祖上是做什么的	cs xk ui tv ce ni zu uh ui zo uf me de	100
+非遗巡游的妆造美出了新高度	fw yi xy yz de vl zc mw iu le xb gc du	100
+建议三孩家庭每月补贴元至岁	jm yi sj hd jx tk mw yt bu tp yr vi sv	100
+考研人数少了为啥分数却涨了	kc yj rf uu uc le ww ua ff uu qt vh le	100
+速览十四五经济社会发展成就	su lj ui si wu jk ji ue hv fa vj ig jq	100
+建议扩大公共假期尽量不要调休	jm yi ko da gs gs jx qi jb ll bu yc dn xq	100
+外交部副部长吊唁哈梅内伊遇难	wd jn bu fu bu vh dn yj ha mw nw yi yu nj	100
+伊朗称用无人机击中林肯号航母	yi lh ig ys wu rf ji ji vs lb kf hc hh mu	100
+霍启刚谈香港将首次制定五年规划	ho qi gh tj xl gh jl uz ci vi dk wu nm gv hx	100
+建议明确下班后有权拒回工作消息	jm yi mk qt xx bj hz yz qr ju hv gs zo xn xi	100
+建议医务人员薪酬不得与创收挂钩	jm yi yi wu rf yr xb iz bu de yu il uz gx gz	100
+## 2026-03-06 }
