@@ -54,7 +54,24 @@ jobs:
 
       - name: Download sogou scel file
         run: |
-          curl -fsL -o sogou_net_pop.scel 'https://pinyin.sogou.com/d/dict/download_cell.php?id=4&name=网络流行新词【官方推荐】&f=detail'
+          max_attempts=3
+          attempt=1
+          while [ $attempt -le $max_attempts ]; do
+            echo "Attempt $attempt of $max_attempts..."
+            if curl -fsL -o sogou_net_pop.scel 'https://pinyin.sogou.com/d/dict/download_cell.php?id=4&name=网络流行新词【官方推荐】&f=detail'; then
+              echo "Download successful!"
+              exit 0
+            else
+              echo "Download failed!"
+              if [ $attempt -lt $max_attempts ]; then
+                echo "Waiting 3 seconds before retry..."
+                sleep 3
+              fi
+              attempt=$((attempt + 1))
+            fi
+          done
+          echo "All $max_attempts attempts failed!"
+          exit 1
 
       - name: Convert sogou scel to rime quanpin dict
         run: |
