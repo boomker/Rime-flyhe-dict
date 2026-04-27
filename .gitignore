@@ -3,7 +3,8 @@
 __pycache__/
 imewlconverter/
 temp
-flypy_base.*
 .DS_Store
 .stignore
+flypy_base.*
+opencode.json
 **/.ropeproject
