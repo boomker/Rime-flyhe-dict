@@ -76,7 +76,7 @@ jobs:
       - name: Convert sogou scel to rime quanpin dict
         run: |
           chmod +x ./ImeWlConverterCmd
-          ./ImeWlConverterCmd -i:scel sogou_net_pop.scel -ft:"rm:eng|rm:num|rm:space|rm:pun" -r:100 -o:rime sghot.dict.yaml
+          ./ImeWlConverterCmd -i scel -f "rm:eng|rm:num|rm:space|rm:pun" -r 100 -o rime -O sghot.dict.yaml sogou_net_pop.scel
 
       - name: Gen incremental update dict items
         run: |
