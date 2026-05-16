@@ -3,7 +3,7 @@
 """
 抖音热榜词条抓取脚本
 自动生成 Rime 输入法字典文件
-使用 DeepSeek deepseek-chat 模型生成拼音
+自动选择 DeepSeek 当前可用 pro 模型生成拼音
 支持备用数据源
 """
 
@@ -16,6 +16,9 @@ import textwrap
 import time
 from dateutil.relativedelta import relativedelta
 from openai import OpenAI
+
+from deepseek_model import resolve_deepseek_pro_model
+from flypy_codec import convert_to_flypy, is_valid_flypy_code, normalize_pinyin_text
 
 # ==================== 配置 ====================
 # 主数据源和备用数据源
@@ -30,6 +33,7 @@ DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 
 # 拼音缓存文件
 CACHE_FILE = "./pinyin_cache.json"
+_RESOLVED_DEEPSEEK_MODEL = None
 
 DYHOT_HEADER = textwrap.dedent(
     """\
@@ -53,7 +57,12 @@ def load_pinyin_cache():
     if os.path.exists(CACHE_FILE):
         try:
             with open(CACHE_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
+                cache = json.load(f)
+                return {
+                    keyword: normalize_pinyin_text(pinyin)
+                    for keyword, pinyin in cache.items()
+                    if normalize_pinyin_text(pinyin)
+                }
         except:
             return {}
     return {}
@@ -84,6 +93,8 @@ def generate_pinyin_with_deepseek(keywords, cache):
 
     try:
         client = OpenAI(api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL)
+        model_name = get_deepseek_pro_model()
+        print(f"使用 DeepSeek 模型: {model_name}")
 
         # 分批处理（每次最多20个）
         batch_size = 20
@@ -95,10 +106,11 @@ def generate_pinyin_with_deepseek(keywords, cache):
                 f"""\
                 请为以下中文热词标注汉语拼音。
                 要求：
-                1. 考虑句中多音字的正确读音（如"行长"应读"háng zhǎng"不是"xíng zhǎng"，"首都"应读"shǒu dū"不是"shoū doū"）
+                1. 考虑句中多音字的正确读音（如"行长"应读"hang zhang"不是"xing zhang"，"首都"应读"shou du"不是"shou dou"）
                 2. 每个词一行，格式：汉字 拼音
                 3. 拼音之间用空格分隔
-                4. 只返回结果，不要其他说明
+                4. 拼音只使用小写英文字母，不要声调符号、不要数字、不要注释
+                5. 只返回结果，不要其他说明
 
                 热词列表：
                 {keywords_str}
@@ -107,16 +119,17 @@ def generate_pinyin_with_deepseek(keywords, cache):
             )
 
             response = client.chat.completions.create(
-                model="deepseek-chat",
+                model=model_name,
                 messages=[
                     {
                         "role": "system",
-                        "content": "你是一个专业的汉语拼音标注助手，擅长处理多音字和词组连读。",
+                        "content": "你是一个专业的汉语拼音标注助手，擅长处理多音字和词组连读，并严格返回无声调拼音。",
                     },
                     {"role": "user", "content": prompt},
                 ],
-                temperature=0.1,
                 max_tokens=2000,
+                reasoning_effort="high",
+                extra_body={"thinking": {"type": "enabled"}},
             )
 
             result_text = response.choices[0].message.content
@@ -124,11 +137,11 @@ def generate_pinyin_with_deepseek(keywords, cache):
             # 解析结果
             for line in result_text.strip().split("\n"):
                 line = line.strip()
-                # 匹配 "汉字 拼音" 格式
-                match = re.match(r"^\d+\.\s*(\S+)\s+(.+)$", line)
+                # 匹配 "1. 汉字 拼音" 或 "汉字 拼音" 格式
+                match = re.match(r"^(?:\d+\.\s*)?(\S+)\s+(.+)$", line)
                 if match:
                     kw = match.group(1)
-                    pinyin = match.group(2).strip()
+                    pinyin = normalize_pinyin_text(match.group(2).strip())
                     if kw in uncached_keywords:
                         cache[kw] = pinyin
 
@@ -144,6 +157,18 @@ def generate_pinyin_with_deepseek(keywords, cache):
         raise Exception(f"DeepSeek API 异常: {e}")
 
     return cache
+
+
+def get_deepseek_pro_model():
+    """获取当前可用的 DeepSeek pro 模型名。"""
+    global _RESOLVED_DEEPSEEK_MODEL
+    if _RESOLVED_DEEPSEEK_MODEL:
+        return _RESOLVED_DEEPSEEK_MODEL
+
+    _RESOLVED_DEEPSEEK_MODEL = resolve_deepseek_pro_model(
+        api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL
+    )
+    return _RESOLVED_DEEPSEEK_MODEL
 
 
 def simple_pinyin(keyword):
@@ -173,107 +198,16 @@ def simple_pinyin_batch(keywords, cache):
     return cache
 
 
-# ==================== 小鹤双拼转换 ====================
-
-
-def pinyin_to_flypy(quanpin_list):
-    """全拼拼音转为小鹤双拼码
-
-    Args:
-        quanpin_list: 全拼拼音列表，如 ['zhong', 'guo']
-
-    Returns:
-        小鹤双拼列表，如 ['vs', 'go']
-    """
-    from functools import lru_cache
-
-    shengmu_dict = {"zh": "v", "ch": "i", "sh": "u"}
-    yunmu_dict = {
-        "ou": "z",
-        "iao": "n",
-        "uang": "l",
-        "iang": "l",
-        "en": "f",
-        "eng": "g",
-        "ng": "g",
-        "ang": "h",
-        "an": "j",
-        "ao": "c",
-        "ai": "d",
-        "ian": "m",
-        "in": "b",
-        "uo": "o",
-        "un": "y",
-        "iu": "q",
-        "uan": "r",
-        "iong": "s",
-        "ong": "s",
-        "ue": "t",
-        "ve": "t",
-        "ui": "v",
-        "ua": "x",
-        "ia": "x",
-        "ie": "p",
-        "uai": "k",
-        "ing": "k",
-        "ei": "w",
-    }
-    zero = {
-        "a": "aa",
-        "an": "an",
-        "ai": "ai",
-        "ang": "ah",
-        "o": "oo",
-        "ou": "ou",
-        "e": "ee",
-        "n": "en",
-        "en": "en",
-        "eng": "eg",
-        "ei": "ei",
-        "er": "er",
-        "ao": "ao",
-    }
-
-    @lru_cache(maxsize=None, typed=True)
-    def to_flypy(pinyin_str):
-        # 错误 Pinyin 返回原始拼音串
-        if len(pinyin_str) == 1 and pinyin_str not in zero:
-            return ""
-        if pinyin_str in zero:
-            return zero[pinyin_str]
-        if len(pinyin_str) > 1 and pinyin_str[1] == "h":
-            shengmu = shengmu_dict.get(pinyin_str[:2], pinyin_str[:2])
-            yunmu = yunmu_dict.get(pinyin_str[2:], pinyin_str[2:])
-            return shengmu + yunmu
-        else:
-            shengmu = pinyin_str[:1]
-            yunmu = yunmu_dict.get(pinyin_str[1:], pinyin_str[1:])
-            return f"{shengmu}{yunmu}"
-
-    return [to_flypy(x) if x.isalpha() else x for x in quanpin_list]
-
-
-def convert_to_flypy(full_pinyin):
-    """将空格分隔的全拼转换为小鹤双拼
-
-    Args:
-        full_pinyin: 全拼字符串，如 "zhong guo"
-
-    Returns:
-        小鹤双拼字符串，如 "vs go"
-    """
-    pinyin_list = full_pinyin.split()
-    flypy_list = pinyin_to_flypy(pinyin_list)
-    return " ".join(flypy_list)
-
-
 def get_pinyin(keyword, cache):
     """获取拼音"""
     if keyword in cache:
-        return cache[keyword]
+        normalized = normalize_pinyin_text(cache[keyword])
+        if normalized:
+            cache[keyword] = normalized
+            return normalized
 
     # 使用简单方案作为后备
-    pinyin = simple_pinyin(keyword)
+    pinyin = normalize_pinyin_text(simple_pinyin(keyword))
     cache[keyword] = pinyin
     return pinyin
 
@@ -400,7 +334,8 @@ def read_existing_file(filepath):
                     weight = parts[2] if len(parts) > 2 else "100"
                     # 转换为双拼
                     new_pinyin = convert_to_flypy(old_pinyin)
-                    converted_lines.append(f"{keyword}\t{new_pinyin}\t{weight}")
+                    if is_valid_flypy_code(new_pinyin):
+                        converted_lines.append(f"{keyword}\t{new_pinyin}\t{weight}")
                 else:
                     converted_lines.append(line)
             else:
@@ -444,7 +379,13 @@ def generate_output(keywords, cache, existing_data):
         if full_pinyin:
             # 转换为小鹤双拼
             flypy_pinyin = convert_to_flypy(full_pinyin)
-            new_block_lines.append(f"{kw}\t{flypy_pinyin}\t100")
+            if not is_valid_flypy_code(flypy_pinyin):
+                fallback_pinyin = normalize_pinyin_text(simple_pinyin(kw))
+                if fallback_pinyin:
+                    cache[kw] = fallback_pinyin
+                    flypy_pinyin = convert_to_flypy(fallback_pinyin)
+            if is_valid_flypy_code(flypy_pinyin):
+                new_block_lines.append(f"{kw}\t{flypy_pinyin}\t100")
 
     # 保留3天内的区块
     recent_blocks = [

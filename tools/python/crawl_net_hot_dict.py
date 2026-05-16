@@ -10,6 +10,8 @@ import re
 import datetime
 import textwrap
 
+from flypy_codec import convert_to_flypy, is_valid_flypy_code
+
 # ==================== 配置 ====================
 # 文件路径配置
 DIFF_SG_FILE = "diff_sg.txt"
@@ -30,98 +32,22 @@ SGHOT_HEADER = textwrap.dedent("""\
     """)
 
 
-# ==================== 小鹤双拼转换 ====================
+def normalize_dict_line(line):
+    """把词库行的编码列归一化为小鹤双拼。"""
+    if "\t" not in line:
+        return line
 
+    parts = line.split("\t")
+    if len(parts) < 2:
+        return line
 
-def pinyin_to_flypy(quanpin_list):
-    """全拼拼音转为小鹤双拼码
-
-    Args:
-        quanpin_list: 全拼拼音列表，如 ['zhong', 'guo']
-
-    Returns:
-        小鹤双拼列表，如 ['vs', 'go']
-    """
-    from functools import lru_cache
-
-    shengmu_dict = {"zh": "v", "ch": "i", "sh": "u"}
-    yunmu_dict = {
-        "ou": "z",
-        "iao": "n",
-        "uang": "l",
-        "iang": "l",
-        "en": "f",
-        "eng": "g",
-        "ng": "g",
-        "ang": "h",
-        "an": "j",
-        "ao": "c",
-        "ai": "d",
-        "ian": "m",
-        "in": "b",
-        "uo": "o",
-        "un": "y",
-        "iu": "q",
-        "uan": "r",
-        "iong": "s",
-        "ong": "s",
-        "ue": "t",
-        "ve": "t",
-        "ui": "v",
-        "ua": "x",
-        "ia": "x",
-        "ie": "p",
-        "uai": "k",
-        "ing": "k",
-        "ei": "w",
-    }
-    zero = {
-        "a": "aa",
-        "an": "an",
-        "ai": "ai",
-        "ang": "ah",
-        "o": "oo",
-        "ou": "ou",
-        "e": "ee",
-        "n": "en",
-        "en": "en",
-        "eng": "eg",
-        "ei": "ei",
-        "er": "er",
-        "ao": "ao",
-    }
-
-    @lru_cache(maxsize=None, typed=True)
-    def to_flypy(pinyin_str):
-        # 错误 Pinyin 返回原始拼音串
-        if len(pinyin_str) == 1 and pinyin_str not in zero:
-            return ""
-        if pinyin_str in zero:
-            return zero[pinyin_str]
-        if len(pinyin_str) > 1 and pinyin_str[1] == "h":
-            shengmu = shengmu_dict.get(pinyin_str[:2], pinyin_str[:2])
-            yunmu = yunmu_dict.get(pinyin_str[2:], pinyin_str[2:])
-            return shengmu + yunmu
-        else:
-            shengmu = pinyin_str[:1]
-            yunmu = yunmu_dict.get(pinyin_str[1:], pinyin_str[1:])
-            return f"{shengmu}{yunmu}"
-
-    return [to_flypy(x) if x.isalpha() else x for x in quanpin_list]
-
-
-def convert_to_flypy(full_pinyin):
-    """将空格分隔的全拼转换为小鹤双拼
-
-    Args:
-        full_pinyin: 全拼字符串，如 "zhong guo"
-
-    Returns:
-        小鹤双拼字符串，如 "vs go"
-    """
-    pinyin_list = full_pinyin.split()
-    flypy_list = pinyin_to_flypy(pinyin_list)
-    return " ".join(flypy_list)
+    keyword = parts[0].strip()
+    raw_code = parts[1].strip()
+    weight = parts[2].strip() if len(parts) > 2 else "100"
+    flypy_code = convert_to_flypy(raw_code)
+    if is_valid_flypy_code(flypy_code):
+        return f"{keyword}\t{flypy_code}\t{weight}"
+    return line
 
 
 # ==================== 时间戳区块处理 ====================
@@ -151,7 +77,12 @@ def parse_timestamp_blocks(content):
     matches = re.findall(block_pattern, block_content)
     for timestamp, block_text in matches:
         lines = [line.strip() for line in block_text.split("\n") if line.strip()]
-        blocks.append({"timestamp": timestamp, "lines": lines})
+        blocks.append(
+            {
+                "timestamp": timestamp,
+                "lines": [normalize_dict_line(line) for line in lines],
+            }
+        )
 
     return {"header": header, "blocks": blocks}
 
@@ -202,7 +133,8 @@ def convert_quanpin_to_flypy_line(line):
 
         # 转换为小鹤双拼
         flypy = convert_to_flypy(quanpin)
-        return f"{keyword}\t{flypy}\t{weight}"
+        if is_valid_flypy_code(flypy):
+            return f"{keyword}\t{flypy}\t{weight}"
 
     return line
 
@@ -320,7 +252,8 @@ def process_diff_sg_file(diff_file, output_file, timestamp):
         # 转换为小鹤双拼
         flypy = convert_to_flypy(quanpin)
         weight = parts[2].strip() if len(parts) > 2 else "100"
-        new_lines.append(f"{keyword}\t{flypy}\t{weight}")
+        if is_valid_flypy_code(flypy):
+            new_lines.append(f"{keyword}\t{flypy}\t{weight}")
 
     if not new_lines:
         print("  无新条目需要添加")
