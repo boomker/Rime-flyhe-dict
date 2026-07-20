@@ -27,13 +27,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5.1.1
         with:
-          python-version: "3.13"
+          python-version: "3.12"
           cache: pip
 
       - name: Install dependencies
         run: |
           python3 -m pip install --upgrade pip
-          pip install requests pypinyin pypinyin_dict python-dateutil openai
+          pip install requests pypinyin pypinyin_dict python-dateutil openai akshare
 
       - name: Run douyin_hot.py to get latest Douyin hot keywords
         env:
@@ -88,6 +88,10 @@ jobs:
         run: |
           python3 ./tools/python/crawl_net_hot_dict.py
 
+      - name: Run fetch_a_stock.py to update A-share dictionary
+        run: |
+          python3 ./tools/python/fetch_a_stock.py
+
       - name: Remove intermediate file
         run: |
           rm -f ./sghot.dict.yaml ./flypy_dyhot.dict.yaml
@@ -99,6 +103,16 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git add ./flypy_sghot.dict.yaml
-          git commit -m "Update hot dict"
+          git add ./flypy_sghot.dict.yaml ./flypy_stock.dict.yaml
+          if git diff --staged --quiet; then
+            echo "No generated dictionary changes to commit."
+          else
+            git commit -m "Refresh generated dictionaries for scheduled updates" \
+              -m "Constraint: daily workflow updates both hot-word and A-share dictionary artifacts." \
+              -m "Confidence: high" \
+              -m "Scope-risk: narrow" \
+              -m "Directive: keep generated dictionary files in sync with the scheduled scripts." \
+              -m "Tested: scheduled job ran generation steps before commit" \
+              -m "Not-tested: push permissions and remote availability"
+          fi
           git push origin main
