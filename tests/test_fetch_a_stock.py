@@ -11,6 +11,7 @@ from fetch_a_stock import (  # noqa: E402
     StockName,
     build_dict_records,
     get_pinyin,
+    merge_stock_sources,
     normalize_stock_name,
     record_sort_key,
     render_record,
@@ -51,6 +52,24 @@ class FetchAStockTest(unittest.TestCase):
         stock = StockName(code="688606", name="大普微-UW")
         resolved = resolve_output_name(stock, {})
         self.assertEqual(resolved, "大普微")
+
+    def test_wd_suffix_is_removed_for_ninebot(self):
+        stock = StockName(code="689009", name="九号公司-WD")
+        resolved = resolve_output_name(stock, {})
+        self.assertEqual(resolved, "九号公司")
+
+    def test_exchange_only_stock_is_merged_into_records(self):
+        records = build_dict_records(
+            merge_stock_sources(
+                [StockName(code="600958", name="XD东方证")],
+                [
+                    StockName(code="600958", name="东方证券"),
+                    StockName(code="689009", name="九号公司-WD"),
+                ],
+            ),
+            {"600958": "东方证券", "689009": "九号公司-WD"},
+        )
+        self.assertIn("九号公司", [record.name for record in records])
 
     def test_build_dict_records_groups_a_suffix_after_st(self):
         records = build_dict_records(

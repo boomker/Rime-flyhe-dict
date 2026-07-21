@@ -28,6 +28,8 @@ from flypy_codec import convert_to_flypy
 
 # 手动补充股票名称中常见多音字的正确读音，pypinyin 会优先使用。
 CUSTOM_PHRASES = {
+    "都": "du",
+    "长": "chang",
     "长和": "chang he",
     "长实": "chang shi",
     "长江": "chang jiang",
@@ -43,8 +45,17 @@ CUSTOM_PHRASES = {
     "农行": "nong hang",
     "工行": "gong hang",
     "招行": "zhao hang",
+    "酒行": "jiu hang",
     "重庆": "chong qing",
+    "重百": "chong bai",
+    "重药": "chong yao",
     "重工": "zhong gong",
+    "藏格": "zang ge",
+    "厦钨": "xia wu",
+    "厦工": "xia gong",
+    "朝阳": "chao yang",
+    "会稽山": "kuai ji shan",
+    "世联行": "shi lian hang",
 }
 
 for phrase, pinyin_str in CUSTOM_PHRASES.items():
@@ -209,10 +220,10 @@ def dataframe_to_stock_names(
     return rows
 
 
-def fetch_exchange_name_map(ak: Any | None = None) -> dict[str, str]:
-    """从交易所股票列表获取代码 -> 官方股票简称，用于补全 XD/XR/DR 等临时简称。"""
+def fetch_exchange_stock_names(ak: Any | None = None) -> list[StockName]:
+    """从交易所股票列表获取股票简称，作为主接口缺漏的补充来源。"""
     ak = ak or import_akshare()
-    result: dict[str, str] = {}
+    result: dict[str, StockName] = {}
 
     def add_rows(df: Any, code_candidates: tuple[str, ...], name_candidates: tuple[str, ...]) -> None:
         for stock in dataframe_to_stock_names(
@@ -220,7 +231,7 @@ def fetch_exchange_name_map(ak: Any | None = None) -> dict[str, str]:
             code_candidates=code_candidates,
             name_candidates=name_candidates,
         ):
-            result[stock.code] = stock.name
+            result[stock.code] = stock
 
     for symbol in ("主板A股", "科创板"):
         try:
@@ -253,8 +264,13 @@ def fetch_exchange_name_map(ak: Any | None = None) -> dict[str, str]:
     except Exception as e:
         print(f"  [补全] 北证名称表失败：{e}")
 
-    print(f"  [补全] 共加载 {len(result)} 个官方简称")
-    return result
+    print(f"  [补全] 共加载 {len(result)} 个交易所简称")
+    return list(result.values())
+
+
+def fetch_exchange_name_map(ak: Any | None = None) -> dict[str, str]:
+    """从交易所股票列表获取代码 -> 官方股票简称，用于补全 XD/XR/DR 等临时简称。"""
+    return {stock.code: stock.name for stock in fetch_exchange_stock_names(ak)}
 
 
 def fetch_cn_stocks() -> list[StockName]:
@@ -290,6 +306,16 @@ def fetch_cn_stocks() -> list[StockName]:
     except Exception as e:
         print(f"  [备用接口] 失败：{e}")
         return []
+
+
+def merge_stock_sources(*stock_lists: Iterable[StockName]) -> list[StockName]:
+    """按股票代码合并多个来源；保留主接口名称，同时追加交易所独有条目。"""
+    merged: dict[str, StockName] = {}
+    for stocks in stock_lists:
+        for stock in stocks:
+            if stock.code and stock.code not in merged:
+                merged[stock.code] = stock
+    return list(merged.values())
 
 
 def get_existing_count() -> int:
@@ -400,11 +426,13 @@ def generate_dict(stocks: list[StockName], exchange_name_map: dict[str, str] | N
 
 if __name__ == "__main__":
     stock_rows = fetch_cn_stocks()
-    print(f"\n全部获取后共 {len(stock_rows)} 条")
+    exchange_rows = fetch_exchange_stock_names()
+    full_name_map = {stock.code: stock.name for stock in exchange_rows}
+    stock_rows = merge_stock_sources(stock_rows, exchange_rows)
+    print(f"\n全部合并后共 {len(stock_rows)} 条")
 
     if not stock_rows:
         print("错误：所有接口均未返回数据，请检查网络或接口状态")
         raise SystemExit(1)
 
-    full_name_map = fetch_exchange_name_map()
     generate_dict(stock_rows, full_name_map)

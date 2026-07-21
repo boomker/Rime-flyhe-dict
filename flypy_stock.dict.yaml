@@ -4,7 +4,7 @@
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
 # 更新时间：2026-07-21
-# 股票数量：5318
+# 股票数量：5319
 # ST/*ST 注释数量：209
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -17,7 +17,7 @@ version: "2026-07-21"
 sort: by_weight
 ...
 
-# *ST三六	sj lq	100
+# *ST三六五	sj lq wu	100
 # *ST三房	sj fh	100
 # *ST东晶	ds jk	100
 # *ST东智	ds vi	100
@@ -111,7 +111,7 @@ sort: by_weight
 # *ST赛为	sd ww	100
 # *ST起步	qi bu	100
 # *ST金灵	jb lk	100
-# *ST长投	vh tz	100
+# *ST长投	ih tz	100
 # *ST闻泰	wf td	100
 # *ST雅博	ya bo	100
 # *ST集友	ji yz	100
@@ -145,7 +145,7 @@ sort: by_weight
 # ST华谊	ST hx yi	100
 # ST华铭	ST hx mk	100
 # ST南新	ST nj xb	100
-# ST南都	ST nj dz	100
+# ST南都	ST nj du	100
 # ST司特	ST si te	100
 # ST合力泰	ST he li td	100
 # ST合纵	ST he zs	100
@@ -217,7 +217,7 @@ sort: by_weight
 # ST金鸿	ST jb hs	100
 # ST金鸿顺	ST jb hs uy	100
 # ST银江	ST yb jl	100
-# ST长园	ST vh yr	100
+# ST长园	ST ih yr	100
 # ST长方	ST ih fh	100
 # ST际华	ST ji hx	100
 # ST雪发	ST xt fa	100
@@ -438,7 +438,7 @@ TCL科技	TCL ke ji	100
 世纪恒通	ui ji hg ts	100
 世纪瑞尔	ui ji rv er	100
 世纪鼎利	ui ji dk li	100
-世联行	ui lm xk	100
+世联行	ui lm hh	100
 世茂能源	ui mc ng yr	100
 世荣兆业	ui rs vc ye	100
 世运电路	ui yy dm lu	100
@@ -854,6 +854,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -1014,7 +1015,7 @@ TCL科技	TCL ke ji	100
 优机股份	yz ji gu ff	100
 优迅股份	yz xy gu ff	100
 会畅科技	hv ih ke ji	100
-会稽山	hv ji uj	100
+会稽山	kk ji uj	100
 会通股份	hv ts gu ff	100
 伟创电气	ww il dm qi	100
 伟思医疗	ww si yi ln	100
@@ -1054,7 +1055,7 @@ TCL科技	TCL ke ji	100
 佳禾食品	jx he ui pb	100
 佳缘科技	jx yr ke ji	100
 佳讯飞鸿	jx xy fw hs	100
-佳都科技	jx dz ke ji	100
+佳都科技	jx du ke ji	100
 佳隆股份	jx ls gu ff	100
 佳驰科技	jx ii ke ji	100
 供销大集	gs xn da ji	100
@@ -1483,7 +1484,7 @@ TCL科技	TCL ke ji	100
 华润三九	hx ry sj jq	100
 华润双鹤	hx ry ul he	100
 华润微	hx ry ww	100
-华润新能	hx ry xb ng	100
+华润新能源	hx ry xb ng yr	100
 华润材料	hx ry cd ln	100
 华润江中	hx ry jl vs	100
 华源控股	hx yr ks gu	100
@@ -1522,7 +1523,7 @@ TCL科技	TCL ke ji	100
 华能蒙电	hx ng mg dm	100
 华脉科技	hx md ke ji	100
 华自科技	hx zi ke ji	100
-华致酒行	hx vi jq xk	100
+华致酒行	hx vi jq hh	100
 华英农业	hx yk ns ye	100
 华茂股份	hx mc gu ff	100
 华荣股份	hx rs gu ff	100
@@ -1619,7 +1620,7 @@ TCL科技	TCL ke ji	100
 南网科技	nj wh ke ji	100
 南网能源	nj wh ng yr	100
 南芯科技	nj xb ke ji	100
-南都物业	nj dz wu ye	100
+南都物业	nj du wu ye	100
 南钢股份	nj gh gu ff	100
 南风股份	nj fg gu ff	100
 博世科	bo ui ke	100
@@ -1672,8 +1673,8 @@ TCL科技	TCL ke ji	100
 卫星化学	ww xk hx xt	100
 厚普股份	hz pu gu ff	100
 原尚股份	yr uh gu ff	100
-厦工股份	ua gs gu ff	100
-厦钨新能	ua wu xb ng	100
+厦工股份	xx gs gu ff	100
+厦钨新能	xx wu xb ng	100
 厦门信达	xx mf xb da	100
 厦门国贸	xx mf go mc	100
 厦门港务	xx mf gh wu	100
@@ -2482,7 +2483,7 @@ TCL科技	TCL ke ji	100
 岭南控股	lk nj ks gu	100
 岱勒新材	dd lw xb cd	100
 岱美股份	dd mw gu ff	100
-岳阳兴长	yt yh xk vh	100
+岳阳兴长	yt yh xk ih	100
 岳阳林纸	yt yh lb vi	100
 峆一药业	he yi yc ye	100
 峰岹科技	fg tn ke ji	100
@@ -2969,7 +2970,7 @@ TCL科技	TCL ke ji	100
 新华文轩	xb hx wf xr	100
 新华百货	xb hx bd ho	100
 新华网	xb hx wh	100
-新华都	xb hx dz	100
+新华都	xb hx du	100
 新叶股份	xb ye gu ff	100
 新和成	xb he ig	100
 新国都	xb go du	100
@@ -3262,7 +3263,7 @@ TCL科技	TCL ke ji	100
 朗迪集团	lh di ji tr	100
 朗鸿科技	lh hs ke ji	100
 望变电气	wh bm dm qi	100
-朝阳科技	vc yh ke ji	100
+朝阳科技	ic yh ke ji	100
 木林森	mu lb sf	100
 未来电器	ww ld dm qi	100
 本川智能	bf ir vi ng	100
@@ -3410,7 +3411,7 @@ TCL科技	TCL ke ji	100
 正邦科技	vg bh ke ji	100
 步步高	bu bu gc	100
 步科股份	bu ke gu ff	100
-步长制药	bu vh vi yc	100
+步长制药	bu ih vi yc	100
 武商集团	wu uh ji tr	100
 武汉凡谷	wu hj fj gu	100
 武汉天源	wu hj tm yr	100
@@ -3543,7 +3544,7 @@ TCL科技	TCL ke ji	100
 江苏银行	jl su yb hh	100
 江苏雷利	jl su lw li	100
 江西铜业	jl xi ts ye	100
-江西长运	jl xi vh yy	100
+江西长运	jl xi ih yy	100
 江钨装备	jl wu vl bw	100
 江铃汽车	jl lk qi ie	100
 江阴银行	jl yb yb hh	100
@@ -3635,7 +3636,7 @@ TCL科技	TCL ke ji	100
 洪汇新材	hs hv xb cd	100
 洪田股份	hs tm gu ff	100
 洪通燃气	hs ts rj qi	100
-洪都航空	hs dz hh ks	100
+洪都航空	hs du hh ks	100
 洲明科技	vz mk ke ji	100
 洽洽食品	qx qx ui pb	100
 派克新材	pd ke xb cd	100
@@ -3810,7 +3811,7 @@ TCL科技	TCL ke ji	100
 润贝航科	ry bw hh ke	100
 润达医疗	ry da yi ln	100
 润邦股份	ry bh gu ff	100
-润都股份	ry dz gu ff	100
+润都股份	ry du gu ff	100
 润阳科技	ry yh ke ji	100
 涪陵榨菜	fu lk va cd	100
 涪陵电力	fu lk dm li	100
@@ -4591,7 +4592,7 @@ TCL科技	TCL ke ji	100
 航天电子	hh tm dm zi	100
 航天科技	hh tm ke ji	100
 航天软件	hh tm rr jm	100
-航天长峰	hh tm vh fg	100
+航天长峰	hh tm ih fg	100
 航宇微	hh yu ww	100
 航宇科技	hh yu ke ji	100
 航新科技	hh xb ke ji	100
@@ -4748,7 +4749,7 @@ TCL科技	TCL ke ji	100
 蔚蓝生物	ww lj ug wu	100
 蔚蓝锂芯	ww lj li xb	100
 蕾奥规划	lw ao gv hx	100
-藏格矿业	ch ge kl ye	100
+藏格矿业	zh ge kl ye	100
 蘅东光	hg ds gl	100
 虹软科技	hs rr ke ji	100
 蜀道装备	uu dc vl bw	100
@@ -5043,8 +5044,8 @@ TCL科技	TCL ke ji	100
 重庆路桥	is qk lu qn	100
 重庆钢铁	is qk gh tp	100
 重庆银行	is qk yb hh	100
-重百集团	vs bd ji tr	100
-重药控股	vs yc ks gu	100
+重百集团	is bd ji tr	100
+重药控股	is yc ks gu	100
 野马电池	ye ma dm ii	100
 金一文化	jb yi wf hx	100
 金三江	jb sj jl	100
@@ -5195,7 +5196,7 @@ TCL科技	TCL ke ji	100
 银禧科技	yb xi ke ji	100
 银轮股份	yb ly gu ff	100
 银邦股份	yb bh gu ff	100
-银都股份	yb dz gu ff	100
+银都股份	yb du gu ff	100
 银龙股份	yb ls gu ff	100
 锋尚文化	fg uh wf hx	100
 锋龙股份	fg ls gu ff	100
@@ -5229,11 +5230,11 @@ TCL科技	TCL ke ji	100
 镇洋发展	vf yh fa vj	100
 镇海股份	vf hd gu ff	100
 长久物流	ih jq wu lq	100
-长亮科技	vh ll ke ji	100
-长信科技	vh xb ke ji	100
-长光华芯	vh gl hx xb	100
-长华化学	vh hx hx xt	100
-长华集团	vh hx ji tr	100
+长亮科技	ih ll ke ji	100
+长信科技	ih xb ke ji	100
+长光华芯	ih gl hx xb	100
+长华化学	ih hx hx xt	100
+长华集团	ih hx ji tr	100
 长城军工	ih ig jy gs	100
 长城汽车	ih ig qi ie	100
 长城电工	ih ig dm gs	100
@@ -5251,31 +5252,31 @@ TCL科技	TCL ke ji	100
 长江证券	ih jl vg qr	100
 长江通信	ih jl ts xb	100
 长沙银行	ih ua yb hh	100
-长海股份	vh hd gu ff	100
-长源东谷	vh yr ds gu	100
-长源电力	vh yr dm li	100
+长海股份	ih hd gu ff	100
+长源东谷	ih yr ds gu	100
+长源电力	ih yr dm li	100
 长电科技	ih dm ke ji	100
 长白山	ih bd uj	100
-长盈精密	vh yk jk mi	100
-长盈通	vh yk ts	100
-长盛轴承	vh ug vz ig	100
-长缆科技	vh lj ke ji	100
-长联科技	vh lm ke ji	100
-长芯博创	vh xb bo il	100
-长荣股份	vh rs gu ff	100
+长盈精密	ih yk jk mi	100
+长盈通	ih yk ts	100
+长盛轴承	ih ug vz ig	100
+长缆科技	ih lj ke ji	100
+长联科技	ih lm ke ji	100
+长芯博创	ih xb bo il	100
+长荣股份	ih rs gu ff	100
 长虹华意	ih hs hx yi	100
 长虹美菱	ih hs mw lk	100
 长虹能源	ih hs ng yr	100
-长裕集团	vh yu ji tr	100
+长裕集团	ih yu ji tr	100
 长进光子	vh jb gl zi	100
-长阳科技	vh yh ke ji	100
+长阳科技	ih yh ke ji	100
 长青科技	ih qk ke ji	100
 长青股份	ih qk gu ff	100
 长青集团	ih qk ji tr	100
-长飞光纤	vh fw gl xm	100
-长高电气	vh gc dm qi	100
-长鸿高科	vh hs gc ke	100
-长龄液压	vh lk ye ya	100
+长飞光纤	ih fw gl xm	100
+长高电气	ih gc dm qi	100
+长鸿高科	ih hs gc ke	100
+长龄液压	ih lk ye ya	100
 闰土股份	ry tu gu ff	100
 闽东电力	mb ds dm li	100
 闽发铝业	mb fa lv ye	100
