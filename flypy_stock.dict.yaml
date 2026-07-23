@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-07-22
-# 股票数量：5321
-# ST/*ST 注释数量：209
+# 更新时间：2026-07-23
+# 股票数量：5322
+# ST/*ST 注释数量：208
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,13 +13,12 @@
 #
 ---
 name: flypy_stock
-version: "2026-07-22"
+version: "2026-07-23"
 sort: by_weight
 ...
 
 # *ST三六	sj lq	100
 # *ST三房	sj fh	100
-# *ST东晶	ds jk	100
 # *ST东智	ds vi	100
 # *ST东珠	ds vu	100
 # *ST中岩	vs yj	100
@@ -252,12 +251,11 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-N乔路铭	N qn lu mk	100
-N泰诺	N td no	100
-S佳通	S jx ts	100
+C泰诺	C td no	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
 TCL科技	TCL ke ji	100
+XDS佳通	XDS jx ts	100
 一博科技	yi bo ke ji	100
 一品红	yi pb hs	100
 一彬科技	yi bb ke ji	100
@@ -496,6 +494,7 @@ TCL科技	TCL ke ji	100
 东方雨虹	ds fh yu hs	100
 东易日盛	ds yi ri ug	100
 东星医疗	ds xk yi ln	100
+东晶电子	ds jk dm zi	100
 东望时代	ds wh ui dd	100
 东材科技	ds cd ke ji	100
 东来技术	ds ld ji uu	100
@@ -842,7 +841,7 @@ TCL科技	TCL ke ji	100
 义翘神州	yi qn uf vz	100
 之江生物	vi jl ug wu	100
 乐凯胶片	le kd jn pm	100
-乐创技术	le il ji uu	100
+乐创技	le il ji	100
 乐山电力	le uj dm li	100
 乐心医疗	le xb yi ln	100
 乐惠国际	le hv go ji	100
@@ -851,6 +850,7 @@ TCL科技	TCL ke ji	100
 乐通股份	le ts gu ff	100
 乐鑫科技	le xb ke ji	100
 乔治白	qn vi bd	100
+乔路铭	qn lu mk	100
 乔锋智能	qn fg vi ng	100
 乖宝宠物	gk bc is wu	100
 九丰能源	jq fg ng yr	100
