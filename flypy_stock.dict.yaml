@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-07-25
-# 股票数量：5323
+# 更新时间：2026-07-26
+# 股票数量：5322
 # ST/*ST 注释数量：208
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-07-25"
+version: "2026-07-26"
 sort: by_weight
 ...
 
@@ -400,7 +400,7 @@ TCL科技	TCL ke ji	100
 上海凯鑫	uh hd kd xb	100
 上海医药	uh hd yi yc	100
 上海合晶	uh hd he jk	100
-上海家化	uh hd jx hx	100
+上海家	uh hd jx	100
 上海建工	uh hd jm gs	100
 上海建科	uh hd jm ke	100
 上海新阳	uh hd xb yh	100
@@ -479,8 +479,8 @@ TCL科技	TCL ke ji	100
 东方海洋	ds fh hd yh	100
 东方环宇	ds fh hr yu	100
 东方生物	ds fh ug wu	100
+东方电	ds fh dm	100
 东方电子	ds fh dm zi	100
-东方电气	ds fh dm qi	100
 东方电热	ds fh dm re	100
 东方电缆	ds fh dm lj	100
 东方盛虹	ds fh ug hs	100
@@ -588,7 +588,7 @@ TCL科技	TCL ke ji	100
 中国动力	vs go ds li	100
 中国化学	vs go hx xt	100
 中国医药	vs go yi yc	100
-中国卫星	vs go ww xk	100
+中国卫	vs go ww	100
 中国卫通	vs go ww ts	100
 中国国航	vs go go hh	100
 中国国贸	vs go go mc	100
@@ -857,7 +857,6 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
-九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -1166,7 +1165,7 @@ TCL科技	TCL ke ji	100
 克来机电	ke ld ji dm	100
 克莱特	ke ld te	100
 兔宝宝	tu bc bc	100
-兖矿能源	yj kl ng yr	100
+兖矿能	yj kl ng	100
 全信股份	qr xb gu ff	100
 全志科技	qr vi ke ji	100
 全新好	qr xb hc	100
@@ -1855,7 +1854,7 @@ TCL科技	TCL ke ji	100
 四川双马	si ir ul ma	100
 四川成渝	si ir ig yu	100
 四川美丰	si ir mw fg	100
-四川路桥	si ir lu qn	100
+四川路	si ir lu	100
 四川长虹	si ir ih hs	100
 四川黄金	si ir hl jb	100
 四方光电	si fh gl dm	100
@@ -2086,7 +2085,7 @@ TCL科技	TCL ke ji	100
 天地数码	tm di uu ma	100
 天地源	tm di yr	100
 天地科技	tm di ke ji	100
-天坛生物	tm tj ug wu	100
+天坛生	tm tj ug	100
 天域生物	tm yu ug wu	100
 天壕能源	tm hc ng yr	100
 天士力	tm ui li	100
@@ -3437,7 +3436,7 @@ TCL科技	TCL ke ji	100
 民生健康	mb ug jm kh	100
 民生银行	mb ug yb hh	100
 气派科技	qi pd ke ji	100
-氯碱化工	lv jm hx gs	100
+氯碱化	lv jm hx	100
 水井坊	uv jk fh	100
 水发燃气	uv fa rj qi	100
 水星家纺	uv xk jx fh	100
@@ -3755,7 +3754,7 @@ TCL科技	TCL ke ji	100
 海普瑞	hd pu rv	100
 海格通信	hd ge ts xb	100
 海森药业	hd sf yc ye	100
-海欣股份	hd xb gu ff	100
+海欣股	hd xb gu	100
 海欣食品	hd xb ui pb	100
 海正生材	hd vg ug cd	100
 海正药业	hd vg yc ye	100
@@ -4074,7 +4073,7 @@ TCL科技	TCL ke ji	100
 登康口腔	dg kh kz ql	100
 登海种业	dg hd vs ye	100
 白云山	bd yy uj	100
-白云机场	bd yy ji ih	100
+白云机	bd yy ji	100
 白云电器	bd yy dm qi	100
 白银有色	bd yb yz se	100
 百亚股份	bd ya gu ff	100
@@ -4563,7 +4562,7 @@ TCL科技	TCL ke ji	100
 腾达建设	tg da jm ue	100
 腾达科技	tg da ke ji	100
 腾远钴业	tg yr gu ye	100
-腾龙股份	tg ls gu ff	100
+腾龙股	tg ls gu	100
 至信股份	vi xb gu ff	100
 至纯科技	vi iy ke ji	100
 致尚科技	vi uh ke ji	100
@@ -5218,7 +5217,7 @@ TCL科技	TCL ke ji	100
 锦和商管	jb he uh gr	100
 锦好医疗	jb hc yi ln	100
 锦富技术	jb fu ji uu	100
-锦江在线	jb jl zd xm	100
+锦江在	jb jl zd	100
 锦江航运	jb jl hh yy	100
 锦江酒店	jb jl jq dm	100
 锦泓集团	jb hs ji tr	100
@@ -5416,7 +5415,7 @@ TCL科技	TCL ke ji	100
 飞鹿股份	fw lu gu ff	100
 飞龙股份	fw ls gu ff	100
 首创环保	uz il hr bc	100
-首创证券	uz il vg qr	100
+首创证	uz il vg	100
 首华燃气	uz hx rj qi	100
 首开股份	uz kd gu ff	100
 首旅酒店	uz lv jq dm	100
