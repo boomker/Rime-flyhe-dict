@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-07-31
-# 股票数量：5325
+# 更新时间：2026-08-01
+# 股票数量：5326
 # ST/*ST 注释数量：208
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-07-31"
+version: "2026-08-01"
 sort: by_weight
 ...
 
@@ -251,7 +251,7 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C欣兴	C xb xk	100
+C欣兴工具	C xb xk gs ju	100
 C长鑫	C ih xb	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
@@ -414,9 +414,9 @@ TCL科技	TCL ke ji	100
 上海瀚讯	uh hd hj xy	100
 上海物贸	uh hd wu mc	100
 上海环境	uh hd hr jk	100
-上海电	uh hd dm	100
 上海电力	uh hd dm li	100
 上海电影	uh hd dm yk	100
+上海电气	uh hd dm qi	100
 上海石化	uh hd ui hx	100
 上海能源	uh hd ng yr	100
 上海艾录	uh hd ai lu	100
@@ -577,12 +577,12 @@ TCL科技	TCL ke ji	100
 中嘉博创	vs jx bo il	100
 中国一重	vs go yi vs	100
 中国东航	vs go ds hh	100
-中国中	vs go vs	100
 中国中免	vs go vs mm	100
 中国中冶	vs go vs ye	100
 中国中车	vs go vs ie	100
+中国中铁	vs go vs tp	100
 中国交建	vs go jn jm	100
-中国人	vs go rf	100
+中国人保	vs go rf bc	100
 中国人寿	vs go rf uz	100
 中国出版	vs go iu bj	100
 中国动力	vs go ds li	100
@@ -623,7 +623,7 @@ TCL科技	TCL ke ji	100
 中国船舶	vs go ir bo	100
 中国西电	vs go xi dm	100
 中国软件	vs go rr jm	100
-中国通	vs go ts	100
+中国通号	vs go ts hc	100
 中国重汽	vs go vs qi	100
 中国铀业	vs go yz ye	100
 中国铁建	vs go tp jm	100
@@ -767,7 +767,7 @@ TCL科技	TCL ke ji	100
 中荣股份	vs rs gu ff	100
 中衡设计	vs hg ue ji	100
 中裕科技	vs yu ke ji	100
-中视传	vs ui ir	100
+中视传媒	vs ui ir mw	100
 中触媒	vs iu mw	100
 中设咨询	vs ue zi xy	100
 中诚咨询	vs ig zi xy	100
@@ -777,7 +777,7 @@ TCL科技	TCL ke ji	100
 中超控股	vs ic ks gu	100
 中辰股份	vs if gu ff	100
 中达安	vs da an	100
-中远海	vs yr hd	100
+中远海发	vs yr hd fa	100
 中远海控	vs yr hd ks	100
 中远海特	vs yr hd te	100
 中远海科	vs yr hd ke	100
@@ -858,6 +858,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -1191,7 +1192,7 @@ TCL科技	TCL ke ji	100
 共进股份	gs jb gu ff	100
 兴业科技	xk ye ke ji	100
 兴业股份	xk ye gu ff	100
-兴业证	xk ye vg	100
+兴业证券	xk ye vg qr	100
 兴业银行	xk ye yb hh	100
 兴业银锡	xk ye yb xi	100
 兴发集团	xk fa ji tr	100
@@ -1549,7 +1550,7 @@ TCL科技	TCL ke ji	100
 华通线缆	hx ts xm lj	100
 华邦健康	hx bh jm kh	100
 华金资本	hx jb zi bf	100
-华鑫股	hx xb gu	100
+华鑫股份	hx xb gu ff	100
 华钰矿业	hx yu kl ye	100
 华银电力	hx yb dm li	100
 华锋股份	hx fg gu ff	100
@@ -1587,7 +1588,7 @@ TCL科技	TCL ke ji	100
 南京港	nj jk gh	100
 南京熊猫	nj jk xs mc	100
 南京聚隆	nj jk ju ls	100
-南京证	nj jk vg	100
+南京证券	nj jk vg qr	100
 南京银行	nj jk yb hh	100
 南京高科	nj jk gc ke	100
 南侨食品	nj qn ui pb	100
@@ -2266,8 +2267,8 @@ TCL科技	TCL ke ji	100
 宁波东力	nk bo ds li	100
 宁波中百	nk bo vs bd	100
 宁波华翔	nk bo hx xl	100
-宁波富	nk bo fu	100
 宁波富达	nk bo fu da	100
+宁波富邦	nk bo fu bh	100
 宁波建工	nk bo jm gs	100
 宁波方正	nk bo fh vg	100
 宁波海运	nk bo hd yy	100
@@ -2470,7 +2471,7 @@ TCL科技	TCL ke ji	100
 山煤国际	uj mw go ji	100
 山石网科	uj ui wh ke	100
 山科智能	uj ke vi ng	100
-山西汾	uj xi ff	100
+山西汾酒	uj xi ff jq	100
 山西焦化	uj xi jn hx	100
 山西焦煤	uj xi jn mw	100
 山西证券	uj xi vg qr	100
@@ -2499,7 +2500,7 @@ TCL科技	TCL ke ji	100
 川大智胜	ir da vi ug	100
 川宁生物	ir nk ug wu	100
 川恒股份	ir hg gu ff	100
-川投能	ir tz ng	100
+川投能源	ir tz ng yr	100
 川润股份	ir ry gu ff	100
 川环科技	ir hr ke ji	100
 川网传媒	ir wh ir mw	100
@@ -3614,7 +3615,7 @@ TCL科技	TCL ke ji	100
 泰诺麦博	td no md bo	100
 泰豪科技	td hc ke ji	100
 泰达股份	td da gu ff	100
-泰金新	td jb xb	100
+泰金新能	td jb xb ng	100
 泰鸿万立	td hs wj li	100
 泰鹏智能	td pg vi ng	100
 泸天化	lu tm hx	100
@@ -3622,7 +3623,7 @@ TCL科技	TCL ke ji	100
 泽宇智能	ze yu vi ng	100
 泽润新能	ze ry xb ng	100
 泽璟制药	ze jk vi yc	100
-洁特生	jp te ug	100
+洁特生物	jp te ug wu	100
 洁美科技	jp mw ke ji	100
 洁雅股份	jp ya gu ff	100
 洋河股份	yh he gu ff	100
@@ -4116,7 +4117,7 @@ TCL科技	TCL ke ji	100
 皖维高新	wj ww gc xb	100
 皖能电力	wj ng dm li	100
 皖通科技	wj ts ke ji	100
-皖通高	wj ts gc	100
+皖通高速	wj ts gc su	100
 皮阿诺	pi aa no	100
 盈峰环境	yk fg hr jk	100
 盈康生命	yk kh ug mk	100
@@ -4153,7 +4154,7 @@ TCL科技	TCL ke ji	100
 盛泰集团	ug td ji tr	100
 盛洋科技	ug yh ke ji	100
 盛科通信	ug ke ts xb	100
-盛美上	ug mw uh	100
+盛美上海	ug mw uh hd	100
 盛航股份	ug hh gu ff	100
 盛视科技	ug ui ke ji	100
 盛路通信	ug lu ts xb	100
@@ -4861,7 +4862,7 @@ TCL科技	TCL ke ji	100
 贝达药业	bw da yc ye	100
 贝隆精密	bw ls jk mi	100
 财富趋势	cd fu qu ui	100
-财达证	cd da vg	100
+财达证券	cd da vg qr	100
 财通证券	cd ts vg qr	100
 贤丰控股	xm fg ks gu	100
 贵州燃气	gv vz rj qi	100
@@ -5321,7 +5322,7 @@ TCL科技	TCL ke ji	100
 隆盛科技	ls ug ke ji	100
 隆达股份	ls da gu ff	100
 隆鑫通用	ls xb ts ys	100
-隧道股	sv dc gu	100
+隧道股份	sv dc gu ff	100
 雄塑科技	xs su ke ji	100
 雄帝科技	xs di ke ji	100
 雄韬股份	xs tc gu ff	100
