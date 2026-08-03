@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-02
+# 更新时间：2026-08-03
 # 股票数量：5326
-# ST/*ST 注释数量：208
+# ST/*ST 注释数量：209
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,11 +13,11 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-02"
+version: "2026-08-03"
 sort: by_weight
 ...
 
-# *ST三六五	sj lq wu	100
+# *ST三六	sj lq	100
 # *ST三房	sj fh	100
 # *ST东智	ds vi	100
 # *ST东珠	ds vu	100
@@ -75,7 +75,6 @@ sort: by_weight
 # *ST未名	ww mk	100
 # *ST柳化	lq hx	100
 # *ST棒杰	bh jp	100
-# *ST椰岛	ye dc	100
 # *ST正平	vg pk	100
 # *ST步森	bu sf	100
 # *ST沐邦	mu bh	100
@@ -179,6 +178,7 @@ sort: by_weight
 # ST朗进	ST lh jb	100
 # ST标准	ST bn vy	100
 # ST棕榈	ST zs lv	100
+# ST椰岛	ST ye dc	100
 # ST汇洲	ST hv vz	100
 # ST沈化	ST uf hx	100
 # ST洲际	ST vz ji	100
@@ -189,6 +189,7 @@ sort: by_weight
 # ST海钦	ST hd qb	100
 # ST海龙	ST hd ls	100
 # ST瀚川	ST hj ir	100
+# ST瑞贝卡	ST rv bw ka	100
 # ST百利	ST bd li	100
 # ST百灵	ST bd lk	100
 # ST福能	ST fu ng	100
@@ -252,7 +253,7 @@ sort: by_weight
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
 C欣兴工具	C xb xk gs ju	100
-C长鑫	C ih xb	100
+N聚仁	N ju rf	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -1487,7 +1488,7 @@ TCL科技	TCL ke ji	100
 华润三九	hx ry sj jq	100
 华润双鹤	hx ry ul he	100
 华润微	hx ry ww	100
-华润新能源	hx ry xb ng yr	100
+华润新能	hx ry xb ng	100
 华润材料	hx ry cd ln	100
 华润江中	hx ry jl vs	100
 华源控股	hx yr ks gu	100
@@ -4020,7 +4021,6 @@ TCL科技	TCL ke ji	100
 瑞纳智能	rv na vi ng	100
 瑞联新材	rv lm xb cd	100
 瑞芯微	rv xb ww	100
-瑞贝卡	rv bw ka	100
 瑞达期货	rv da qi ho	100
 瑞迈特	rv md te	100
 瑞迪智驱	rv di vi qu	100
@@ -5274,6 +5274,7 @@ TCL科技	TCL ke ji	100
 长虹能源	ih hs ng yr	100
 长裕集团	ih yu ji tr	100
 长进光子	vh jb gl zi	100
+长鑫科技	ih xb ke ji	100
 长阳科技	ih yh ke ji	100
 长青科技	ih qk ke ji	100
 长青股份	ih qk gu ff	100
