@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-03
-# 股票数量：5326
-# ST/*ST 注释数量：209
+# 更新时间：2026-08-04
+# 股票数量：5325
+# ST/*ST 注释数量：210
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-03"
+version: "2026-08-04"
 sort: by_weight
 ...
 
@@ -125,6 +125,7 @@ sort: by_weight
 # ST云城	ST yy ig	100
 # ST云网	ST yy wh	100
 # ST亚光	ST ya gl	100
+# ST交昂	ST jn ah	100
 # ST京机	ST jk ji	100
 # ST京蓝	ST jk lj	100
 # ST人福	ST rf fu	100
@@ -252,8 +253,8 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C欣兴工具	C xb xk gs ju	100
-N聚仁	N ju rf	100
+C欣兴	C xb xk	100
+N嘉立创	N jx li il	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -565,7 +566,7 @@ TCL科技	TCL ke ji	100
 中力股份	vs li gu ff	100
 中化国际	vs hx go ji	100
 中化装备	vs hx vl bw	100
-中华企业	vs hx qi ye	100
+中华企	vs hx qi	100
 中南传媒	vs nj ir mw	100
 中南文化	vs nj wf hx	100
 中南股份	vs nj gu ff	100
@@ -859,7 +860,6 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
-九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -939,7 +939,6 @@ TCL科技	TCL ke ji	100
 亚钾国际	ya jx go ji	100
 亚香股份	ya xl gu ff	100
 交大思诺	jn da si no	100
-交大昂立	jn da ah li	100
 交大铁发	jn da tp fa	100
 交建股份	jn jm gu ff	100
 交投生态	jn tz ug td	100
@@ -4535,6 +4534,7 @@ TCL科技	TCL ke ji	100
 联诚精密	lm ig jk mi	100
 联赢激光	lm yk ji gl	100
 联迪信息	lm di xb xi	100
+聚仁新材	ju rf xb cd	100
 聚光科技	ju gl ke ji	100
 聚力文化	ju li wf hx	100
 聚合顺	ju he uy	100
