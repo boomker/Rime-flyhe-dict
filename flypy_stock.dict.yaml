@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-04
-# 股票数量：5325
-# ST/*ST 注释数量：210
+# 更新时间：2026-08-05
+# 股票数量：5329
+# ST/*ST 注释数量：208
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-04"
+version: "2026-08-05"
 sort: by_weight
 ...
 
@@ -48,7 +48,6 @@ sort: by_weight
 # *ST和科	he ke	100
 # *ST四通	si ts	100
 # *ST国中	go vs	100
-# *ST大立	da li	100
 # *ST天喻	tm yu	100
 # *ST天宜	tm yi	100
 # *ST天箭	tm jm	100
@@ -129,7 +128,6 @@ sort: by_weight
 # ST京机	ST jk ji	100
 # ST京蓝	ST jk lj	100
 # ST人福	ST rf fu	100
-# ST任子行	ST rf zi xk	100
 # ST信安	ST xb an	100
 # ST信源	ST xb yr	100
 # ST信通	ST xb ts	100
@@ -253,8 +251,9 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C欣兴	C xb xk	100
-N嘉立创	N jx li il	100
+C嘉立创	C jx li il	100
+C欣兴工具	C xb xk gs ju	100
+N森合	N sf he	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -566,7 +565,7 @@ TCL科技	TCL ke ji	100
 中力股份	vs li gu ff	100
 中化国际	vs hx go ji	100
 中化装备	vs hx vl bw	100
-中华企	vs hx qi	100
+中华企业	vs hx qi ye	100
 中南传媒	vs nj ir mw	100
 中南文化	vs nj wf hx	100
 中南股份	vs nj gu ff	100
@@ -860,6 +859,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -990,6 +990,7 @@ TCL科技	TCL ke ji	100
 仟源医药	qm yr yi yc	100
 以岭药业	yi lk yc ye	100
 仲景食品	vs jk ui pb	100
+任子行	rf zi xk	100
 伊之密	yi vi mi	100
 伊利股份	yi li gu ff	100
 伊力特	yi li te	100
@@ -2051,6 +2052,7 @@ TCL科技	TCL ke ji	100
 大禹生物	da yu ug wu	100
 大禹节水	da yu jp uv	100
 大秦铁路	da qb tp lu	100
+大立科技	da li ke ji	100
 大胜达	da ug da	100
 大西洋	da xi yh	100
 大豪科技	da hc ke ji	100
