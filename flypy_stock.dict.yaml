@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-06
-# 股票数量：5329
-# ST/*ST 注释数量：208
+# 更新时间：2026-08-07
+# 股票数量：5332
+# ST/*ST 注释数量：207
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-06"
+version: "2026-08-07"
 sort: by_weight
 ...
 
@@ -95,7 +95,6 @@ sort: by_weight
 # *ST美丽	mw li	100
 # *ST美芝	mw vi	100
 # *ST美谷	mw gu	100
-# *ST聆达	lk da	100
 # *ST联翔	lm xl	100
 # *ST航图	hh tu	100
 # *ST英飞	yk fw	100
@@ -252,6 +251,8 @@ sort: by_weight
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
 C嘉立创	C jx li il	100
+N展芯股份	N vj xb gu ff	100
+N津富	N jb fu	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -4504,6 +4505,7 @@ TCL科技	TCL ke ji	100
 老百姓	lc bd xk	100
 耐普矿机	nd pu kl ji	100
 耐科装备	nd ke vl bw	100
+聆达股份	lk da gu ff	100
 联创光电	lm il gl dm	100
 联创电子	lm il dm zi	100
 联创股份	lm il gu ff	100
