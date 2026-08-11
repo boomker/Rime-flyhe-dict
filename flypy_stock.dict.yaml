@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-10
-# 股票数量：5332
+# 更新时间：2026-08-11
+# 股票数量：5334
 # ST/*ST 注释数量：207
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-10"
+version: "2026-08-11"
 sort: by_weight
 ...
 
@@ -250,9 +250,10 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C嘉立创	C jx li il	100
 C展芯股份	C vj xb gu ff	100
 C津富	C jb fu	100
+N珈凯	N jx kd	100
+N超纯应材	N ic iy yk cd	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -858,7 +859,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
-九号公	jq hc gs	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -1845,6 +1846,7 @@ TCL科技	TCL ke ji	100
 嘉泽新能	jx ze xb ng	100
 嘉环科技	jx hr ke ji	100
 嘉益股份	jx yi gu ff	100
+嘉立创	jx li il	100
 嘉美包装	jx mw bc vl	100
 嘉诚国际	jx ig go ji	100
 嘉麟杰	jx lb jp	100
@@ -4833,6 +4835,7 @@ TCL科技	TCL ke ji	100
 诺德股份	no de gu ff	100
 诺思兰德	no si lj de	100
 诺思格	no si ge	100
+诺斯贝尔	no si bw er	100
 诺普信	no pu xb	100
 诺瓦星云	no wa xk yy	100
 诺禾致源	no he vi yr	100
@@ -5376,7 +5379,6 @@ TCL科技	TCL ke ji	100
 青岛食品	qk dc ui pb	100
 青木科技	qk mu ke ji	100
 青松建化	qk ss jm hx	100
-青松股份	qk ss gu ff	100
 青矩技术	qk ju ji uu	100
 青达环保	qk da hr bc	100
 青鸟智控	qk nn vi ks	100
