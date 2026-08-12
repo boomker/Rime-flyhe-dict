@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-11
-# 股票数量：5334
+# 更新时间：2026-08-12
+# 股票数量：5336
 # ST/*ST 注释数量：207
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-11"
+version: "2026-08-12"
 sort: by_weight
 ...
 
@@ -252,8 +252,9 @@ sort: by_weight
 鲁泰A	lu td	100
 C展芯股份	C vj xb gu ff	100
 C津富	C jb fu	100
-N珈凯	N jx kd	100
-N超纯应材	N ic iy yk cd	100
+C超纯应材	C ic iy yk cd	100
+N国仪	N go yi	100
+N杰理	N jp li	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -3982,6 +3983,7 @@ TCL科技	TCL ke ji	100
 珀莱雅	po ld ya	100
 珂玛科技	ke ma ke ji	100
 珈伟新能	jx ww xb ng	100
+珈凯生物	jx kd ug wu	100
 珍宝岛	vf bc dc	100
 珠免集团	vu mm ji tr	100
 珠城科技	vu ig ke ji	100
