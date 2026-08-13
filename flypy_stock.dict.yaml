@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-12
-# 股票数量：5336
-# ST/*ST 注释数量：207
+# 更新时间：2026-08-13
+# 股票数量：5337
+# ST/*ST 注释数量：206
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-12"
+version: "2026-08-13"
 sort: by_weight
 ...
 
@@ -209,7 +209,6 @@ sort: by_weight
 # ST迪威迅	ST di ww xy	100
 # ST迪瑞	ST di rv	100
 # ST通葡	ST ts pu	100
-# ST逸飞	ST yi fw	100
 # ST金花	ST jb hx	100
 # ST金顶	ST jb dk	100
 # ST金鸿	ST jb hs	100
@@ -250,11 +249,9 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
+C国仪	C go yi	100
 C展芯股份	C vj xb gu ff	100
-C津富	C jb fu	100
 C超纯应材	C ic iy yk cd	100
-N国仪	N go yi	100
-N杰理	N jp li	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -1342,7 +1339,6 @@ TCL科技	TCL ke ji	100
 包钢股份	bc gh gu ff	100
 北京人力	bw jk rf li	100
 北京利尔	bw jk li er	100
-北京君正	bw jk jy vg	100
 北京文化	bw jk wf hx	100
 北京科锐	bw jk ke rv	100
 北京银行	bw jk yb hh	100
@@ -1784,6 +1780,7 @@ TCL科技	TCL ke ji	100
 向日葵	xl ri kv	100
 君亭酒店	jy tk jq dm	100
 君实生物	jy ui ug wu	100
+君正股份	jy vg gu ff	100
 君正集团	jy vg ji tr	100
 君禾股份	jy he gu ff	100
 君逸数码	jy yi uu ma	100
@@ -3300,6 +3297,7 @@ TCL科技	TCL ke ji	100
 杰华特	jp hx te	100
 杰恩股份	jp en gu ff	100
 杰普特	jp pu te	100
+杰理科技	jp li ke ji	100
 杰瑞股份	jp rv gu ff	100
 杰美特	jp mw te	100
 松井股份	ss jk gu ff	100
@@ -3635,6 +3633,7 @@ TCL科技	TCL ke ji	100
 洋河股份	yh he gu ff	100
 洛凯股份	lo kd gu ff	100
 洛阳钼业	lo yh mu ye	100
+津富士达	jb fu ui da	100
 津投城开	jb tz ig kd	100
 津滨发展	jb bb fa vj	100
 津膜科技	jb mo ke ji	100
@@ -5027,6 +5026,7 @@ TCL科技	TCL ke ji	100
 通鼎互联	ts dk hu lm	100
 速达股份	su da gu ff	100
 逸豪新材	yi hc xb cd	100
+逸飞激光	yi fw ji gl	100
 道恩股份	dc en gu ff	100
 道明光学	dc mk gl xt	100
 道氏技术	dc ui ji uu	100
