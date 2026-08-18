@@ -3,7 +3,7 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-17
+# 更新时间：2026-08-18
 # 股票数量：5338
 # ST/*ST 注释数量：206
 #
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-17"
+version: "2026-08-18"
 sort: by_weight
 ...
 
@@ -249,9 +249,6 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C国仪	C go yi	100
-C超纯应材	C ic iy yk cd	100
-N恒兴	N hg xk	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -1874,6 +1871,7 @@ TCL科技	TCL ke ji	100
 固高科技	gu gc ke ji	100
 国义招标	go yi vc bn	100
 国亮新材	go ll xb cd	100
+国仪公司	go yi gs si	100
 国信证券	go xb vg qr	100
 国元证券	go yr vg qr	100
 国光电器	go gl dm qi	100
@@ -2269,7 +2267,6 @@ TCL科技	TCL ke ji	100
 宁波中百	nk bo vs bd	100
 宁波华翔	nk bo hx xl	100
 宁波富达	nk bo fu da	100
-宁波富邦	nk bo fu bh	100
 宁波建工	nk bo jm gs	100
 宁波方正	nk bo fh vg	100
 宁波海运	nk bo hd yy	100
@@ -2431,6 +2428,7 @@ TCL科技	TCL ke ji	100
 富瑞特装	fu rv te vl	100
 富祥股份	fu xl gu ff	100
 富维股份	fu ww gu ff	100
+富邦新材	fu bh xb cd	100
 富邦科技	fu bh ke ji	100
 寒武纪	hj wu ji	100
 寒锐钴业	hj rv gu ye	100
@@ -2769,6 +2767,7 @@ TCL科技	TCL ke ji	100
 恒为科技	hg ww ke ji	100
 恒光股份	hg gl gu ff	100
 恒兴新材	hg xk xb cd	100
+恒兴股份	hg xk gu ff	100
 恒力石化	hg li ui hx	100
 恒勃股份	hg bo gu ff	100
 恒华科技	hg hx ke ji	100
@@ -4917,6 +4916,7 @@ TCL科技	TCL ke ji	100
 超声电子	ic ug dm zi	100
 超捷股份	ic jp gu ff	100
 超研股份	ic yj gu ff	100
+超纯应材	ic iy yk cd	100
 超讯科技	ic xy ke ji	100
 超越科技	ic yt ke ji	100
 超达装备	ic da vl bw	100
