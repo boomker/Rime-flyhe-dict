@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-19
-# 股票数量：5340
+# 更新时间：2026-08-20
+# 股票数量：5342
 # ST/*ST 注释数量：206
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-19"
+version: "2026-08-20"
 sort: by_weight
 ...
 
@@ -250,8 +250,8 @@ sort: by_weight
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
 C频准	C pb vy	100
-N双英	N ul yk	100
 N宇树	N yu uu	100
+N绿控传动	N lv ks ir ds	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -516,7 +516,7 @@ TCL科技	TCL ke ji	100
 东软集团	ds rr ji tr	100
 东阳光	ds yh gl	100
 东阿阿胶	ds ee ee jn	100
-东风科	ds fg ke	100
+东风科技	ds fg ke ji	100
 东风股份	ds fg gu ff	100
 东鹏控股	ds pg ks gu	100
 东鹏饮料	ds pg yb ln	100
@@ -798,7 +798,7 @@ TCL科技	TCL ke ji	100
 中铁特货	vs tp te ho	100
 中铁装配	vs tp vl pw	100
 中铝国际	vs lv go ji	100
-中银证	vs yb vg	100
+中银证券	vs yb vg qr	100
 中锐股份	vs rv gu ff	100
 中闽能源	vs mb ng yr	100
 中际旭创	vs ji xu il	100
@@ -857,6 +857,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -1704,6 +1705,7 @@ TCL科技	TCL ke ji	100
 双环科技	ul hr ke ji	100
 双箭股份	ul jm gu ff	100
 双良节能	ul ll jp ng	100
+双英集团	ul yk ji tr	100
 双象股份	ul xl gu ff	100
 双飞集团	ul fw ji tr	100
 双鹭药业	ul lu yc ye	100
@@ -3547,7 +3549,7 @@ TCL科技	TCL ke ji	100
 江苏新能	jl su xb ng	100
 江苏有线	jl su yz xm	100
 江苏神通	jl su uf ts	100
-江苏索	jl su so	100
+江苏索普	jl su so pu	100
 江苏金租	jl su jb zu	100
 江苏银行	jl su yb hh	100
 江苏雷利	jl su lw li	100
