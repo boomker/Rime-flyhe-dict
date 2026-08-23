@@ -21,12 +21,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
-        uses: actions/setup-python@v5.1.1
+        uses: actions/setup-python@v7
         with:
           python-version: "3.12"
           cache: pip
@@ -44,7 +44,7 @@ jobs:
           python3 ./tools/python/crawl_douyin_hot.py --encoding quanpin
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v5
+        uses: actions/setup-dotnet@v6
         with:
           dotnet-version: ${{ env.DOTNET_VERSION }}
 
@@ -83,6 +83,17 @@ jobs:
       - name: Gen incremental update dict items
         run: |
           awk -F'\t' 'FNR==NR{a[$1]++;w[$1]=$0};FNR!=NR&&FNR>10{b[$1]++}END{for(i in a){if(b[i]<1)print w[i]}}' ./sghot.dict.yaml ./flypy_sghot.dict.yaml >diff_sg.txt
+
+      - name: Seed quanpin dictionary from full_pinyin branch
+        run: |
+          # 全拼构建必须以分支上已有的全拼词库为基数，否则每次都从零开始只剩当日增量
+          git fetch --depth 1 origin full_pinyin:refs/remotes/origin/full_pinyin || true
+          if git show-ref --verify --quiet refs/remotes/origin/full_pinyin; then
+            git show refs/remotes/origin/full_pinyin:flypy_sghot.dict.yaml > ./flypy_sghot_quanpin.dict.yaml
+            echo "Seeded ./flypy_sghot_quanpin.dict.yaml from full_pinyin branch."
+          else
+            echo "full_pinyin branch not found, will build quanpin dict from scratch."
+          fi
 
       - name: Run crawl_net_hot_dict.py to update dictionary
         env:

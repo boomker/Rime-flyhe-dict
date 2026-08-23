@@ -21,7 +21,7 @@ jobs:
 
     steps:
       - name: Checkout parent repository
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: boomker/rime-fast-xhup
           token: ${{ secrets.RIME_FAST_XHUP_TOKEN }}
