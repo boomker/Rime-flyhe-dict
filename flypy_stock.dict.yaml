@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-22
-# 股票数量：5342
+# 更新时间：2026-08-23
+# 股票数量：5343
 # ST/*ST 注释数量：206
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-22"
+version: "2026-08-23"
 sort: by_weight
 ...
 
@@ -250,7 +250,7 @@ sort: by_weight
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
 C宇树	C yu uu	100
-C绿控	C lv ks	100
+C绿控传动	C lv ks ir ds	100
 C频准	C pb vy	100
 N信胜	N xb ug	100
 S佳通	S jx ts	100
@@ -785,7 +785,7 @@ TCL科技	TCL ke ji	100
 中远通	vs yr ts	100
 中通国脉	vs ts go md	100
 中通客车	vs ts ke ie	100
-中邮科	vs yz ke	100
+中邮科技	vs yz ke ji	100
 中重科技	vs vs ke ji	100
 中金公司	vs jb gs si	100
 中金岭南	vs jb lk nj	100
@@ -858,6 +858,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -1238,7 +1239,7 @@ TCL科技	TCL ke ji	100
 凌钢股份	lk gh gu ff	100
 凌霄泵业	lk xn bg ye	100
 凡拓数创	fj to uu il	100
-凤凰传	fg hl ir	100
+凤凰传媒	fg hl ir mw	100
 凤凰光学	fg hl gl xt	100
 凤凰股份	fg hl gu ff	100
 凤凰航运	fg hl hh yy	100
@@ -1475,7 +1476,7 @@ TCL科技	TCL ke ji	100
 华正新材	hx vg xb cd	100
 华民股份	hx mb gu ff	100
 华泰股份	hx td gu ff	100
-华泰证	hx td vg	100
+华泰证券	hx td vg qr	100
 华洋赛车	hx yh sd ie	100
 华测导航	hx ce dc hh	100
 华测检测	hx ce jm ce	100
@@ -2036,7 +2037,7 @@ TCL科技	TCL ke ji	100
 大宏立	da hs li	100
 大富科技	da fu ke ji	100
 大庆华科	da qk hx ke	100
-大恒科	da hg ke	100
+大恒科技	da hg ke ji	100
 大悦城	da yt ig	100
 大族数控	da zu uu ks	100
 大族激光	da zu ji gl	100
@@ -2464,7 +2465,7 @@ TCL科技	TCL ke ji	100
 山东路桥	uj ds lu qn	100
 山东钢铁	uj ds gh tp	100
 山东高速	uj ds gc su	100
-山东黄	uj ds hl	100
+山东黄金	uj ds hl jb	100
 山外山	uj wd uj	100
 山大电力	uj da dm li	100
 山子高科	uj zi gc ke	100
@@ -2689,7 +2690,7 @@ TCL科技	TCL ke ji	100
 彩虹集团	cd hs ji tr	100
 彩蝶实业	cd dp ui ye	100
 彩讯股份	cd xy gu ff	100
-影石创	yk ui il	100
+影石创新	yk ui il xb	100
 征和工业	vg he gs ye	100
 徐家汇	xu jx hv	100
 徐工机械	xu gs ji xp	100
@@ -3253,7 +3254,7 @@ TCL科技	TCL ke ji	100
 有友食品	yz yz ui pb	100
 有方科技	yz fh ke ji	100
 有研复材	yz yj fu cd	100
-有研新	yz yj xb	100
+有研新材	yz yj xb cd	100
 有研硅	yz yj gv	100
 有研粉材	yz yj ff cd	100
 朗信电气	lh xb dm qi	100
@@ -3547,7 +3548,7 @@ TCL科技	TCL ke ji	100
 江苏国信	jl su go xb	100
 江苏国泰	jl su go td	100
 江苏新能	jl su xb ng	100
-江苏有	jl su yz	100
+江苏有线	jl su yz xm	100
 江苏神通	jl su uf ts	100
 江苏索普	jl su so pu	100
 江苏金租	jl su jb zu	100
@@ -3744,7 +3745,7 @@ TCL科技	TCL ke ji	100
 海宁皮城	hd nk pi ig	100
 海安集团	hd an ji tr	100
 海容冷链	hd rs lg lm	100
-海尔智	hd er vi	100
+海尔智家	hd er vi jx	100
 海尔生物	hd er ug wu	100
 海峡创新	hd xx il xb	100
 海峡环保	hd xx hr bc	100
@@ -4385,7 +4386,7 @@ TCL科技	TCL ke ji	100
 紫建电子	zi jm dm zi	100
 紫江企业	zi jl qi ye	100
 紫燕食品	zi yj ui pb	100
-紫金矿	zi jb kl	100
+紫金矿业	zi jb kl ye	100
 紫金银行	zi jb yb hh	100
 紫金龙净	zi jb ls jk	100
 红四方	hs si fh	100
@@ -5100,7 +5101,7 @@ TCL科技	TCL ke ji	100
 金岭矿业	jb lk kl ye	100
 金帝股份	jb di gu ff	100
 金开新能	jb kd xb ng	100
-金徽股	jb hv gu	100
+金徽股份	jb hv gu ff	100
 金徽酒	jb hv jq	100
 金戈新材	jb ge xb cd	100
 金房能源	jb fh ng yr	100
@@ -5294,7 +5295,7 @@ TCL科技	TCL ke ji	100
 长青科技	ih qk ke ji	100
 长青股份	ih qk gu ff	100
 长青集团	ih qk ji tr	100
-长飞光	ih fw gl	100
+长飞光纤	ih fw gl xm	100
 长高电气	ih gc dm qi	100
 长鸿高科	ih hs gc ke	100
 长鹰硬科	ih yk yk ke	100
