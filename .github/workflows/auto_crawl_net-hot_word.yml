@@ -91,6 +91,21 @@ jobs:
           python3 ./tools/python/crawl_net_hot_dict.py
           python3 ./tools/python/crawl_net_hot_dict.py --encoding quanpin
 
+      - name: Verify flypy hot-word dict entries
+        run: |
+          # 校验规则：去空格后的双拼编码长度/2 应等于词条有效字数（剥离空格、·、— 等）；
+          # $0 ~ /\t/ 用于跳过 YAML 表头行，避免无编码列的误报
+          AWK_RULE='$0 ~ /\t/ && $0 !~ /^#/{'
+          AWK_RULE+='if(length(gensub(" ","","g", $2))/2 != length(gensub(/[ ·-—]/, "", "g", $1)))'
+          AWK_RULE+='print $0}'
+          INVALID=$(awk -F'\t' "$AWK_RULE" ./flypy_sghot.dict.yaml)
+          if [ -n "$INVALID" ]; then
+            echo "Found invalid hot-word entries:"
+            echo "$INVALID"
+            exit 1
+          fi
+          echo "All flypy hot-word entries passed the length check."
+
       - name: Run fetch_a_stock.py to update A-share dictionary
         run: |
           python3 ./tools/python/fetch_a_stock.py

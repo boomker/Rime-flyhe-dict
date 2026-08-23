@@ -365,7 +365,10 @@ def read_existing_file(filepath, encoding=ENCODING_FLYPY):
                     keyword = parts[0]
                     old_pinyin = parts[1]
                     weight = parts[2] if len(parts) > 2 else "100"
-                    new_pinyin = encode_code(old_pinyin, encoding)
+                    # 编码已是目标格式时原样保留（转换不幂等，zh/ch/sh 音节二次转换会失效）
+                    new_pinyin = old_pinyin.strip()
+                    if not is_valid_code(new_pinyin, encoding):
+                        new_pinyin = encode_code(new_pinyin, encoding)
                     if is_valid_code(new_pinyin, encoding):
                         converted_lines.append(f"{keyword}\t{new_pinyin}\t{weight}")
                 else:

@@ -8,8 +8,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools/python"))
 from crawl_net_hot_dict import (  # noqa: E402
     ENCODING_FLYPY,
     ENCODING_QUANPIN,
+    cleanup_old_entries,
     dict_file_paths,
+    encode_dict_line,
     merge_dict_files,
+    parse_timestamp_blocks,
     process_diff_sg_file,
     sghot_header_template,
 )
@@ -56,6 +59,72 @@ class CrawlNetHotDictBuildTest(unittest.TestCase):
         self.assertEqual(added, 1)
         content = Path(sghot_file).read_text(encoding="utf-8")
         self.assertIn("中国\tvs go\t100", content)
+
+    def test_sogou_entries_are_added_with_weight_100(self):
+        sghot_file = str(Path(self._tmp.name) / "flypy_sghot_quanpin.dict.yaml")
+        # 搜狗转换器输出的词频列为 1，入库时应强制为 100
+        added = process_diff_sg_file(
+            self._write_diff(["中国\tzhong guo\t1"]),
+            sghot_file,
+            "2026-08-23",
+            ENCODING_QUANPIN,
+        )
+        self.assertEqual(added, 1)
+        content = Path(sghot_file).read_text(encoding="utf-8")
+        self.assertIn("中国\tzhong guo\t100", content)
+        self.assertNotIn("中国\tzhong guo\t1\n", content)
+
+    def test_mismatched_entries_are_rejected_at_ingest(self):
+        sghot_file = str(Path(self._tmp.name) / "flypy_sghot.dict.yaml")
+        added = process_diff_sg_file(
+            self._write_diff(["行长行长\thang zhang\t100"]),
+            sghot_file,
+            "2026-08-23",
+            ENCODING_FLYPY,
+        )
+        self.assertEqual(added, 0)
+        self.assertFalse(Path(sghot_file).exists())
+
+    def test_legacy_weight_one_is_normalized_and_invalid_dropped(self):
+        legacy = (
+            "## 2026-08-22 {\n"
+            "阿根\taa gf\t1\n"
+            "行长行长\thh vh\t100\n"
+            "## 2026-08-22 }\n"
+        )
+        parsed = parse_timestamp_blocks(legacy, ENCODING_FLYPY)
+        self.assertEqual(parsed["blocks"][0]["lines"], ["阿根\taa gf\t100"])
+
+    def test_encode_dict_line_drops_invalid_pair(self):
+        self.assertIsNone(encode_dict_line("行长行长\thh vh\t100", ENCODING_FLYPY))
+        self.assertEqual(
+            encode_dict_line("阿根\taa gf\t1", ENCODING_FLYPY), "阿根\taa gf\t100"
+        )
+
+    def test_encode_dict_line_keeps_existing_valid_code_untouched(self):
+        # "an zh" 是"安葬"的合法双拼（zang→zh）；若再按全拼二次转换会得到非法的 "an v"
+        self.assertEqual(
+            encode_dict_line("安葬\tan zh\t1", ENCODING_FLYPY), "安葬\tan zh\t100"
+        )
+        # 旧数据里混入的全拼编码行会被真正转换为双拼
+        self.assertEqual(
+            encode_dict_line("中国\tzhong guo\t1", ENCODING_FLYPY), "中国\tvs go\t100"
+        )
+
+    def test_cleanup_rewrites_recent_blocks_with_normalization(self):
+        tmp = Path(self._tmp.name)
+        sghot_file = tmp / "flypy_sghot.dict.yaml"
+        # 全部区块都在保留期内：即使没有过期条目，也应重写并归一化存量词条
+        sghot_file.write_text(
+            "## 2026-08-23 {\n阿根\taa gf\t1\n行长行长\thh vh\t100\n## 2026-08-23 }\n",
+            encoding="utf-8",
+        )
+        removed = cleanup_old_entries(str(sghot_file), days=3, encoding=ENCODING_FLYPY)
+        self.assertEqual(removed, 0)
+        content = sghot_file.read_text(encoding="utf-8")
+        self.assertIn("阿根\taa gf\t100", content)
+        self.assertNotIn("\t1\n", content)
+        self.assertNotIn("行长行长", content)
 
     def test_quanpin_mode_keeps_toneless_quanpin(self):
         sghot_file = str(Path(self._tmp.name) / "flypy_sghot_quanpin.dict.yaml")

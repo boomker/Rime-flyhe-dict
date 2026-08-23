@@ -16,6 +16,7 @@ from flypy_codec import (
     convert_to_flypy,
     is_valid_flypy_code,
     is_valid_quanpin_code,
+    is_valid_word_code_pair,
     normalize_pinyin_text,
 )
 
@@ -85,7 +86,12 @@ def is_valid_code(code, encoding):
 
 
 def encode_dict_line(line, encoding):
-    """把词库行的编码列归一化为指定编码。"""
+    """把词库行归一化为指定编码；不合法词条返回 None 以便移除。
+
+    编码已是目标格式时原样保留（双拼音节 zh/ch/sh 再转一次会被误判，转换不幂等）；
+    不合法包括：编码格式非法，或词条有效字数与编码音节数不一致（AWK 校验规则）。
+    历史搜狗词条词频为 1，这里统一归一化为 100。
+    """
     if "\t" not in line:
         return line
 
@@ -96,10 +102,12 @@ def encode_dict_line(line, encoding):
     keyword = parts[0].strip()
     raw_code = parts[1].strip()
     weight = parts[2].strip() if len(parts) > 2 else "100"
-    code = encode_code(raw_code, encoding)
-    if is_valid_code(code, encoding):
+    if weight == "1":
+        weight = "100"
+    code = raw_code if is_valid_code(raw_code, encoding) else encode_code(raw_code, encoding)
+    if is_valid_code(code, encoding) and is_valid_word_code_pair(keyword, code):
         return f"{keyword}\t{code}\t{weight}"
-    return line
+    return None
 
 
 def normalize_dict_line(line, encoding):
@@ -134,12 +142,12 @@ def parse_timestamp_blocks(content, encoding=ENCODING_FLYPY):
     matches = re.findall(block_pattern, block_content)
     for timestamp, block_text in matches:
         lines = [line.strip() for line in block_text.split("\n") if line.strip()]
-        blocks.append(
-            {
-                "timestamp": timestamp,
-                "lines": [normalize_dict_line(line, encoding) for line in lines],
-            }
-        )
+        normalized_lines = [
+            normalized
+            for normalized in (normalize_dict_line(line, encoding) for line in lines)
+            if normalized
+        ]
+        blocks.append({"timestamp": timestamp, "lines": normalized_lines})
 
     return {"header": header, "blocks": blocks}
 
@@ -171,28 +179,15 @@ def is_content_wrapped(content):
 
 
 def convert_dict_line(line, encoding):
-    """转换全拼词库行到指定编码（双拼或保持无声调全拼）
+    """转换全拼词库行到指定编码（双拼或保持无声调全拼），不合法词条返回 None
 
     Args:
         line: 原始行，如 "中国\tzhong guo\t100"
 
     Returns:
-        str: 转换后的行，双拼模式如 "中国\tvs go\t100"，全拼模式如 "中国\tzhong guo\t100"
+        str | None: 转换后的行（双拼如 "中国\tvs go\t100"），不合法时为 None
     """
-    if "\t" not in line:
-        return line
-
-    parts = line.split("\t")
-    if len(parts) >= 2:
-        keyword = parts[0]
-        quanpin = parts[1]
-        weight = parts[2] if len(parts) > 2 else "100"
-
-        code = encode_code(quanpin, encoding)
-        if is_valid_code(code, encoding):
-            return f"{keyword}\t{code}\t{weight}"
-
-    return line
+    return encode_dict_line(line, encoding)
 
 
 def wrap_existing_content_with_timestamp(filepath, timestamp, encoding=ENCODING_FLYPY):
@@ -225,13 +220,14 @@ def wrap_existing_content_with_timestamp(filepath, timestamp, encoding=ENCODING_
     if not header:
         header = sghot_header_template(encoding).format(timestamp=timestamp)
 
-    # 收集所有现有条目
+    # 收集所有现有条目（不合法词条在解析时已被移除）
     all_lines = []
     for block in parsed.get("blocks", []):
         for line in block["lines"]:
             # 转换到目标编码
             converted_line = convert_dict_line(line, encoding)
-            all_lines.append(converted_line)
+            if converted_line:
+                all_lines.append(converted_line)
 
     # 如果没有现有内容，直接返回
     if not all_lines:
@@ -307,11 +303,10 @@ def process_diff_sg_file(diff_file, output_file, timestamp, encoding=ENCODING_FL
         if keyword in existing_keywords:
             continue
 
-        # 转换为目标编码
+        # 转换为目标编码并校验（词条字数与音节数一致才入库）；搜狗热词词频统一为 100
         code = encode_code(quanpin, encoding)
-        weight = parts[2].strip() if len(parts) > 2 else "100"
-        if is_valid_code(code, encoding):
-            new_lines.append(f"{keyword}\t{code}\t{weight}")
+        if is_valid_code(code, encoding) and is_valid_word_code_pair(keyword, code):
+            new_lines.append(f"{keyword}\t{code}\t100")
 
     if not new_lines:
         print("  无新条目需要添加")
@@ -387,11 +382,8 @@ def cleanup_old_entries(filepath, days=3, encoding=ENCODING_FLYPY):
         if block["timestamp"] < cutoff_date:
             removed_count += len(block["lines"])
 
-    if removed_count == 0:
-        print("  无需要清理的过期条目")
-        return 0
-
-    # 重建文件内容
+    # 无论是否有过期区块都重建文件：解析时已顺带完成存量词条归一化
+    # （词频 1→100、移除不合法词条），确保每天全量自愈
     output_lines = [header]
 
     for block in recent_blocks:
@@ -405,7 +397,10 @@ def cleanup_old_entries(filepath, days=3, encoding=ENCODING_FLYPY):
     with open(filepath, "w", encoding="utf-8") as f:
         f.write(new_content)
 
-    print(f"  已清理 {removed_count} 个过期条目（{cutoff_date}之前）")
+    if removed_count:
+        print(f"  已清理 {removed_count} 个过期条目（{cutoff_date}之前）")
+    else:
+        print("  无需要清理的过期条目")
     return removed_count
 
 

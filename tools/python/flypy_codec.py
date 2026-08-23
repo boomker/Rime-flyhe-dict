@@ -150,3 +150,21 @@ def is_valid_quanpin_code(code: str) -> bool:
     """检查词库编码是否为合法的无声调全拼格式。"""
     tokens = [token for token in code.split() if token]
     return bool(tokens) and all(re.fullmatch(r"[a-z]+", token) for token in tokens)
+
+
+# 与流水线校验 AWK 的剥离规则保持一致：空格及 U+00B7–U+2014 区间字符（·、–、— 等间隔号与连接线）
+IGNORED_KEYWORD_CHARS_RE = re.compile(r"[ ·-—]")
+
+
+def keyword_char_length(keyword: str) -> int:
+    """计算词条参与校验的有效字数（剥离空格、间隔号与各类连接线）。"""
+    return len(IGNORED_KEYWORD_CHARS_RE.sub("", keyword))
+
+
+def is_valid_word_code_pair(keyword: str, code: str) -> bool:
+    """检查词条有效字数与编码音节数是否一致。
+
+    对应 AWK 校验规则：length(gensub(" ", '', $2))/2 != length(gensub(/[ ·-—]/, '', $1))。
+    """
+    tokens = [token for token in code.split() if token]
+    return bool(tokens) and len(tokens) == keyword_char_length(keyword)
