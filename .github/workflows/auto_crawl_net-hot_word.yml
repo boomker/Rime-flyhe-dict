@@ -1,4 +1,5 @@
 # 自动更新搜狗 scel 词库到 rime 词库
+# main 分支：小鹤双拼编码；full_pinyin 分支：无声调全拼编码（同一份热词数据，每天同时构建）
 name: auto_crawl_net_hot_word
 
 on:
@@ -40,6 +41,7 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           python3 ./tools/python/crawl_douyin_hot.py
+          python3 ./tools/python/crawl_douyin_hot.py --encoding quanpin
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v5
@@ -87,6 +89,7 @@ jobs:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
           python3 ./tools/python/crawl_net_hot_dict.py
+          python3 ./tools/python/crawl_net_hot_dict.py --encoding quanpin
 
       - name: Run fetch_a_stock.py to update A-share dictionary
         run: |
@@ -94,14 +97,14 @@ jobs:
 
       - name: Remove intermediate file
         run: |
-          rm -f ./sghot.dict.yaml ./flypy_dyhot.dict.yaml
+          rm -f ./sghot.dict.yaml ./flypy_dyhot.dict.yaml ./flypy_dyhot_quanpin.dict.yaml ./diff_sg.txt
 
       - name: Set env
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit and push changes
+      - name: Commit and push changes (main, 双拼)
         run: |
           git add ./flypy_sghot.dict.yaml ./flypy_stock.dict.yaml
           if git diff --staged --quiet; then
@@ -116,3 +119,32 @@ jobs:
               -m "Not-tested: push permissions and remote availability"
           fi
           git push origin main
+
+      - name: Update full_pinyin branch (全拼)
+        run: |
+          if [ ! -f ./flypy_sghot_quanpin.dict.yaml ]; then
+            echo "No quanpin dictionary generated, skip full_pinyin branch update."
+            exit 0
+          fi
+          git fetch --depth 1 origin full_pinyin:refs/remotes/origin/full_pinyin || true
+          if git show-ref --verify --quiet refs/remotes/origin/full_pinyin; then
+            git checkout -B full_pinyin refs/remotes/origin/full_pinyin
+          else
+            # 首次运行：以孤儿分支创建 full_pinyin，分支上只保留全拼热词词库
+            git checkout --orphan full_pinyin
+            git rm -rf --quiet .
+          fi
+          cp ./flypy_sghot_quanpin.dict.yaml ./flypy_sghot.dict.yaml
+          git add ./flypy_sghot.dict.yaml
+          if git diff --staged --quiet; then
+            echo "No generated quanpin dictionary changes to commit."
+          else
+            git commit -m "Refresh quanpin hot-word dictionary for scheduled updates" \
+              -m "Constraint: daily workflow publishes the toneless quanpin hot-word build." \
+              -m "Confidence: high" \
+              -m "Scope-risk: narrow" \
+              -m "Directive: main keeps flypy codes only; full_pinyin keeps quanpin codes only." \
+              -m "Tested: scheduled job ran quanpin generation steps before commit" \
+              -m "Not-tested: push permissions and remote availability"
+          fi
+          git push origin full_pinyin

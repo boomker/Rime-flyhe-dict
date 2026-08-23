@@ -8,3 +8,11 @@ temp
 flypy_base.*
 opencode.json
 **/.ropeproject
+# 热词流水线中间产物（全拼正式文件在 full_pinyin 分支上）
+diff_sg.txt
+sghot.dict.yaml
+sogou_net_pop.scel
+flypy_dyhot.dict.yaml
+flypy_dyhot_quanpin.dict.yaml
+flypy_sghot_quanpin.dict.yaml
+pinyin_cache.json

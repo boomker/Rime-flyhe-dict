@@ -5,27 +5,46 @@
 自动生成 Rime 输入法字典文件
 自动选择 DeepSeek 当前可用 pro 模型生成拼音
 支持备用数据源
+支持双拼（--encoding flypy，默认）与无声调全拼（--encoding quanpin）两种编码输出
 """
 
-import requests
-import re
-import os
-import json
+import argparse
 import datetime
+import json
+import os
+import re
 import textwrap
 import time
+
+import requests
 from dateutil.relativedelta import relativedelta
 from openai import OpenAI
 
 from deepseek_model import resolve_deepseek_pro_model
-from flypy_codec import convert_to_flypy, is_valid_flypy_code, normalize_pinyin_text
+from flypy_codec import (
+    convert_to_flypy,
+    is_valid_flypy_code,
+    is_valid_quanpin_code,
+    normalize_pinyin_text,
+)
 
 # ==================== 配置 ====================
 # 主数据源和备用数据源
 PRIMARY_API_URL = "https://v2.xxapi.cn/api/douyinhot"
 FALLBACK_API_URL = "https://v2.xxapi.cn/api/baiduhot"
 
-OUTPUT_FILE = "./flypy_dyhot.dict.yaml"
+ENCODING_FLYPY = "flypy"
+ENCODING_QUANPIN = "quanpin"
+ENCODINGS = (ENCODING_FLYPY, ENCODING_QUANPIN)
+
+
+def output_file_for(encoding):
+    """按编码模式返回输出文件路径（全拼使用 *_quanpin 中间文件，供 full_pinyin 分支使用）。"""
+    if encoding == ENCODING_QUANPIN:
+        return "./flypy_dyhot_quanpin.dict.yaml"
+    return "./flypy_dyhot.dict.yaml"
+
+
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 
 # DeepSeek API 基础URL
@@ -50,6 +69,20 @@ DYHOT_HEADER = textwrap.dedent(
 )
 
 # ==================== 辅助函数 ====================
+
+
+def encode_code(raw_code, encoding):
+    """把原始拼音编码转换为指定编码（双拼或无声调全拼）。"""
+    if encoding == ENCODING_QUANPIN:
+        return normalize_pinyin_text(raw_code)
+    return convert_to_flypy(raw_code)
+
+
+def is_valid_code(code, encoding):
+    """按编码模式校验词库编码。"""
+    if encoding == ENCODING_QUANPIN:
+        return is_valid_quanpin_code(code)
+    return is_valid_flypy_code(code)
 
 
 def load_pinyin_cache():
@@ -300,7 +333,7 @@ def sort_keywords(keywords, cache):
     return sorted(keywords, key=sort_key)
 
 
-def read_existing_file(filepath):
+def read_existing_file(filepath, encoding=ENCODING_FLYPY):
     """读取现有文件内容，解析时间戳区块"""
     if not os.path.exists(filepath):
         return {"header": "", "blocks": []}
@@ -323,7 +356,7 @@ def read_existing_file(filepath):
     matches = re.findall(block_pattern, block_content)
     for timestamp, block_text in matches:
         lines = [line.strip() for line in block_text.split("\n") if line.strip()]
-        # 转换旧的全拼行为双拼
+        # 把旧行归一化到当前编码
         converted_lines = []
         for line in lines:
             if "\t" in line:
@@ -332,9 +365,8 @@ def read_existing_file(filepath):
                     keyword = parts[0]
                     old_pinyin = parts[1]
                     weight = parts[2] if len(parts) > 2 else "100"
-                    # 转换为双拼
-                    new_pinyin = convert_to_flypy(old_pinyin)
-                    if is_valid_flypy_code(new_pinyin):
+                    new_pinyin = encode_code(old_pinyin, encoding)
+                    if is_valid_code(new_pinyin, encoding):
                         converted_lines.append(f"{keyword}\t{new_pinyin}\t{weight}")
                 else:
                     converted_lines.append(line)
@@ -352,7 +384,7 @@ def get_three_days_ago_timestamp():
     return three_days_ago.strftime("%Y-%m-%d")
 
 
-def generate_output(keywords, cache, existing_data):
+def generate_output(keywords, cache, existing_data, encoding=ENCODING_FLYPY):
     """生成带时间戳区块的输出内容"""
     today = datetime.datetime.now().strftime("%Y-%m-%d")
     three_days_ago = (datetime.datetime.now() - datetime.timedelta(days=3)).strftime(
@@ -377,15 +409,15 @@ def generate_output(keywords, cache, existing_data):
     for kw in new_keywords:
         full_pinyin = get_pinyin(kw, cache)
         if full_pinyin:
-            # 转换为小鹤双拼
-            flypy_pinyin = convert_to_flypy(full_pinyin)
-            if not is_valid_flypy_code(flypy_pinyin):
+            # 转换为目标编码
+            code = encode_code(full_pinyin, encoding)
+            if not is_valid_code(code, encoding):
                 fallback_pinyin = normalize_pinyin_text(simple_pinyin(kw))
                 if fallback_pinyin:
                     cache[kw] = fallback_pinyin
-                    flypy_pinyin = convert_to_flypy(fallback_pinyin)
-            if is_valid_flypy_code(flypy_pinyin):
-                new_block_lines.append(f"{kw}\t{flypy_pinyin}\t100")
+                    code = encode_code(fallback_pinyin, encoding)
+            if is_valid_code(code, encoding):
+                new_block_lines.append(f"{kw}\t{code}\t100")
 
     # 保留3天内的区块
     recent_blocks = [
@@ -417,9 +449,25 @@ def generate_output(keywords, cache, existing_data):
 # ==================== 主函数 ====================
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="抖音热榜词条抓取脚本")
+    parser.add_argument(
+        "--encoding",
+        choices=ENCODINGS,
+        default=ENCODING_FLYPY,
+        help="词库编码：flypy=小鹤双拼（默认），quanpin=无声调全拼（供 full_pinyin 分支）",
+    )
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
+    encoding = args.encoding
+    output_file = output_file_for(encoding)
+
     print("=" * 50)
     print("抖音热榜词条抓取脚本")
+    print(f"编码模式: {encoding}")
     print("=" * 50)
 
     source_used = ""
@@ -456,20 +504,21 @@ def main():
 
         # 5. 生成输出文件
         print("\n[5/5] 生成输出文件...")
-        existing_data = read_existing_file(OUTPUT_FILE)
-        output_content = generate_output(sorted_keywords, cache, existing_data)
+        existing_data = read_existing_file(output_file, encoding)
+        output_content = generate_output(sorted_keywords, cache, existing_data, encoding)
 
         # 写入文件
-        with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        with open(output_file, "w", encoding="utf-8") as f:
             f.write(output_content)
 
-        print(f"   文件已写入: {OUTPUT_FILE}")
+        print(f"   文件已写入: {output_file}")
 
         print("\n" + "=" * 50)
         print("完成!")
         print(f"日期: {datetime.datetime.now().strftime('%Y-%m-%d')}")
         print(f"关键词数量: {len(sorted_keywords)}")
         print(f"数据来源: {source_used}")
+        print(f"编码模式: {encoding}")
         print("=" * 50)
 
     except Exception as e:

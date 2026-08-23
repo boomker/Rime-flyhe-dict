@@ -144,3 +144,9 @@ def is_valid_flypy_code(code: str) -> bool:
     """检查词库编码是否为合法的小鹤双拼格式。"""
     tokens = [token for token in code.split() if token]
     return bool(tokens) and all(re.fullmatch(r"[a-z]{2}", token) for token in tokens)
+
+
+def is_valid_quanpin_code(code: str) -> bool:
+    """检查词库编码是否为合法的无声调全拼格式。"""
+    tokens = [token for token in code.split() if token]
+    return bool(tokens) and all(re.fullmatch(r"[a-z]+", token) for token in tokens)

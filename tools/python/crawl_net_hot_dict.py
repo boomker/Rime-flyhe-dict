@@ -2,22 +2,43 @@
 # -*- coding: utf-8 -*-
 """
 网络热词词库更新脚本
-生成 Rime 输入法小鹤双拼词库
+生成 Rime 输入法小鹤双拼词库（--encoding flypy，默认）
+或无声调全拼词库（--encoding quanpin，供 full_pinyin 分支使用）
 """
 
+import argparse
+import datetime
 import os
 import re
-import datetime
 import textwrap
 
-from flypy_codec import convert_to_flypy, is_valid_flypy_code
+from flypy_codec import (
+    convert_to_flypy,
+    is_valid_flypy_code,
+    is_valid_quanpin_code,
+    normalize_pinyin_text,
+)
 
 # ==================== 配置 ====================
 # 文件路径配置
 DIFF_SG_FILE = "diff_sg.txt"
-FLYPY_SGHOT_FILE = "flypy_sghot.dict.yaml"
-FLYPY_DYHOT_FILE = "flypy_dyhot.dict.yaml"
 TODAY = datetime.datetime.now().strftime("%Y-%m-%d")
+
+ENCODING_FLYPY = "flypy"
+ENCODING_QUANPIN = "quanpin"
+ENCODINGS = (ENCODING_FLYPY, ENCODING_QUANPIN)
+
+
+def dict_file_paths(encoding):
+    """按编码模式返回（搜狗热词文件，抖音热词文件）路径。
+
+    双拼沿用历史文件名；全拼使用 *_quanpin 后缀的本地中间文件，
+    推送到 full_pinyin 分支时再改回正式文件名。
+    """
+    if encoding == ENCODING_QUANPIN:
+        return "flypy_sghot_quanpin.dict.yaml", "flypy_dyhot_quanpin.dict.yaml"
+    return "flypy_sghot.dict.yaml", "flypy_dyhot.dict.yaml"
+
 
 SGHOT_HEADER = textwrap.dedent("""\
     # Rime dictionary
@@ -31,9 +52,40 @@ SGHOT_HEADER = textwrap.dedent("""\
 
     """)
 
+QUANPIN_SGHOT_HEADER = textwrap.dedent("""\
+    # Rime dictionary
+    # encoding: utf-8
+    # 热词编码为无声调全拼（full_pinyin 分支）
 
-def normalize_dict_line(line):
-    """把词库行的编码列归一化为小鹤双拼。"""
+    ---
+    name: flypy_sghot
+    version: {timestamp}
+    sort: by_weight
+    ...
+
+    """)
+
+
+def sghot_header_template(encoding):
+    return QUANPIN_SGHOT_HEADER if encoding == ENCODING_QUANPIN else SGHOT_HEADER
+
+
+def encode_code(raw_code, encoding):
+    """把原始拼音编码转换为指定编码（双拼或无声调全拼）。"""
+    if encoding == ENCODING_QUANPIN:
+        return normalize_pinyin_text(raw_code)
+    return convert_to_flypy(raw_code)
+
+
+def is_valid_code(code, encoding):
+    """按编码模式校验词库编码。"""
+    if encoding == ENCODING_QUANPIN:
+        return is_valid_quanpin_code(code)
+    return is_valid_flypy_code(code)
+
+
+def encode_dict_line(line, encoding):
+    """把词库行的编码列归一化为指定编码。"""
     if "\t" not in line:
         return line
 
@@ -44,16 +96,21 @@ def normalize_dict_line(line):
     keyword = parts[0].strip()
     raw_code = parts[1].strip()
     weight = parts[2].strip() if len(parts) > 2 else "100"
-    flypy_code = convert_to_flypy(raw_code)
-    if is_valid_flypy_code(flypy_code):
-        return f"{keyword}\t{flypy_code}\t{weight}"
+    code = encode_code(raw_code, encoding)
+    if is_valid_code(code, encoding):
+        return f"{keyword}\t{code}\t{weight}"
     return line
+
+
+def normalize_dict_line(line, encoding):
+    """把词库行的编码列归一化为指定编码（双拼或无声调全拼）。"""
+    return encode_dict_line(line, encoding)
 
 
 # ==================== 时间戳区块处理 ====================
 
 
-def parse_timestamp_blocks(content):
+def parse_timestamp_blocks(content, encoding=ENCODING_FLYPY):
     """解析时间戳区块
 
     Returns:
@@ -80,7 +137,7 @@ def parse_timestamp_blocks(content):
         blocks.append(
             {
                 "timestamp": timestamp,
-                "lines": [normalize_dict_line(line) for line in lines],
+                "lines": [normalize_dict_line(line, encoding) for line in lines],
             }
         )
 
@@ -113,14 +170,14 @@ def is_content_wrapped(content):
     return bool(re.search(r"## \d{4}-\d{2}-\d{2} \{", content))
 
 
-def convert_quanpin_to_flypy_line(line):
-    """转换全拼为小鹤双拼
+def convert_dict_line(line, encoding):
+    """转换全拼词库行到指定编码（双拼或保持无声调全拼）
 
     Args:
         line: 原始行，如 "中国\tzhong guo\t100"
 
     Returns:
-        str: 转换后的行，如 "中国\tvs go\t100"
+        str: 转换后的行，双拼模式如 "中国\tvs go\t100"，全拼模式如 "中国\tzhong guo\t100"
     """
     if "\t" not in line:
         return line
@@ -131,20 +188,20 @@ def convert_quanpin_to_flypy_line(line):
         quanpin = parts[1]
         weight = parts[2] if len(parts) > 2 else "100"
 
-        # 转换为小鹤双拼
-        flypy = convert_to_flypy(quanpin)
-        if is_valid_flypy_code(flypy):
-            return f"{keyword}\t{flypy}\t{weight}"
+        code = encode_code(quanpin, encoding)
+        if is_valid_code(code, encoding):
+            return f"{keyword}\t{code}\t{weight}"
 
     return line
 
 
-def wrap_existing_content_with_timestamp(filepath, timestamp):
+def wrap_existing_content_with_timestamp(filepath, timestamp, encoding=ENCODING_FLYPY):
     """将现有文件内容用时间戳包裹
 
     Args:
         filepath: 文件路径
         timestamp: 时间戳
+        encoding: 目标编码（双拼或无声调全拼）
 
     Returns:
         bool: 是否执行了包裹操作
@@ -161,19 +218,19 @@ def wrap_existing_content_with_timestamp(filepath, timestamp):
         return False
 
     # 解析内容
-    parsed = parse_timestamp_blocks(content)
+    parsed = parse_timestamp_blocks(content, encoding)
 
     # 保留 header
     header = parsed.get("header", "")
     if not header:
-        header = SGHOT_HEADER.format(timestamp=timestamp)
+        header = sghot_header_template(encoding).format(timestamp=timestamp)
 
     # 收集所有现有条目
     all_lines = []
     for block in parsed.get("blocks", []):
         for line in block["lines"]:
-            # 转换全拼为双拼
-            converted_line = convert_quanpin_to_flypy_line(line)
+            # 转换到目标编码
+            converted_line = convert_dict_line(line, encoding)
             all_lines.append(converted_line)
 
     # 如果没有现有内容，直接返回
@@ -196,13 +253,14 @@ def wrap_existing_content_with_timestamp(filepath, timestamp):
 # ==================== diff_sg.txt 处理 ====================
 
 
-def process_diff_sg_file(diff_file, output_file, timestamp):
-    """处理 diff_sg.txt 文件，转换为小鹤双拼并追加到词库
+def process_diff_sg_file(diff_file, output_file, timestamp, encoding=ENCODING_FLYPY):
+    """处理 diff_sg.txt 文件，转换为指定编码并追加到词库
 
     Args:
         diff_file: diff_sg.txt 文件路径
         output_file: 输出词库文件路径
         timestamp: 时间戳
+        encoding: 目标编码（双拼或无声调全拼）
 
     Returns:
         int: 处理的条目数量
@@ -218,7 +276,7 @@ def process_diff_sg_file(diff_file, output_file, timestamp):
     if os.path.exists(output_file):
         with open(output_file, "r", encoding="utf-8") as f:
             existing_content = f.read()
-        parsed = parse_timestamp_blocks(existing_content)
+        parsed = parse_timestamp_blocks(existing_content, encoding)
         header = parsed.get("header", "")
 
         # 收集所有已有热词（用于去重）
@@ -228,7 +286,7 @@ def process_diff_sg_file(diff_file, output_file, timestamp):
                 if "\t" in line:
                     existing_keywords.add(line.split("\t")[0])
     else:
-        header = SGHOT_HEADER.format(timestamp=timestamp)
+        header = sghot_header_template(encoding).format(timestamp=timestamp)
         existing_keywords = set()
 
     # 处理 diff_sg.txt 内容
@@ -249,11 +307,11 @@ def process_diff_sg_file(diff_file, output_file, timestamp):
         if keyword in existing_keywords:
             continue
 
-        # 转换为小鹤双拼
-        flypy = convert_to_flypy(quanpin)
+        # 转换为目标编码
+        code = encode_code(quanpin, encoding)
         weight = parts[2].strip() if len(parts) > 2 else "100"
-        if is_valid_flypy_code(flypy):
-            new_lines.append(f"{keyword}\t{flypy}\t{weight}")
+        if is_valid_code(code, encoding):
+            new_lines.append(f"{keyword}\t{code}\t{weight}")
 
     if not new_lines:
         print("  无新条目需要添加")
@@ -273,7 +331,7 @@ def process_diff_sg_file(diff_file, output_file, timestamp):
             new_content = existing_content.rstrip() + "\n\n" + wrapped_block + "\n"
         else:
             # 未包裹，需要包裹现有内容后追加
-            wrap_existing_content_with_timestamp(output_file, timestamp)
+            wrap_existing_content_with_timestamp(output_file, timestamp, encoding)
             with open(output_file, "r", encoding="utf-8") as f:
                 existing_content = f.read()
             wrapped_block = wrap_with_timestamp("\n".join(new_lines), timestamp)
@@ -293,12 +351,13 @@ def process_diff_sg_file(diff_file, output_file, timestamp):
 # ==================== 3天前数据清理 ====================
 
 
-def cleanup_old_entries(filepath, days=3):
+def cleanup_old_entries(filepath, days=3, encoding=ENCODING_FLYPY):
     """清理指定天数之前的词条
 
     Args:
         filepath: 词库文件路径
         days: 保留天数，默认3天
+        encoding: 目标编码（双拼或无声调全拼）
 
     Returns:
         int: 清理的条目数量
@@ -314,7 +373,7 @@ def cleanup_old_entries(filepath, days=3):
         content = f.read()
 
     # 解析时间戳区块
-    parsed = parse_timestamp_blocks(content)
+    parsed = parse_timestamp_blocks(content, encoding)
     header = parsed.get("header", "")
 
     # 过滤保留指定天数内的区块
@@ -353,13 +412,14 @@ def cleanup_old_entries(filepath, days=3):
 # ==================== 合并 dyhot 和 sghot 词库 ====================
 
 
-def merge_dict_files(dyhot_file, sghot_file, timestamp):
+def merge_dict_files(dyhot_file, sghot_file, timestamp, encoding=ENCODING_FLYPY):
     """合并抖音热词和搜狗热词词库
 
     Args:
         dyhot_file: 抖音热词文件
         sghot_file: 搜狗热词文件
         timestamp: 时间戳
+        encoding: 目标编码（双拼或无声调全拼）
 
     Returns:
         bool: 是否执行了合并
@@ -372,7 +432,7 @@ def merge_dict_files(dyhot_file, sghot_file, timestamp):
     with open(dyhot_file, "r", encoding="utf-8") as f:
         dyhot_content = f.read()
 
-    dyhot_parsed = parse_timestamp_blocks(dyhot_content)
+    dyhot_parsed = parse_timestamp_blocks(dyhot_content, encoding)
 
     # 收集所有抖音热词
     dyhot_keywords = set()
@@ -393,7 +453,7 @@ def merge_dict_files(dyhot_file, sghot_file, timestamp):
         with open(sghot_file, "r", encoding="utf-8") as f:
             sghot_content = f.read()
 
-        sghot_parsed = parse_timestamp_blocks(sghot_content)
+        sghot_parsed = parse_timestamp_blocks(sghot_content, encoding)
         header = sghot_parsed.get("header", "")
 
         # 收集已存在的关键词
@@ -404,7 +464,7 @@ def merge_dict_files(dyhot_file, sghot_file, timestamp):
                     keyword = line.split("\t")[0]
                     existing_keywords.add(keyword)
     else:
-        header = SGHOT_HEADER.format(timestamp=timestamp)
+        header = sghot_header_template(encoding).format(timestamp=timestamp)
         existing_keywords = set()
 
     # 过滤掉已存在的抖音热词
@@ -427,7 +487,7 @@ def merge_dict_files(dyhot_file, sghot_file, timestamp):
             new_content = existing_content.rstrip() + "\n\n" + wrapped_block + "\n"
         else:
             # 需要先包裹现有内容
-            wrap_existing_content_with_timestamp(sghot_file, timestamp)
+            wrap_existing_content_with_timestamp(sghot_file, timestamp, encoding)
             with open(sghot_file, "r", encoding="utf-8") as f:
                 existing_content = f.read()
             new_content = existing_content.rstrip() + "\n\n" + wrapped_block + "\n"
@@ -464,39 +524,51 @@ def update_version(filepath):
 # ==================== 主函数 ====================
 
 
+def parse_args():
+    parser = argparse.ArgumentParser(description="网络热词词库更新脚本")
+    parser.add_argument(
+        "--encoding",
+        choices=ENCODINGS,
+        default=ENCODING_FLYPY,
+        help="词库编码：flypy=小鹤双拼（默认，提交到 main），quanpin=无声调全拼（提交到 full_pinyin 分支）",
+    )
+    return parser.parse_args()
+
+
 def main():
+    args = parse_args()
+    encoding = args.encoding
+    sghot_file, dyhot_file = dict_file_paths(encoding)
+
     print("=" * 50)
     print("网络热词词库更新脚本")
+    print(f"编码模式: {encoding}")
     print("=" * 50)
 
     timestamp = TODAY
 
     # 1. 处理 diff_sg.txt（搜狗增量更新）
-    print("\n[1/5] 处理 diff_sg.txt...")
-    process_diff_sg_file(DIFF_SG_FILE, FLYPY_SGHOT_FILE, timestamp)
+    print("\n[1/4] 处理 diff_sg.txt...")
+    process_diff_sg_file(DIFF_SG_FILE, sghot_file, timestamp, encoding)
 
-    # 2. 合并抖音热词（从 flyhe_dyhot.dict.yaml）
-    print("\n[2/5] 合并抖音热词...")
-    merge_dict_files(FLYPY_DYHOT_FILE, FLYPY_SGHOT_FILE, timestamp)
+    # 2. 合并抖音热词（从对应编码的抖音热词文件）
+    print("\n[2/4] 合并抖音热词...")
+    merge_dict_files(dyhot_file, sghot_file, timestamp, encoding)
 
     # 3. 清理过期条目（3天前）
-    print("\n[3/5] 清理过期条目...")
-    cleanup_old_entries(FLYPY_SGHOT_FILE, days=3)
-    cleanup_old_entries(FLYPY_DYHOT_FILE, days=3)
+    print("\n[3/4] 清理过期条目...")
+    cleanup_old_entries(sghot_file, days=3, encoding=encoding)
+    cleanup_old_entries(dyhot_file, days=3, encoding=encoding)
 
     # 4. 更新版本号
-    print("\n[4/5] 更新版本号...")
-    update_version(FLYPY_SGHOT_FILE)
+    print("\n[4/4] 更新版本号...")
+    update_version(sghot_file)
 
-    # 5. 清理临时文件
-    print("\n[5/5] 清理临时文件...")
-    if os.path.exists(DIFF_SG_FILE):
-        os.remove(DIFF_SG_FILE)
-        print(f"  已删除 {DIFF_SG_FILE}")
-
+    # diff_sg.txt 等中间文件的清理交给流水线（另一种编码模式还要复用）
     print("\n" + "=" * 50)
     print("完成!")
     print(f"日期: {timestamp}")
+    print(f"输出: {sghot_file}")
     print("=" * 50)
 
 

@@ -4,7 +4,12 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools/python"))
 
-from flypy_codec import convert_to_flypy, is_valid_flypy_code, normalize_pinyin_text
+from flypy_codec import (
+    convert_to_flypy,
+    is_valid_flypy_code,
+    is_valid_quanpin_code,
+    normalize_pinyin_text,
+)
 
 
 class FlypyCodecTest(unittest.TestCase):
@@ -25,6 +30,13 @@ class FlypyCodecTest(unittest.TestCase):
     def test_invalid_hybrid_code_can_be_detected(self):
         self.assertFalse(is_valid_flypy_code("háng vǎng"))
         self.assertTrue(is_valid_flypy_code("hh vh"))
+
+    def test_quanpin_code_validation(self):
+        self.assertTrue(is_valid_quanpin_code("zhong guo"))
+        self.assertTrue(is_valid_quanpin_code("a"))
+        self.assertFalse(is_valid_quanpin_code("háng zhǎng"))
+        self.assertFalse(is_valid_quanpin_code(""))
+        self.assertFalse(is_valid_quanpin_code("zhong guo1"))
 
 
 if __name__ == "__main__":
