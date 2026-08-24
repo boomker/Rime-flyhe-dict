@@ -3,7 +3,7 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-23
+# 更新时间：2026-08-24
 # 股票数量：5343
 # ST/*ST 注释数量：206
 #
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-23"
+version: "2026-08-24"
 sort: by_weight
 ...
 
@@ -252,7 +252,6 @@ sort: by_weight
 C宇树	C yu uu	100
 C绿控传动	C lv ks ir ds	100
 C频准	C pb vy	100
-N信胜	N xb ug	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -1084,6 +1083,7 @@ TCL科技	TCL ke ji	100
 信科移动	xb ke yi ds	100
 信立泰	xb li td	100
 信维通信	xb ww ts xb	100
+信胜科技	xb ug ke ji	100
 信质集团	xb vi ji tr	100
 信达地产	xb da di ij	100
 信达证券	xb da vg qr	100
