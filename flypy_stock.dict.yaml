@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-25
-# 股票数量：5342
-# ST/*ST 注释数量：207
+# 更新时间：2026-08-26
+# 股票数量：5345
+# ST/*ST 注释数量：205
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-25"
+version: "2026-08-26"
 sort: by_weight
 ...
 
@@ -157,7 +157,6 @@ sort: by_weight
 # ST天际	ST tm ji	100
 # ST太重	ST td vs	100
 # ST如意	ST ru yi	100
-# ST宁科	ST nk ke	100
 # ST宏达	ST hs da	100
 # ST帕瓦	ST pa wa	100
 # ST应急	ST yk ji	100
@@ -215,7 +214,6 @@ sort: by_weight
 # ST金鸿	ST jb hs	100
 # ST金鸿顺	ST jb hs uy	100
 # ST银江	ST yb jl	100
-# ST长园	ST ih yr	100
 # ST长方	ST ih fh	100
 # ST际华	ST ji hx	100
 # ST雪发	ST xt fa	100
@@ -250,8 +248,7 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C宇树	C yu uu	100
-C绿控	C lv ks	100
+C绿控传动	C lv ks ir ds	100
 N高凯	N gc kd	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
@@ -858,6 +855,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -1104,7 +1102,7 @@ TCL科技	TCL ke ji	100
 健帆生物	jm fj ug wu	100
 健康元	jm kh yr	100
 健民集团	jm mb ji tr	100
-健盛集	jm ug ji	100
+健盛集团	jm ug ji tr	100
 健麾信息	jm hv xb xi	100
 傲农生物	ao ns ug wu	100
 儒意电影	ru yi dm yk	100
@@ -2101,7 +2099,7 @@ TCL科技	TCL ke ji	100
 天宇股份	tm yu gu ff	100
 天安新材	tm an xb cd	100
 天宏锂电	tm hs li dm	100
-天宸股	tm if gu	100
+天宸股份	tm if gu ff	100
 天富能源	tm fu ng yr	100
 天富龙	tm fu ls	100
 天山生物	tm uj ug wu	100
@@ -2283,9 +2281,11 @@ TCL科技	TCL ke ji	100
 宁波银行	nk bo yb hh	100
 宁波韵升	nk bo yy ug	100
 宁波高发	nk bo gc fa	100
+宁科生物	nk ke ug wu	100
 宇信科技	yu xb ke ji	100
 宇新股份	yu xb gu ff	100
 宇晶股份	yu jk gu ff	100
+宇树科技	yu uu ke ji	100
 宇环数控	yu hr uu ks	100
 宇瞳光学	yu ts gl xt	100
 宇通客车	yu ts ke ie	100
@@ -5255,6 +5255,7 @@ TCL科技	TCL ke ji	100
 长光华芯	ih gl hx xb	100
 长华化学	ih hx hx xt	100
 长华集团	ih hx ji tr	100
+长园集团	ih yr ji tr	100
 长城军工	ih ig jy gs	100
 长城汽车	ih ig qi ie	100
 长城电工	ih ig dm gs	100
