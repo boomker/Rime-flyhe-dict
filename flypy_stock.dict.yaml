@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-28
-# 股票数量：5345
+# 更新时间：2026-08-29
+# 股票数量：5346
 # ST/*ST 注释数量：205
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-28"
+version: "2026-08-29"
 sort: by_weight
 ...
 
@@ -855,6 +855,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -1137,7 +1138,7 @@ TCL科技	TCL ke ji	100
 光启技术	gl qi ji uu	100
 光大同创	gl da ts il	100
 光大嘉宝	gl da jx bc	100
-光大证	gl da vg	100
+光大证券	gl da vg qr	100
 光大银行	gl da yb hh	100
 光威复材	gl ww fu cd	100
 光峰科技	gl fg ke ji	100
@@ -2287,7 +2288,7 @@ TCL科技	TCL ke ji	100
 宇环数控	yu hr uu ks	100
 宇瞳光学	yu ts gl xt	100
 宇通客车	yu ts ke ie	100
-宇通重	yu ts vs	100
+宇通重工	yu ts vs gs	100
 宇邦新材	yu bh xb cd	100
 宇顺电子	yu uy dm zi	100
 安乃达	an nd da	100
