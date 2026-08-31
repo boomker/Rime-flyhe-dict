@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-08-30
-# 股票数量：5346
-# ST/*ST 注释数量：205
+# 更新时间：2026-08-31
+# 股票数量：5348
+# ST/*ST 注释数量：203
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-08-30"
+version: "2026-08-31"
 sort: by_weight
 ...
 
@@ -125,7 +125,6 @@ sort: by_weight
 # ST亚光	ST ya gl	100
 # ST交昂	ST jn ah	100
 # ST京机	ST jk ji	100
-# ST京蓝	ST jk lj	100
 # ST人福	ST rf fu	100
 # ST佳缘	ST jx yr	100
 # ST信安	ST xb an	100
@@ -150,7 +149,6 @@ sort: by_weight
 # ST嘉应	ST jx yk	100
 # ST嘉必优	ST jx bi yz	100
 # ST嘉澳	ST jx ao	100
-# ST围海	ST ww hd	100
 # ST复华	ST fu hx	100
 # ST天圣	ST tm ug	100
 # ST天玑	ST tm ji	100
@@ -249,7 +247,6 @@ sort: by_weight
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
 C高凯	C gc kd	100
-N华大	N hx da	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -957,6 +954,7 @@ TCL科技	TCL ke ji	100
 京能热力	jk ng re li	100
 京能电力	jk ng dm li	100
 京能置业	jk ng vi ye	100
+京蓝科技	jk lj ke ji	100
 京运通	jk yy ts	100
 人民同泰	rf mb ts td	100
 人民网	rf mb wh	100
@@ -1425,6 +1423,7 @@ TCL科技	TCL ke ji	100
 华大九天	hx da jq tm	100
 华大基因	hx da ji yb	100
 华大智造	hx da vi zc	100
+华大海天	hx da hd tm	100
 华天科技	hx tm ke ji	100
 华天酒店	hx tm jq dm	100
 华如科技	hx ru ke ji	100
@@ -1868,6 +1867,7 @@ TCL科技	TCL ke ji	100
 回盛生物	hv ug ug wu	100
 因赛集团	yb sd ji tr	100
 园林股份	yr lb gu ff	100
+围海股份	ww hd gu ff	100
 固德威	gu de ww	100
 固德电材	gu de dm cd	100
 固高科技	gu gc ke ji	100
