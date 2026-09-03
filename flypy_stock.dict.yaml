@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-09-01
-# 股票数量：5348
+# 更新时间：2026-09-03
+# 股票数量：5352
 # ST/*ST 注释数量：203
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-09-01"
+version: "2026-09-03"
 sort: by_weight
 ...
 
@@ -65,7 +65,6 @@ sort: by_weight
 # *ST建艺	jm yi	100
 # *ST开元	kd yr	100
 # *ST数源	uu yr	100
-# *ST新元	xb yr	100
 # *ST明德	mk de	100
 # *ST易录	yi lu	100
 # *ST春兴	iy xk	100
@@ -164,6 +163,7 @@ sort: by_weight
 # ST惠伦	ST hv ly	100
 # ST惠程	ST hv ig	100
 # ST文峰	ST wf fg	100
+# ST新元	ST xb yr	100
 # ST新华锦	ST xb hx jb	100
 # ST明诚	ST mk ig	100
 # ST易联众	ST yi lm vs	100
@@ -246,7 +246,10 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-N贝特利	N bw te li	100
+C格林生物	C ge lb ug wu	100
+C贝特利	C bw te li	100
+C马矿	C ma kl	100
+N金钛	N jb td	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -852,6 +855,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
