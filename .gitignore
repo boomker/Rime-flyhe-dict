@@ -3,6 +3,7 @@
 __pycache__/
 imewlconverter/
 temp
+.zcode/
 .DS_Store
 .stignore
 flypy_base.*
