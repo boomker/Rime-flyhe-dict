@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-09-03
-# 股票数量：5352
+# 更新时间：2026-09-05
+# 股票数量：5353
 # ST/*ST 注释数量：203
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-09-03"
+version: "2026-09-05"
 sort: by_weight
 ...
 
@@ -249,7 +249,7 @@ sort: by_weight
 C格林生物	C ge lb ug wu	100
 C贝特利	C bw te li	100
 C马矿	C ma kl	100
-N金钛	N jb td	100
+N华汇	N hx hv	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -1985,7 +1985,7 @@ TCL科技	TCL ke ji	100
 城市传媒	ig ui ir mw	100
 城建发展	ig jm fa vj	100
 城投控股	ig tz ks gu	100
-基康技术	ji kh ji uu	100
+基康技	ji kh ji	100
 基蛋生物	ji dj ug wu	100
 塔牌集团	ta pd ji tr	100
 塞力医疗	sd li yi ln	100
@@ -5158,6 +5158,7 @@ TCL科技	TCL ke ji	100
 金迪克	jb di ke	100
 金逸影视	jb yi yk ui	100
 金道科技	jb dc ke ji	100
+金钛股份	jb td gu ff	100
 金钟股份	jb vs gu ff	100
 金钼股份	jb mu gu ff	100
 金银河	jb yb he	100
