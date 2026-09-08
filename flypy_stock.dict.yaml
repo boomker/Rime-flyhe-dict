@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-09-07
+# 更新时间：2026-09-08
 # 股票数量：5354
-# ST/*ST 注释数量：203
+# ST/*ST 注释数量：204
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-09-07"
+version: "2026-09-08"
 sort: by_weight
 ...
 
@@ -155,6 +155,7 @@ sort: by_weight
 # ST太重	ST td vs	100
 # ST如意	ST ru yi	100
 # ST宏达	ST hs da	100
+# ST富煌	ST fu hl	100
 # ST帕瓦	ST pa wa	100
 # ST应急	ST yk ji	100
 # ST得润	ST de ry	100
@@ -247,9 +248,7 @@ sort: by_weight
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
 C格林生物	C ge lb ug wu	100
-C贝特利	C bw te li	100
-C马矿	C ma kl	100
-N杰锋	N jp fg	100
+N天博	N tm bo	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -996,7 +995,7 @@ TCL科技	TCL ke ji	100
 众信旅游	vs xb lv yz	100
 众兴菌业	vs xk jy ye	100
 众合科技	vs he ke ji	100
-众捷汽车	vs jp qi ie	100
+众捷股份	vs jp gu ff	100
 众智科技	vs vi ke ji	100
 众望布艺	vs wh bu yi	100
 众泰汽车	vs td qi ie	100
@@ -2430,7 +2429,6 @@ TCL科技	TCL ke ji	100
 富淼科技	fu mn ke ji	100
 富满微	fu mj ww	100
 富瀚微	fu hj ww	100
-富煌钢构	fu hl gh gz	100
 富特科技	fu te ke ji	100
 富瑞特装	fu rv te vl	100
 富祥股份	fu xl gu ff	100
@@ -3307,6 +3305,7 @@ TCL科技	TCL ke ji	100
 杰理科技	jp li ke ji	100
 杰瑞股份	jp rv gu ff	100
 杰美特	jp mw te	100
+杰锋动力	jp fg ds li	100
 松井股份	ss jk gu ff	100
 松原安全	ss yr an qr	100
 松发股份	ss fa gu ff	100
@@ -4874,6 +4873,7 @@ TCL科技	TCL ke ji	100
 贝斯特	bw si te	100
 贝斯美	bw si mw	100
 贝泰妮	bw td ni	100
+贝特利	bw te li	100
 贝特瑞	bw te rv	100
 贝瑞基因	bw rv ji yb	100
 贝肯能源	bw kf ng yr	100
@@ -5457,6 +5457,7 @@ TCL科技	TCL ke ji	100
 香飘飘	xl pn pn	100
 马可波罗	ma ke bo lo	100
 马应龙	ma yk ls	100
+马矿股份	ma kl gu ff	100
 马钢股份	ma gh gu ff	100
 驰宏锌锗	ii hs xb ve	100
 驰诚股份	ii ig gu ff	100
