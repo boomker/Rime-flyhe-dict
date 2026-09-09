@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-09-08
-# 股票数量：5354
+# 更新时间：2026-09-09
+# 股票数量：5355
 # ST/*ST 注释数量：204
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-09-08"
+version: "2026-09-09"
 sort: by_weight
 ...
 
@@ -247,8 +247,9 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C格林生物	C ge lb ug wu	100
-N天博	N tm bo	100
+C天博	C tm bo	100
+N洛轴	N lo vz	100
+N百迈科	N bd md ke	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -502,7 +503,7 @@ TCL科技	TCL ke ji	100
 东瑞股份	ds rv gu ff	100
 东田微	ds tm ww	100
 东百集团	ds bd ji tr	100
-东睦股份	ds mu gu ff	100
+东睦股	ds mu gu	100
 东箭科技	ds jm ke ji	100
 东航物流	ds hh wu lq	100
 东芯股份	ds xb gu ff	100
@@ -604,10 +605,10 @@ TCL科技	TCL ke ji	100
 中国海诚	vs go hd ig	100
 中国海防	vs go hd fh	100
 中国瑞林	vs go rv lb	100
+中国电	vs go dm	100
 中国电信	vs go dm xb	100
 中国电建	vs go dm jm	100
 中国电影	vs go dm yk	100
-中国电研	vs go dm yj	100
 中国石化	vs go ui hx	100
 中国石油	vs go ui yz	100
 中国神华	vs go uf hx	100
@@ -841,7 +842,7 @@ TCL科技	TCL ke ji	100
 乐凯胶片	le kd jn pm	100
 乐创技术	le il ji uu	100
 乐山电力	le uj dm li	100
-乐心医疗	le xb yi ln	100
+乐心股份	le xb gu ff	100
 乐惠国际	le hv go ji	100
 乐普医疗	le pu yi ln	100
 乐歌股份	yt ge gu ff	100
@@ -854,7 +855,6 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
-九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -1460,7 +1460,7 @@ TCL科技	TCL ke ji	100
 华新建材	hx xb jm cd	100
 华新科技	hx xb ke ji	100
 华新精科	hx xb jk ke	100
-华旺科技	hx wh ke ji	100
+华旺科	hx wh ke	100
 华昌化工	hx ih hx gs	100
 华昌达	hx ih da	100
 华明装备	hx mk vl bw	100
@@ -3311,7 +3311,7 @@ TCL科技	TCL ke ji	100
 松发股份	ss fa gu ff	100
 松炀资源	ss yh zi yr	100
 松芝股份	ss vi gu ff	100
-松霖科技	ss lb ke ji	100
+松霖科	ss lb ke	100
 极米科技	ji mi ke ji	100
 林州重机	lb vz vs ji	100
 林平发展	lb pk fa vj	100
@@ -3334,6 +3334,7 @@ TCL科技	TCL ke ji	100
 格力博	ge li bo	100
 格力电器	ge li dm qi	100
 格尔软件	ge er rr jm	100
+格林生物	ge lb ug wu	100
 格林精密	ge lb jk mi	100
 格林美	ge lb mw	100
 格林达	ge lb da	100
@@ -3638,7 +3639,7 @@ TCL科技	TCL ke ji	100
 洁雅股份	jp ya gu ff	100
 洋河股份	yh he gu ff	100
 洛凯股份	lo kd gu ff	100
-洛阳钼业	lo yh mu ye	100
+洛阳钼	lo yh mu	100
 津富士达	jb fu ui da	100
 津投城开	jb tz ig kd	100
 津滨发展	jb bb fa vj	100
@@ -4531,7 +4532,7 @@ TCL科技	TCL ke ji	100
 联合精密	lm he jk mi	100
 联域股份	lm yu gu ff	100
 联建光电	lm jm gl dm	100
-联影医疗	lm yk yi ln	100
+联影医	lm yk yi	100
 联得装备	lm de vl bw	100
 联德股份	lm de gu ff	100
 联明股份	lm mk gu ff	100
