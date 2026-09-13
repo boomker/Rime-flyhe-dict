@@ -3,7 +3,7 @@
 """
 抖音热榜词条抓取脚本
 自动生成 Rime 输入法字典文件
-自动选择 DeepSeek 当前可用 pro 模型生成拼音
+使用固定 DeepSeek 模型生成拼音
 支持备用数据源
 支持双拼（--encoding flypy，默认）与无声调全拼（--encoding quanpin）两种编码输出
 """
@@ -20,7 +20,6 @@ import requests
 from dateutil.relativedelta import relativedelta
 from openai import OpenAI
 
-from deepseek_model import resolve_deepseek_pro_model
 from flypy_codec import (
     convert_to_flypy,
     is_valid_flypy_code,
@@ -50,9 +49,11 @@ DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
 # DeepSeek API 基础URL
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 
+# 固定使用的 DeepSeek 模型
+DEEPSEEK_MODEL = "deepseek-flash"
+
 # 拼音缓存文件
 CACHE_FILE = "./pinyin_cache.json"
-_RESOLVED_DEEPSEEK_MODEL = None
 
 DYHOT_HEADER = textwrap.dedent(
     """\
@@ -126,7 +127,7 @@ def generate_pinyin_with_deepseek(keywords, cache):
 
     try:
         client = OpenAI(api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL)
-        model_name = get_deepseek_pro_model()
+        model_name = DEEPSEEK_MODEL
         print(f"使用 DeepSeek 模型: {model_name}")
 
         # 分批处理（每次最多20个）
@@ -190,18 +191,6 @@ def generate_pinyin_with_deepseek(keywords, cache):
         raise Exception(f"DeepSeek API 异常: {e}")
 
     return cache
-
-
-def get_deepseek_pro_model():
-    """获取当前可用的 DeepSeek pro 模型名。"""
-    global _RESOLVED_DEEPSEEK_MODEL
-    if _RESOLVED_DEEPSEEK_MODEL:
-        return _RESOLVED_DEEPSEEK_MODEL
-
-    _RESOLVED_DEEPSEEK_MODEL = resolve_deepseek_pro_model(
-        api_key=DEEPSEEK_API_KEY, base_url=DEEPSEEK_BASE_URL
-    )
-    return _RESOLVED_DEEPSEEK_MODEL
 
 
 def simple_pinyin(keyword):
