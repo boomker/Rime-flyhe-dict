@@ -3,7 +3,7 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-09-12
+# 更新时间：2026-09-13
 # 股票数量：5357
 # ST/*ST 注释数量：204
 #
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-09-12"
+version: "2026-09-13"
 sort: by_weight
 ...
 
@@ -248,8 +248,9 @@ sort: by_weight
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
 C天博	C tm bo	100
-C洛轴股份	C lo vz gu ff	100
-C电科思仪	C dm ke si yi	100
+C洛轴	C lo vz	100
+C电科思	C dm ke si	100
+N燧原	N sv yr	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -273,7 +274,7 @@ TCL科技	TCL ke ji	100
 万事利	wj ui li	100
 万兴科技	wj xk ke ji	100
 万凯新材	wj kd xb cd	100
-万华化学	wj hx hx xt	100
+万华化	wj hx hx	100
 万向德农	wj xl de ns	100
 万向钱潮	wj xl qm ic	100
 万和电气	wj he dm qi	100
@@ -800,7 +801,7 @@ TCL科技	TCL ke ji	100
 中锐股份	vs rv gu ff	100
 中闽能源	vs mb ng yr	100
 中际旭创	vs ji xu il	100
-中际联合	vs ji lm he	100
+中际联	vs ji lm	100
 中集环科	vs ji hr ke	100
 中集车辆	vs ji ie ll	100
 中集集团	vs ji ji tr	100
@@ -855,12 +856,11 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
-九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
 九强生物	jq ql ug wu	100
-九洲药业	jq vz yc ye	100
+九洲药	jq vz yc	100
 九洲集团	jq vz ji tr	100
 九牧王	jq mu wh	100
 九联科技	jq lm ke ji	100
@@ -1326,7 +1326,7 @@ TCL科技	TCL ke ji	100
 力芯微	li xb ww	100
 力诺药包	li no yc bc	100
 力量钻石	li ll zr ui	100
-力鼎光电	li dk gl dm	100
+力鼎光	li dk gl	100
 动力新科	ds li xb ke	100
 动力源	ds li yr	100
 劲仔食品	jb zd ui pb	100
@@ -1488,7 +1488,7 @@ TCL科技	TCL ke ji	100
 华润微	hx ry ww	100
 华润新能	hx ry xb ng	100
 华润材料	hx ry cd ln	100
-华润江中	hx ry jl vs	100
+华润江	hx ry jl	100
 华源控股	hx yr ks gu	100
 华灿光电	hx cj gl dm	100
 华熙生物	hx xi ug wu	100
@@ -3067,7 +3067,7 @@ TCL科技	TCL ke ji	100
 方正科技	fh vg ke ji	100
 方正证券	fh vg vg qr	100
 方正阀门	fh vg fa mf	100
-方盛制药	fh ug vi yc	100
+方盛制	fh ug vi	100
 方盛股份	fh ug gu ff	100
 方直科技	fh vi ke ji	100
 方邦股份	fh bh gu ff	100
@@ -3252,7 +3252,7 @@ TCL科技	TCL ke ji	100
 曲美家居	qu mw jx ju	100
 曼卡龙	mj ka ls	100
 曼恩斯特	mj en si te	100
-有友食品	yz yz ui pb	100
+有友食	yz yz ui	100
 有方科技	yz fh ke ji	100
 有研复材	yz yj fu cd	100
 有研新材	yz yj xb cd	100
@@ -3481,7 +3481,7 @@ TCL科技	TCL ke ji	100
 永清环保	ys qk hr bc	100
 永福股份	ys fu gu ff	100
 永臻股份	ys vf gu ff	100
-永艺股份	ys yi gu ff	100
+永艺股	ys yi gu	100
 永茂泰	ys mc td	100
 永贵电器	ys gv dm qi	100
 永辉超市	ys hv ic ui	100
@@ -4644,7 +4644,7 @@ TCL科技	TCL ke ji	100
 节能国祯	jp ng go vf	100
 节能环境	jp ng hr jk	100
 节能铁汉	jp ng tp hj	100
-节能风电	jp ng fg dm	100
+节能风	jp ng fg	100
 芒果超媒	mh go ic mw	100
 芭田股份	ba tm gu ff	100
 芭薇股份	ba ww gu ff	100
@@ -4913,7 +4913,7 @@ TCL科技	TCL ke ji	100
 赛英电子	sd yk dm zi	100
 赛诺医疗	sd no yi ln	100
 赛象科技	sd xl ke ji	100
-赛轮轮胎	sd ly ly td	100
+赛轮轮	sd ly ly	100
 赞宇科技	zj yu ke ji	100
 赢合科技	yk he ke ji	100
 赢时胜	yk ui ug	100
@@ -5439,7 +5439,7 @@ TCL科技	TCL ke ji	100
 飞南资源	fw nj zi yr	100
 飞天诚信	fw tm ig xb	100
 飞沃科技	fw wo ke ji	100
-飞科电器	fw ke dm qi	100
+飞科电	fw ke dm	100
 飞荣达	fw rs da	100
 飞马国际	fw ma go ji	100
 飞鹿股份	fw lu gu ff	100
