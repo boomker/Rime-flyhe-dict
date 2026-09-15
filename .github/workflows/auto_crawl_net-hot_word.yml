@@ -4,7 +4,7 @@ name: auto_crawl_net_hot_word
 
 on:
   schedule:
-    - cron: "0 4 * * *" # 每天北京时间中午 12:00（UTC 04:00）
+    - cron: "0 1 * * *" 
   workflow_dispatch:
 
 # 权限配置
