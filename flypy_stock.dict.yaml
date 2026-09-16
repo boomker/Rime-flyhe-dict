@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-09-15
-# 股票数量：5358
+# 更新时间：2026-09-16
+# 股票数量：5359
 # ST/*ST 注释数量：204
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-09-15"
+version: "2026-09-16"
 sort: by_weight
 ...
 
@@ -247,9 +247,9 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C洛轴股份	C lo vz gu ff	100
 C燧原	C sv yr	100
 C电科思仪	C dm ke si yi	100
+N腾信	N tg xb	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -2687,7 +2687,7 @@ TCL科技	TCL ke ji	100
 当升科技	dh ug ke ji	100
 当虹科技	dh hs ke ji	100
 彤程新材	ts ig xb cd	100
-彩客科技	cd ke ke ji	100
+彩客科	cd ke ke	100
 彩虹股份	cd hs gu ff	100
 彩虹集团	cd hs ji tr	100
 彩蝶实业	cd dp ui ye	100
@@ -3134,7 +3134,7 @@ TCL科技	TCL ke ji	100
 明阳智能	mk yh vi ng	100
 明阳电气	mk yh dm qi	100
 明阳电路	mk yh dm lu	100
-明阳科	mk yh ke	100
+明阳科技	mk yh ke ji	100
 易事特	yi ui te	100
 易天股份	yi tm gu ff	100
 易实精密	yi ui jk mi	100
@@ -3641,6 +3641,7 @@ TCL科技	TCL ke ji	100
 洁雅股份	jp ya gu ff	100
 洋河股份	yh he gu ff	100
 洛凯股份	lo kd gu ff	100
+洛轴股份	lo vz gu ff	100
 洛阳钼业	lo yh mu ye	100
 津富士达	jb fu ui da	100
 津投城开	jb tz ig kd	100
