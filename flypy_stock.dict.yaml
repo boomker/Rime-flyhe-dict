@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-09-18
-# 股票数量：5359
+# 更新时间：2026-09-19
+# 股票数量：5360
 # ST/*ST 注释数量：204
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-09-18"
+version: "2026-09-19"
 sort: by_weight
 ...
 
@@ -248,8 +248,8 @@ sort: by_weight
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
 C信诺维	C xb no ww	100
-C燧原科技	C sv yr ke ji	100
-N沈鼓集团	N uf gu ji tr	100
+C燧原	C sv yr	100
+N沈鼓	N uf gu	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -403,7 +403,7 @@ TCL科技	TCL ke ji	100
 上海建工	uh hd jm gs	100
 上海建科集团	uh hd jm ke ji tr	100
 上海新阳	uh hd xb yh	100
-上海机场	uh hd ji ih	100
+上海机	uh hd ji	100
 上海机电	uh hd ji dm	100
 上海柏楚电子科技	uh hd bd iu dm zi ke ji	100
 上海汽配	uh hd qi pw	100
@@ -862,6 +862,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨环科	jq vz yi gv hr ke	100
 九州通	jq vz ts	100
@@ -1574,7 +1575,7 @@ TCL科技	TCL ke ji	100
 卓郎智能	vo lh vi ng	100
 南亚新材料	nj ya xb cd ln	100
 南京公用	nj jk gs ys	100
-南京医药	nj jk yi yc	100
+南京医	nj jk yi	100
 南京商旅	nj jk uh lv	100
 南京新百	nj jk xb bd	100
 南京港	nj jk gh	100
@@ -1923,7 +1924,7 @@ TCL科技	TCL ke ji	100
 国统股份	go ts gu ff	100
 国缆检测	go lj jm ce	100
 国网信通	go wh xb ts	100
-国网英大	go wh yk da	100
+国网英	go wh yk	100
 国联民生	go lm mb ug	100
 国联水产	go lm uv ij	100
 国联股份	go lm gu ff	100
@@ -2721,7 +2722,7 @@ TCL科技	TCL ke ji	100
 德生科技	de ug ke ji	100
 德石股份	de ui gu ff	100
 德福科技	de fu ke ji	100
-德科立光电子	de ke li gl dm zi	100
+德科立	de ke li	100
 德美化工	de mw hx gs	100
 德联集团	de lm ji tr	100
 德艺文创	de yi wf il	100
@@ -2761,7 +2762,7 @@ TCL科技	TCL ke ji	100
 怡球资源	yi qq zi yr	100
 怡达股份	yi da gu ff	100
 恒丰纸业	hg fg vi ye	100
-恒为科技	hg ww ke ji	100
+恒为科	hg ww ke	100
 恒光股份	hg gl gu ff	100
 恒兴新材料科技	hg xk xb cd ln ke ji	100
 恒兴股份	hg xk gu ff	100
@@ -4395,7 +4396,7 @@ TCL科技	TCL ke ji	100
 紫金矿业	zi jb kl ye	100
 紫金银行	zi jb yb hh	100
 紫金龙净	zi jb ls jk	100
-红塔证券	hs ta vg qr	100
+红塔证	hs ta vg	100
 红墙股份	hs ql gu ff	100
 红太阳	hs td yh	100
 红宝丽	hs bc li	100
@@ -5546,7 +5547,7 @@ TCL科技	TCL ke ji	100
 鼎汉技术	dk hj ji uu	100
 鼎泰高科	dk td gc ke	100
 鼎熔岩	dk rs yj	100
-鼎胜新材	dk ug xb cd	100
+鼎胜新	dk ug xb	100
 鼎通科技	dk ts ke ji	100
 鼎阳科技	dk yh ke ji	100
 鼎际得股份	dk ji de gu ff	100
@@ -5579,4 +5580,4 @@ TCL科技	TCL ke ji	100
 龙辰科技	ls if ke ji	100
 龙迅股份	ls xy gu ff	100
 龙鑫智能	ls xb vi ng	100
-龙高股份	ls gc gu ff	100
+龙高股	ls gc gu	100
