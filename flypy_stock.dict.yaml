@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-09-23
-# 股票数量：5363
+# 更新时间：2026-09-24
+# 股票数量：5364
 # ST/*ST 注释数量：204
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-09-23"
+version: "2026-09-24"
 sort: by_weight
 ...
 
@@ -248,9 +248,8 @@ sort: by_weight
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
 C中塑股份	C vs su gu ff	100
-C信诺维	C xb no ww	100
 C沈鼓	C uf gu	100
-N凯达	N kd da	100
+N百瑞吉	N bd rv ji	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -282,7 +281,7 @@ TCL科技	TCL ke ji	100
 万年青	wj nm qk	100
 万得凯	wj de kd	100
 万德斯环保	wj de si hr bc	100
-万德股份	wj de gu ff	100
+万德股	wj de gu	100
 万憬能源	wj jk ng yr	100
 万控智造	wj ks vi zc	100
 万朗磁塑	wj lh ci su	100
@@ -322,7 +321,7 @@ TCL科技	TCL ke ji	100
 三佳科技	sj jx ke ji	100
 三元基因	sj yr ji yb	100
 三元生物	sj yr ug wu	100
-三元股	sj yr gu	100
+三元股份	sj yr gu ff	100
 三全食品	sj qr ui pb	100
 三六零	sj lq lk	100
 三利谱	sj li pu	100
@@ -465,7 +464,7 @@ TCL科技	TCL ke ji	100
 东吴证券	ds wu vg qr	100
 东和新材	ds he xb cd	100
 东土科技	ds tu ke ji	100
-东威科	ds ww ke	100
+东威科技	ds ww ke ji	100
 东安动力	ds an ds li	100
 东宏股份	ds hs gu ff	100
 东宝生物	ds bc ug wu	100
@@ -830,7 +829,7 @@ TCL科技	TCL ke ji	100
 丰立智能	fg li vi ng	100
 丰茂股份	fg mc gu ff	100
 丸美生物	wj mw ug wu	100
-丹娜生	dj na ug	100
+丹娜生物	dj na ug wu	100
 丽人丽妆	li rf li vl	100
 丽尚国潮	li uh go ic	100
 丽岛新材	li dc xb cd	100
@@ -1084,6 +1083,7 @@ TCL科技	TCL ke ji	100
 信立泰	xb li td	100
 信维通信	xb ww ts xb	100
 信胜科技	xb ug ke ji	100
+信诺维	xb no ww	100
 信质集团	xb vi ji tr	100
 信达地产	xb da di ij	100
 信达证券	xb da vg qr	100
@@ -1191,7 +1191,7 @@ TCL科技	TCL ke ji	100
 共达电声	gs da dm ug	100
 共进股份	gs jb gu ff	100
 兴业科技	xk ye ke ji	100
-兴业股	xk ye gu	100
+兴业股份	xk ye gu ff	100
 兴业证券	xk ye vg qr	100
 兴业银行	xk ye yb hh	100
 兴业银锡	xk ye yb xi	100
@@ -1270,6 +1270,7 @@ TCL科技	TCL ke ji	100
 凯腾精工	kd tg jk gs	100
 凯莱英	kd ld yk	100
 凯赛生物	kd sd ug wu	100
+凯达重工	kd da vs gs	100
 凯迪股份	kd di gu ff	100
 凯龙股份	kd ls gu ff	100
 凯龙高科	kd ls gc ke	100
@@ -2371,7 +2372,7 @@ TCL科技	TCL ke ji	100
 宝丰能源	bc fg ng yr	100
 宝丽迪	bc li di	100
 宝信软件	bc xb rr jm	100
-宝光股	bc gl gu	100
+宝光股份	bc gl gu ff	100
 宝兰德软件	bc lj de rr jm	100
 宝利国际	bc li go ji	100
 宝地矿业	bc di kl ye	100
@@ -2609,7 +2610,7 @@ TCL科技	TCL ke ji	100
 康惠股份	kh hv gu ff	100
 康拓医疗	kh to yi ln	100
 康斯特	kh si te	100
-康普化	kh pu hx	100
+康普化学	kh pu hx xt	100
 康普顿	kh pu dy	100
 康欣新材	kh xb xb cd	100
 康比特	kh bi te	100
@@ -3252,7 +3253,7 @@ TCL科技	TCL ke ji	100
 有研粉材	yz yj ff cd	100
 有研金属复材	yz yj jb uu fu cd	100
 朗信电气	lh xb dm qi	100
-朗博科	lh bo ke	100
+朗博科技	lh bo ke ji	100
 朗坤科技	lh ky ke ji	100
 朗姿股份	lh zi gu ff	100
 朗威股份	lh ww gu ff	100
@@ -3999,7 +4000,7 @@ TCL科技	TCL ke ji	100
 珀莱雅	po ld ya	100
 珂玛科技	ke ma ke ji	100
 珈伟新能	jx ww xb ng	100
-珈凯生物	jx kd ug wu	100
+珈凯生	jx kd ug	100
 珍宝岛	vf bc dc	100
 珠免集团	vu mm ji tr	100
 珠城科技	vu ig ke ji	100
@@ -5351,7 +5352,7 @@ TCL科技	TCL ke ji	100
 隆基绿能	ls ji lv ng	100
 隆平高科	ls pk gc ke	100
 隆扬电子	ls yh dm zi	100
-隆源股	ls yr gu	100
+隆源股份	ls yr gu ff	100
 隆盛科技	ls ug ke ji	100
 隆达超合金股份	ls da ic he jb gu ff	100
 隆鑫通用	ls xb ts ys	100
@@ -5473,7 +5474,7 @@ TCL科技	TCL ke ji	100
 驰宏锌锗	ii hs xb ve	100
 驰诚股份	ii ig gu ff	100
 驱动力	qu ds li	100
-骄成超	jn ig ic	100
+骄成超声	jn ig ic ug	100
 骆驼股份	lo to gu ff	100
 骏亚科技	jy ya ke ji	100
 骏创科技	jy il ke ji	100
