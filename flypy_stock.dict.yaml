@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-09-18
-# 股票数量：5359
+# 更新时间：2026-09-26
+# 股票数量：5364
 # ST/*ST 注释数量：204
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-09-18"
+version: "2026-09-26"
 sort: by_weight
 ...
 
@@ -247,9 +247,9 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C信诺维	C xb no ww	100
-C燧原科技	C sv yr ke ji	100
-N沈鼓集团	N uf gu ji tr	100
+C中塑股份	C vs su gu ff	100
+C沈鼓	C uf gu	100
+N百瑞吉	N bd rv ji	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -281,7 +281,7 @@ TCL科技	TCL ke ji	100
 万年青	wj nm qk	100
 万得凯	wj de kd	100
 万德斯环保	wj de si hr bc	100
-万德股份	wj de gu ff	100
+万德股	wj de gu	100
 万憬能源	wj jk ng yr	100
 万控智造	wj ks vi zc	100
 万朗磁塑	wj lh ci su	100
@@ -440,6 +440,7 @@ TCL科技	TCL ke ji	100
 世纪华通	ui ji hx ts	100
 世纪天鸿	ui ji tm hs	100
 世纪恒通	ui ji hg ts	100
+世纪数码	ui ji uu ma	100
 世纪瑞尔	ui ji rv er	100
 世纪鼎利	ui ji dk li	100
 世联行	ui lm hh	100
@@ -773,7 +774,7 @@ TCL科技	TCL ke ji	100
 中衡设计	vs hg ue ji	100
 中裕科技	vs yu ke ji	100
 中视传媒	vs ui ir mw	100
-中触媒股份	vs iu mw gu ff	100
+中触媒	vs iu mw	100
 中设咨询	vs ue zi xy	100
 中诚咨询	vs ig zi xy	100
 中谷物流	vs gu wu lq	100
@@ -862,6 +863,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨环科	jq vz yi gv hr ke	100
 九州通	jq vz ts	100
@@ -1081,6 +1083,7 @@ TCL科技	TCL ke ji	100
 信立泰	xb li td	100
 信维通信	xb ww ts xb	100
 信胜科技	xb ug ke ji	100
+信诺维	xb no ww	100
 信质集团	xb vi ji tr	100
 信达地产	xb da di ij	100
 信达证券	xb da vg qr	100
@@ -1267,6 +1270,7 @@ TCL科技	TCL ke ji	100
 凯腾精工	kd tg jk gs	100
 凯莱英	kd ld yk	100
 凯赛生物	kd sd ug wu	100
+凯达重工	kd da vs gs	100
 凯迪股份	kd di gu ff	100
 凯龙股份	kd ls gu ff	100
 凯龙高科	kd ls gc ke	100
@@ -3944,6 +3948,7 @@ TCL科技	TCL ke ji	100
 燕京啤酒	yj jk pi jq	100
 燕塘乳业	yj th ru ye	100
 燕麦科技	yj md ke ji	100
+燧原科技	sv yr ke ji	100
 爱丽家居	ai li jx ju	100
 爱乐达	ai le da	100
 爱仕达	ai ui da	100
@@ -3995,7 +4000,7 @@ TCL科技	TCL ke ji	100
 珀莱雅	po ld ya	100
 珂玛科技	ke ma ke ji	100
 珈伟新能	jx ww xb ng	100
-珈凯生物	jx kd ug wu	100
+珈凯生	jx kd ug	100
 珍宝岛	vf bc dc	100
 珠免集团	vu mm ji tr	100
 珠城科技	vu ig ke ji	100
@@ -4433,7 +4438,7 @@ TCL科技	TCL ke ji	100
 维峰电子	ww fg dm zi	100
 维康药业	ww kh yc ye	100
 维海德	ww hd de	100
-维琪科	ww qi ke	100
+维琪科技	ww qi ke ji	100
 维科技术	ww ke ji uu	100
 维科精密	ww ke jk mi	100
 维维股份	ww ww gu ff	100
@@ -5469,7 +5474,7 @@ TCL科技	TCL ke ji	100
 驰宏锌锗	ii hs xb ve	100
 驰诚股份	ii ig gu ff	100
 驱动力	qu ds li	100
-骄成超声波	jn ig ic ug bo	100
+骄成超声	jn ig ic ug	100
 骆驼股份	lo to gu ff	100
 骏亚科技	jy ya ke ji	100
 骏创科技	jy il ke ji	100
@@ -5572,7 +5577,7 @@ TCL科技	TCL ke ji	100
 龙溪股份	ls xi gu ff	100
 龙版传媒	ls bj ir mw	100
 龙磁科技	ls ci ke ji	100
-龙竹科	ls vu ke	100
+龙竹科技	ls vu ke ji	100
 龙芯中科	ls xb vs ke	100
 龙蟠科技	ls pj ke ji	100
 龙软科技	ls rr ke ji	100
