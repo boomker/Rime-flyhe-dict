@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-09-25
-# 股票数量：5363
+# 更新时间：2026-09-26
+# 股票数量：5364
 # ST/*ST 注释数量：204
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-09-25"
+version: "2026-09-26"
 sort: by_weight
 ...
 
@@ -247,9 +247,8 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C中塑	C vs su	100
-C信诺维	C xb no ww	100
-C沈鼓集团	C uf gu ji tr	100
+C中塑股份	C vs su gu ff	100
+C沈鼓	C uf gu	100
 N百瑞吉	N bd rv ji	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
@@ -775,7 +774,7 @@ TCL科技	TCL ke ji	100
 中衡设计	vs hg ue ji	100
 中裕科技	vs yu ke ji	100
 中视传媒	vs ui ir mw	100
-中触媒股份	vs iu mw gu ff	100
+中触媒	vs iu mw	100
 中设咨询	vs ue zi xy	100
 中诚咨询	vs ig zi xy	100
 中谷物流	vs gu wu lq	100
@@ -864,6 +863,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨环科	jq vz yi gv hr ke	100
 九州通	jq vz ts	100
@@ -1083,6 +1083,7 @@ TCL科技	TCL ke ji	100
 信立泰	xb li td	100
 信维通信	xb ww ts xb	100
 信胜科技	xb ug ke ji	100
+信诺维	xb no ww	100
 信质集团	xb vi ji tr	100
 信达地产	xb da di ij	100
 信达证券	xb da vg qr	100
@@ -5473,7 +5474,7 @@ TCL科技	TCL ke ji	100
 驰宏锌锗	ii hs xb ve	100
 驰诚股份	ii ig gu ff	100
 驱动力	qu ds li	100
-骄成超声波	jn ig ic ug bo	100
+骄成超声	jn ig ic ug	100
 骆驼股份	lo to gu ff	100
 骏亚科技	jy ya ke ji	100
 骏创科技	jy il ke ji	100
