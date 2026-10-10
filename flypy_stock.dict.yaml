@@ -3,7 +3,7 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-10-09
+# 更新时间：2026-10-10
 # 股票数量：5372
 # ST/*ST 注释数量：201
 #
@@ -13,11 +13,11 @@
 #
 ---
 name: flypy_stock
-version: "2026-10-09"
+version: "2026-10-10"
 sort: by_weight
 ...
 
-# *ST三六五	sj lq wu	100
+# *ST三六	sj lq	100
 # *ST三房	sj fh	100
 # *ST东智	ds vi	100
 # *ST东珠	ds vu	100
@@ -572,10 +572,10 @@ TCL科技	TCL ke ji	100
 中嘉博创	vs jx bo il	100
 中国一重	vs go yi vs	100
 中国东航	vs go ds hh	100
-中国中	vs go vs	100
 中国中免	vs go vs mm	100
 中国中冶	vs go vs ye	100
 中国中车	vs go vs ie	100
+中国中铁	vs go vs tp	100
 中国交建	vs go jn jm	100
 中国人保	vs go rf bc	100
 中国人寿	vs go rf uz	100
@@ -1490,7 +1490,7 @@ TCL科技	TCL ke ji	100
 华润三九	hx ry sj jq	100
 华润双鹤	hx ry ul he	100
 华润微	hx ry ww	100
-华润新能源	hx ry xb ng yr	100
+华润新能	hx ry xb ng	100
 华润材料	hx ry cd ln	100
 华润江中	hx ry jl vs	100
 华源控股	hx yr ks gu	100
@@ -5151,7 +5151,7 @@ TCL科技	TCL ke ji	100
 金瑞矿业	jb rv kl ye	100
 金田股份	jb tm gu ff	100
 金百泽	jb bd ze	100
-金盘科	jb pj ke	100
+金盘科技	jb pj ke ji	100
 金盾股份	jb dy gu ff	100
 金石亚药	jb ui ya yc	100
 金石资源	jb ui zi yr	100
