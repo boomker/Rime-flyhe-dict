@@ -3,7 +3,7 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-10-11
+# 更新时间：2026-10-12
 # 股票数量：5372
 # ST/*ST 注释数量：201
 #
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-10-11"
+version: "2026-10-12"
 sort: by_weight
 ...
 
@@ -246,7 +246,6 @@ sort: by_weight
 鲁泰A	lu td	100
 C力勤资源	C li qb zi yr	100
 C鸿富诚	C hs fu ig	100
-N宇特	N yu te	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -2294,6 +2293,7 @@ TCL科技	TCL ke ji	100
 宇新股份	yu xb gu ff	100
 宇晶股份	yu jk gu ff	100
 宇树科技	yu uu ke ji	100
+宇特光电	yu te gl dm	100
 宇环数控	yu hr uu ks	100
 宇瞳光学	yu ts gl xt	100
 宇通客车	yu ts ke ie	100
