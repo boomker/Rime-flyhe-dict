@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-10-14
-# 股票数量：5373
+# 更新时间：2026-10-15
+# 股票数量：5374
 # ST/*ST 注释数量：201
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-10-14"
+version: "2026-10-15"
 sort: by_weight
 ...
 
@@ -244,7 +244,9 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C粤芯半导体	C yt xb bj dc ti	100
+C粤芯	C yt xb	100
+N联亚	N lm ya	100
+N莫森	N mo sf	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -418,13 +420,13 @@ TCL科技	TCL ke ji	100
 上海钢联	uh hd gh lm	100
 上海银行	uh hd yb hh	100
 上海雅仕	uh hd ya ui	100
-上港集团	uh gh ji tr	100
+上港集	uh gh ji	100
 上纬新材	uh ww xb cd	100
 上能电气	uh ng dm qi	100
 世华科技	ui hx ke ji	100
 世名科技	ui mk ke ji	100
 世嘉科技	ui jx ke ji	100
-世昌股份	ui ih gu ff	100
+世昌股	ui ih gu	100
 世盟股份	ui mg gu ff	100
 世纪华通	ui ji hx ts	100
 世纪天鸿	ui ji tm hs	100
@@ -570,9 +572,9 @@ TCL科技	TCL ke ji	100
 中嘉博创	vs jx bo il	100
 中国一重	vs go yi vs	100
 中国东航	vs go ds hh	100
+中国中	vs go vs	100
 中国中免	vs go vs mm	100
 中国中冶	vs go vs ye	100
-中国中车	vs go vs ie	100
 中国中铁	vs go vs tp	100
 中国交建	vs go jn jm	100
 中国人保	vs go rf bc	100
@@ -853,7 +855,6 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
-九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -899,7 +900,7 @@ TCL科技	TCL ke ji	100
 五洲特纸	wu vz te vi	100
 五矿发展	wu kl fa vj	100
 五矿新能	wu kl xb ng	100
-五矿资本	wu kl zi bf	100
+五矿资	wu kl zi	100
 五粮液	wu ll ye	100
 五芳斋	wu fh vd	100
 井松智能	jk ss vi ng	100
@@ -1191,7 +1192,7 @@ TCL科技	TCL ke ji	100
 共进股份	gs jb gu ff	100
 兴业科技	xk ye ke ji	100
 兴业股份	xk ye gu ff	100
-兴业证券	xk ye vg qr	100
+兴业证	xk ye vg	100
 兴业银行	xk ye yb hh	100
 兴业银锡	xk ye yb xi	100
 兴发集团	xk fa ji tr	100
@@ -1607,7 +1608,7 @@ TCL科技	TCL ke ji	100
 南宁百货	nj nk bd ho	100
 南山控股	nj uj ks gu	100
 南山智尚	nj uj vi uh	100
-南山铝业	nj uj lv ye	100
+南山铝	nj uj lv	100
 南微医学	nj ww yi xt	100
 南方传媒	nj fh ir mw	100
 南方泵业	nj fh bg ye	100
@@ -1962,7 +1963,7 @@ TCL科技	TCL ke ji	100
 圣农发展	ug ns fa vj	100
 圣晖集成	ug hv ji ig	100
 圣泉集团	ug qr ji tr	100
-圣湘生物	ug xl ug wu	100
+圣湘生	ug xl ug	100
 圣诺生物	ug no ug wu	100
 圣达生物	ug da ug wu	100
 圣邦股份	ug bh gu ff	100
@@ -2079,7 +2080,7 @@ TCL科技	TCL ke ji	100
 天元智能	tm yr vi ng	100
 天元股份	tm yr gu ff	100
 天准科技	tm vy ke ji	100
-天创时尚	tm il ui uh	100
+天创股份	tm il gu ff	100
 天利科技	tm li ke ji	100
 天力复合	tm li fu he	100
 天力锂能	tm li li ng	100
@@ -2554,7 +2555,7 @@ TCL科技	TCL ke ji	100
 平治信息	pk vi xb xi	100
 平潭发展	pk tj fa vj	100
 平煤股份	pk mw gu ff	100
-平高电气	pk gc dm qi	100
+平高电	pk gc dm	100
 并行科技	bk xk ke ji	100
 幸福蓝海	xk fu lj hd	100
 广东宏大	gl ds hs da	100
@@ -3098,13 +3099,13 @@ TCL科技	TCL ke ji	100
 日盈电子	ri yk dm zi	100
 日科化学	ri ke hx xt	100
 日联科技	ri lm ke ji	100
-日辰股份	ri if gu ff	100
+日辰股	ri if gu	100
 旭光电子	xu gl dm zi	100
 旭升集团	xu ug ji tr	100
 旭杰科技	xu jp ke ji	100
 时代万恒	ui dd wj hg	100
 时代出版	ui dd iu bj	100
-时代新材	ui dd xb cd	100
+时代新	ui dd xb	100
 时代电气	ui dd dm qi	100
 时创能源	ui il ng yr	100
 时空科技	ui ks ke ji	100
@@ -3186,7 +3187,7 @@ TCL科技	TCL ke ji	100
 昭衍新药	vc yj xb yc	100
 昱能科技	yu ng ke ji	100
 显盈科技	xm yk ke ji	100
-晋亿实业	jb yi ui ye	100
+晋亿实	jb yi ui	100
 晋拓股份	jb to gu ff	100
 晋控煤业	jb ks mw ye	100
 晋控电力	jb ks dm li	100
@@ -3363,7 +3364,7 @@ TCL科技	TCL ke ji	100
 梦洁股份	mg jp gu ff	100
 梦百合	mg bd he	100
 梦网科技	mg wh ke ji	100
-森合高科	sf he gc ke	100
+森合高	sf he gc	100
 森林包装	sf lb bc vl	100
 森泰股份	sf td gu ff	100
 森源电气	sf yr dm qi	100
@@ -3458,7 +3459,7 @@ TCL科技	TCL ke ji	100
 氯碱化工	lv jm hx gs	100
 水井坊	uv jk fh	100
 水发燃气	uv fa rj qi	100
-水星家纺	uv xk jx fh	100
+水星家	uv xk jx	100
 水晶光电	uv jk gl dm	100
 水羊股份	uv yh gu ff	100
 永东股份	ys ds gu ff	100
@@ -4099,7 +4100,7 @@ TCL科技	TCL ke ji	100
 登海种业	dg hd vs ye	100
 白云山	bd yy uj	100
 白云机场	bd yy ji ih	100
-白云电器	bd yy dm qi	100
+白云电	bd yy dm	100
 白银有色	bd yb yz se	100
 百亚股份	bd ya gu ff	100
 百傲化学	bd ao hx xt	100
@@ -4241,7 +4242,7 @@ TCL科技	TCL ke ji	100
 神雾节能	uf wu jp ng	100
 神马电力	uf ma dm li	100
 神马股份	uf ma gu ff	100
-神驰机电	uf ii ji dm	100
+神驰机	uf ii ji	100
 祥和实业	xl he ui ye	100
 祥明智能	xl mk vi ng	100
 祥源文旅	xl yr wf lv	100
@@ -4678,7 +4679,7 @@ TCL科技	TCL ke ji	100
 苏农银行	su ns yb hh	100
 苏利股份	su li gu ff	100
 苏博特	su bo te	100
-苏垦农发	su kf ns fa	100
+苏垦农	su kf ns	100
 苏大维格	su da ww ge	100
 苏奥传感	su ao ir gj	100
 苏宁环球	su nk hr qq	100
