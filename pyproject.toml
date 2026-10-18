@@ -17,6 +17,6 @@ dependencies = [
     "python-dateutil>=2.9.0.post0",
     "requests>=2.34.2",
 ]
-requires-python = ">=3.14,<3.15"
+requires-python = ">=3.14.8,<3.15"
 readme = "README.md"
 license = {text = "MIT"}
