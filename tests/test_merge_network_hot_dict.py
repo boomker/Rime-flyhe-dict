@@ -1,11 +1,13 @@
 import sys
 import tempfile
 import unittest
+from datetime import datetime
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools/python"))
 
-from crawl_net_hot_dict import (  # noqa: E402
+from merge_network_hot_dict import (  # noqa: E402
+    ENCODING_ALL,
     ENCODING_FLYPY,
     ENCODING_QUANPIN,
     cleanup_old_entries,
@@ -14,11 +16,18 @@ from crawl_net_hot_dict import (  # noqa: E402
     merge_dict_files,
     parse_timestamp_blocks,
     process_diff_sg_file,
+    requested_encodings,
     sghot_header_template,
 )
 
 
-class CrawlNetHotDictEncodingTest(unittest.TestCase):
+class MergeNetworkHotDictEncodingTest(unittest.TestCase):
+    def test_requested_encodings_expands_all_mode(self):
+        self.assertEqual(
+            requested_encodings(ENCODING_ALL), (ENCODING_FLYPY, ENCODING_QUANPIN)
+        )
+        self.assertEqual(requested_encodings(ENCODING_FLYPY), (ENCODING_FLYPY,))
+
     def test_dict_file_paths_per_encoding(self):
         self.assertEqual(
             dict_file_paths(ENCODING_FLYPY),
@@ -38,7 +47,7 @@ class CrawlNetHotDictEncodingTest(unittest.TestCase):
         self.assertNotIn("全拼", sghot_header_template(ENCODING_FLYPY))
 
 
-class CrawlNetHotDictBuildTest(unittest.TestCase):
+class MergeNetworkHotDictBuildTest(unittest.TestCase):
     def setUp(self):
         self._tmp = tempfile.TemporaryDirectory()
         self.addCleanup(self._tmp.cleanup)
@@ -114,9 +123,10 @@ class CrawlNetHotDictBuildTest(unittest.TestCase):
     def test_cleanup_rewrites_recent_blocks_with_normalization(self):
         tmp = Path(self._tmp.name)
         sghot_file = tmp / "flypy_sghot.dict.yaml"
+        today = datetime.now().strftime("%Y-%m-%d")
         # 全部区块都在保留期内：即使没有过期条目，也应重写并归一化存量词条
         sghot_file.write_text(
-            "## 2026-08-23 {\n阿根\taa gf\t1\n行长行长\thh vh\t100\n## 2026-08-23 }\n",
+            f"## {today} {{\n阿根\taa gf\t1\n行长行长\thh vh\t100\n## {today} }}\n",
             encoding="utf-8",
         )
         removed = cleanup_old_entries(str(sghot_file), days=3, encoding=ENCODING_FLYPY)

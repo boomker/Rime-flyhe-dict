@@ -34,7 +34,13 @@ FALLBACK_API_URL = "https://v2.xxapi.cn/api/baiduhot"
 
 ENCODING_FLYPY = "flypy"
 ENCODING_QUANPIN = "quanpin"
+ENCODING_ALL = "all"
 ENCODINGS = (ENCODING_FLYPY, ENCODING_QUANPIN)
+ENCODING_CHOICES = (*ENCODINGS, ENCODING_ALL)
+
+# 热榜接口偶发响应较慢；给请求和重试留出更充足的时间。
+HOT_KEYWORD_REQUEST_TIMEOUT_SECONDS = 60
+HOT_KEYWORD_RETRY_DELAY_SECONDS = 10
 
 
 def output_file_for(encoding):
@@ -42,6 +48,13 @@ def output_file_for(encoding):
     if encoding == ENCODING_QUANPIN:
         return "./flypy_dyhot_quanpin.dict.yaml"
     return "./flypy_dyhot.dict.yaml"
+
+
+def requested_encodings(encoding):
+    """把 all 展开为双拼和全拼，其余模式保持单输出。"""
+    if encoding == ENCODING_ALL:
+        return ENCODINGS
+    return (encoding,)
 
 
 DEEPSEEK_API_KEY = os.environ.get("DEEPSEEK_API_KEY", "")
@@ -237,11 +250,11 @@ def get_pinyin(keyword, cache):
 def fetch_hot_keywords_from_url(api_url, source_name):
     """从指定URL获取热榜关键词"""
     max_retries = 3
-    retry_delay = 3
+    retry_delay = HOT_KEYWORD_RETRY_DELAY_SECONDS
 
     for attempt in range(1, max_retries + 1):
         try:
-            response = requests.get(api_url, timeout=30)
+            response = requests.get(api_url, timeout=HOT_KEYWORD_REQUEST_TIMEOUT_SECONDS)
             data = response.json()
 
             if data.get("code") != 200:
@@ -445,21 +458,21 @@ def parse_args():
     parser = argparse.ArgumentParser(description="抖音热榜词条抓取脚本")
     parser.add_argument(
         "--encoding",
-        choices=ENCODINGS,
+        choices=ENCODING_CHOICES,
         default=ENCODING_FLYPY,
-        help="词库编码：flypy=小鹤双拼（默认），quanpin=无声调全拼（供 full_pinyin 分支）",
+        help="词库编码：flypy=小鹤双拼（默认），quanpin=无声调全拼，all=一次生成两种",
     )
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
-    encoding = args.encoding
-    output_file = output_file_for(encoding)
+    encodings = requested_encodings(args.encoding)
+    encoding_label = " + ".join(encodings)
 
     print("=" * 50)
     print("抖音热榜词条抓取脚本")
-    print(f"编码模式: {encoding}")
+    print(f"编码模式: {encoding_label}")
     print("=" * 50)
 
     source_used = ""
@@ -494,23 +507,29 @@ def main():
         sorted_keywords = sort_keywords(valid_keywords, cache)
         print("   按长度和拼音排序完成")
 
-        # 5. 生成输出文件
+        # 5. 生成输出文件（all 模式复用本次热榜和拼音缓存）
         print("\n[5/5] 生成输出文件...")
-        existing_data = read_existing_file(output_file, encoding)
-        output_content = generate_output(sorted_keywords, cache, existing_data, encoding)
+        output_files = []
+        for encoding in encodings:
+            output_file = output_file_for(encoding)
+            existing_data = read_existing_file(output_file, encoding)
+            output_content = generate_output(
+                sorted_keywords, cache, existing_data, encoding
+            )
 
-        # 写入文件
-        with open(output_file, "w", encoding="utf-8") as f:
-            f.write(output_content)
+            with open(output_file, "w", encoding="utf-8") as f:
+                f.write(output_content)
 
-        print(f"   文件已写入: {output_file}")
+            output_files.append(output_file)
+            print(f"   文件已写入: {output_file}")
 
         print("\n" + "=" * 50)
         print("完成!")
         print(f"日期: {datetime.datetime.now().strftime('%Y-%m-%d')}")
         print(f"关键词数量: {len(sorted_keywords)}")
         print(f"数据来源: {source_used}")
-        print(f"编码模式: {encoding}")
+        print(f"输出文件: {', '.join(output_files)}")
+        print(f"编码模式: {encoding_label}")
         print("=" * 50)
 
     except Exception as e:

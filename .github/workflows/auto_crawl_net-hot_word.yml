@@ -25,23 +25,24 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Python
-        uses: actions/setup-python@v7
+      - name: Set up uv and Python
+        uses: astral-sh/setup-uv@v10
         with:
-          python-version: "3.12"
-          cache: pip
+          python-version: "3.14"
+          enable-cache: true
+          cache-dependency-glob: "uv.lock"
 
       - name: Install dependencies
-        run: |
-          python3 -m pip install --upgrade pip
-          pip install requests pypinyin pypinyin_dict python-dateutil openai akshare
+        run: uv sync --locked
 
-      - name: Run douyin_hot.py to get latest Douyin hot keywords
+      - name: Run Python tests
+        run: uv run python -m unittest discover -s tests -p "test_*.py"
+
+      - name: Fetch Douyin hot keywords for both encodings
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
-          python3 ./tools/python/crawl_douyin_hot.py
-          python3 ./tools/python/crawl_douyin_hot.py --encoding quanpin
+          uv run python ./tools/python/build_douyin_hot_dict.py --encoding all
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v6
@@ -95,21 +96,29 @@ jobs:
             echo "full_pinyin branch not found, will build quanpin dict from scratch."
           fi
 
-      - name: Run crawl_net_hot_dict.py to update dictionary
+      - name: Update flypy and quanpin dictionaries
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: |
-          python3 ./tools/python/crawl_net_hot_dict.py
-          python3 ./tools/python/crawl_net_hot_dict.py --encoding quanpin
+          uv run python ./tools/python/merge_network_hot_dict.py --encoding all
 
       - name: Verify flypy hot-word dict entries
         run: |
-          # 校验规则：去空格后的双拼编码长度/2 应等于词条有效字数（剥离空格、·、— 等）；
-          # $0 ~ /\t/ 用于跳过 YAML 表头行，避免无编码列的误报
+          # 中文长度校验依赖 UTF-8 字符计数，因此显式使用 GNU awk。
+          if ! command -v gawk >/dev/null 2>&1; then
+            sudo apt-get update
+            sudo apt-get install -y gawk
+          fi
+          export LC_ALL=C.UTF-8
+
+          # 使用 POSIX gsub 而非 gawk 专有的 gensub。
           AWK_RULE='$0 ~ /\t/ && $0 !~ /^#/{'
-          AWK_RULE+='if(length(gensub(" ","","g", $2))/2 != length(gensub(/[ ·-—]/, "", "g", $1)))'
-          AWK_RULE+='print $0}'
-          INVALID=$(awk -F'\t' "$AWK_RULE" ./flypy_sghot.dict.yaml)
+          AWK_RULE+='word=$1; code=$2;'
+          AWK_RULE+='gsub(/[ ·—–-]/, "", word);'
+          AWK_RULE+='gsub(/ /, "", code);'
+          AWK_RULE+='if (length(code) != 2 * length(word)) print $0'
+          AWK_RULE+='}'
+          INVALID=$(gawk --posix -F'\t' "$AWK_RULE" ./flypy_sghot.dict.yaml)
           if [ -n "$INVALID" ]; then
             echo "Found invalid hot-word entries:"
             echo "$INVALID"
@@ -119,7 +128,7 @@ jobs:
 
       - name: Run fetch_a_stock.py to update A-share dictionary
         run: |
-          python3 ./tools/python/fetch_a_stock.py
+          uv run python ./tools/python/fetch_a_stock.py
 
       - name: Remove intermediate file
         run: |

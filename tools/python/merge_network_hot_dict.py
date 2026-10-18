@@ -27,7 +27,16 @@ TODAY = datetime.datetime.now().strftime("%Y-%m-%d")
 
 ENCODING_FLYPY = "flypy"
 ENCODING_QUANPIN = "quanpin"
+ENCODING_ALL = "all"
 ENCODINGS = (ENCODING_FLYPY, ENCODING_QUANPIN)
+ENCODING_CHOICES = (*ENCODINGS, ENCODING_ALL)
+
+
+def requested_encodings(encoding):
+    """把 all 展开为双拼和全拼，其余模式保持单输出。"""
+    if encoding == ENCODING_ALL:
+        return ENCODINGS
+    return (encoding,)
 
 
 def dict_file_paths(encoding):
@@ -523,47 +532,51 @@ def parse_args():
     parser = argparse.ArgumentParser(description="网络热词词库更新脚本")
     parser.add_argument(
         "--encoding",
-        choices=ENCODINGS,
+        choices=ENCODING_CHOICES,
         default=ENCODING_FLYPY,
-        help="词库编码：flypy=小鹤双拼（默认，提交到 main），quanpin=无声调全拼（提交到 full_pinyin 分支）",
+        help="词库编码：flypy=小鹤双拼（默认），quanpin=无声调全拼，all=一次生成两种",
     )
     return parser.parse_args()
 
 
 def main():
     args = parse_args()
-    encoding = args.encoding
-    sghot_file, dyhot_file = dict_file_paths(encoding)
+    encodings = requested_encodings(args.encoding)
+    encoding_label = " + ".join(encodings)
 
     print("=" * 50)
     print("网络热词词库更新脚本")
-    print(f"编码模式: {encoding}")
+    print(f"编码模式: {encoding_label}")
     print("=" * 50)
 
     timestamp = TODAY
 
-    # 1. 处理 diff_sg.txt（搜狗增量更新）
-    print("\n[1/4] 处理 diff_sg.txt...")
-    process_diff_sg_file(DIFF_SG_FILE, sghot_file, timestamp, encoding)
+    for encoding in encodings:
+        sghot_file, dyhot_file = dict_file_paths(encoding)
+        print(f"\n--- {encoding} ---")
 
-    # 2. 合并抖音热词（从对应编码的抖音热词文件）
-    print("\n[2/4] 合并抖音热词...")
-    merge_dict_files(dyhot_file, sghot_file, timestamp, encoding)
+        # 1. 处理 diff_sg.txt（搜狗增量更新）
+        print("\n[1/4] 处理 diff_sg.txt...")
+        process_diff_sg_file(DIFF_SG_FILE, sghot_file, timestamp, encoding)
 
-    # 3. 清理过期条目（3天前）
-    print("\n[3/4] 清理过期条目...")
-    cleanup_old_entries(sghot_file, days=3, encoding=encoding)
-    cleanup_old_entries(dyhot_file, days=3, encoding=encoding)
+        # 2. 合并抖音热词（从对应编码的抖音热词文件）
+        print("\n[2/4] 合并抖音热词...")
+        merge_dict_files(dyhot_file, sghot_file, timestamp, encoding)
 
-    # 4. 更新版本号
-    print("\n[4/4] 更新版本号...")
-    update_version(sghot_file)
+        # 3. 清理过期条目（3天前）
+        print("\n[3/4] 清理过期条目...")
+        cleanup_old_entries(sghot_file, days=3, encoding=encoding)
+        cleanup_old_entries(dyhot_file, days=3, encoding=encoding)
+
+        # 4. 更新版本号
+        print("\n[4/4] 更新版本号...")
+        update_version(sghot_file)
 
     # diff_sg.txt 等中间文件的清理交给流水线（另一种编码模式还要复用）
     print("\n" + "=" * 50)
     print("完成!")
     print(f"日期: {timestamp}")
-    print(f"输出: {sghot_file}")
+    print("输出: " + ", ".join(dict_file_paths(encoding)[0] for encoding in encodings))
     print("=" * 50)
 
 
