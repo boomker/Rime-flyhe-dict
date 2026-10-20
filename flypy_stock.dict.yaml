@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-10-19
-# 股票数量：5374
-# ST/*ST 注释数量：201
+# 更新时间：2026-10-20
+# 股票数量：5376
+# ST/*ST 注释数量：199
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-10-19"
+version: "2026-10-20"
 sort: by_weight
 ...
 
@@ -44,7 +44,6 @@ sort: by_weight
 # *ST同辉	ts hv	100
 # *ST启环	qi hr	100
 # *ST和科	he ke	100
-# *ST四通	si ts	100
 # *ST国中	go vs	100
 # *ST天喻	tm yu	100
 # *ST天宜	tm yi	100
@@ -187,7 +186,6 @@ sort: by_weight
 # ST百灵	ST bd lk	100
 # ST福能	ST fu ng	100
 # ST章鼓	ST vh gu	100
-# ST绝味	ST jt ww	100
 # ST美克	ST mw ke	100
 # ST美晨	ST mw if	100
 # ST联光	ST lm gl	100
@@ -244,7 +242,6 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C粤芯半导体	C yt xb bj dc ti	100
 C联亚药业	C lm ya yc ye	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
@@ -1870,6 +1867,7 @@ TCL科技	TCL ke ji	100
 四方达	si fh da	100
 四环生物	si hr ug wu	100
 四维图新	si ww tu xb	100
+四通股份	si ts gu ff	100
 回天新材	hv tm xb cd	100
 回盛生物	hv ug ug wu	100
 因赛集团	yb sd ji tr	100
@@ -4381,6 +4379,7 @@ TCL科技	TCL ke ji	100
 粤传媒	yt ir mw	100
 粤桂股份	yt gv gu ff	100
 粤海饲料	yt hd si ln	100
+粤芯半导	yt xb bj dc	100
 精创电气	jk il dm qi	100
 精华制药	jk hx vi yc	100
 精工科技	jk gs ke ji	100
@@ -4436,6 +4435,7 @@ TCL科技	TCL ke ji	100
 经纬恒润	jk ww hg ry	100
 经纬股份	jk ww gu ff	100
 经纬辉开	jk ww hv kd	100
+绝味食品	jt ww ui pb	100
 统一股份	ts yi gu ff	100
 统联精密	ts lm jk mi	100
 继峰股份	ji fg gu ff	100
