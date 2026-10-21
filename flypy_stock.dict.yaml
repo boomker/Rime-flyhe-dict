@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-10-20
-# 股票数量：5376
+# 更新时间：2026-10-21
+# 股票数量：5377
 # ST/*ST 注释数量：199
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-10-20"
+version: "2026-10-21"
 sort: by_weight
 ...
 
@@ -243,6 +243,7 @@ sort: by_weight
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
 C联亚药业	C lm ya yc ye	100
+N文峰	N wf fg	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
