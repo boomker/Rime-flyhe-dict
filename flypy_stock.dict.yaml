@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-10-22
-# 股票数量：5378
-# ST/*ST 注释数量：199
+# 更新时间：2026-10-23
+# 股票数量：5380
+# ST/*ST 注释数量：197
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-10-22"
+version: "2026-10-23"
 sort: by_weight
 ...
 
@@ -58,7 +58,6 @@ sort: by_weight
 # *ST帅电	uk dm	100
 # *ST广糖	gl th	100
 # *ST康乐	kh le	100
-# *ST康佳A	kh jx	100
 # *ST建艺	jm yi	100
 # *ST开元	kd yr	100
 # *ST数源	uu yr	100
@@ -95,7 +94,6 @@ sort: by_weight
 # *ST航图	hh tu	100
 # *ST英飞	yk fw	100
 # *ST莫高	mo gc	100
-# *ST萃华	cv hx	100
 # *ST西发	xi fa	100
 # *ST西旅	xi lv	100
 # *ST赛为	sd ww	100
@@ -242,7 +240,8 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-N通则康威	N ts ze kh ww	100
+C通则康威	C ts ze kh ww	100
+N远大	N yr da	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -3264,7 +3263,7 @@ TCL科技	TCL ke ji	100
 有研新材	yz yj xb cd	100
 有研硅	yz yj gv	100
 有研粉材	yz yj ff cd	100
-朗信电气	lh xb dm qi	100
+朗信电	lh xb dm	100
 朗博科技	lh bo ke ji	100
 朗坤科技	lh ky ke ji	100
 朗姿股份	lh zi gu ff	100
@@ -4766,6 +4765,7 @@ TCL科技	TCL ke ji	100
 菲沃泰	fw wo td	100
 菲菱科思	fw lk ke si	100
 菲达环保	fw da hr bc	100
+萃华退	cv hx tv	100
 萤石网络	yk ui wh lo	100
 葵花药业	kv hx yc ye	100
 蒙娜丽莎	mg na li ua	100
