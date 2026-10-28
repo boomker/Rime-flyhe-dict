@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-10-27
-# 股票数量：5380
+# 更新时间：2026-10-28
+# 股票数量：5379
 # ST/*ST 注释数量：197
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-10-27"
+version: "2026-10-28"
 sort: by_weight
 ...
 
@@ -1107,7 +1107,6 @@ TCL科技	TCL ke ji	100
 元力股份	yr li gu ff	100
 元琛科技	yr if ke ji	100
 元祖股份	yr zu gu ff	100
-元道退	yr dc tv	100
 元隆雅图	yr ls ya tu	100
 兄弟科技	xs di ke ji	100
 兆丰股份	vc fg gu ff	100
