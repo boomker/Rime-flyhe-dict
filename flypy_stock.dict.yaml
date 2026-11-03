@@ -3,7 +3,7 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-11-02
+# 更新时间：2026-11-03
 # 股票数量：5380
 # ST/*ST 注释数量：197
 #
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-11-02"
+version: "2026-11-03"
 sort: by_weight
 ...
 
@@ -240,6 +240,7 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
+N皇冠	N hl gr	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -252,7 +253,7 @@ TCL科技	TCL ke ji	100
 一汽解放	yi qi jp fh	100
 一致魔芋	yi vi mo yu	100
 一诺威	yi no ww	100
-一鸣食品	yi mk ui pb	100
+一鸣食	yi mk ui	100
 七一二	qi yi er	100
 七丰精工	qi fg jk gs	100
 七匹狼	qi pi lh	100
@@ -847,7 +848,6 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
-九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -1045,7 +1045,7 @@ TCL科技	TCL ke ji	100
 佳沃食品	jx wo ui pb	100
 佳电股份	jx dm gu ff	100
 佳禾智能	jx he vi ng	100
-佳禾食品	jx he ui pb	100
+佳禾食	jx he ui	100
 佳讯飞鸿	jx xy fw hs	100
 佳都科技	jx du ke ji	100
 佳隆股份	jx ls gu ff	100
