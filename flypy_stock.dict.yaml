@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-11-03
+# 更新时间：2026-11-04
 # 股票数量：5380
-# ST/*ST 注释数量：197
+# ST/*ST 注释数量：198
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-11-03"
+version: "2026-11-04"
 sort: by_weight
 ...
 
@@ -21,6 +21,7 @@ sort: by_weight
 # *ST三房	sj fh	100
 # *ST东智	ds vi	100
 # *ST东珠	ds vu	100
+# *ST中基	vs ji	100
 # *ST中岩	vs yj	100
 # *ST中设	vs ue	100
 # *ST中迪	vs di	100
@@ -240,7 +241,7 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-N皇冠	N hl gr	100
+C皇冠新材	C hl gr xb cd	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -253,7 +254,7 @@ TCL科技	TCL ke ji	100
 一汽解放	yi qi jp fh	100
 一致魔芋	yi vi mo yu	100
 一诺威	yi no ww	100
-一鸣食	yi mk ui	100
+一鸣食品	yi mk ui pb	100
 七一二	qi yi er	100
 七丰精工	qi fg jk gs	100
 七匹狼	qi pi lh	100
@@ -622,7 +623,6 @@ TCL科技	TCL ke ji	100
 中国长城	vs go ih ig	100
 中国黄金	vs go hl jb	100
 中坚科技	vs jm ke ji	100
-中基健康	vs ji jm kh	100
 中塑股份	vs su gu ff	100
 中复神鹰	vs fu uf yk	100
 中大力德	vs da li de	100
@@ -848,6 +848,7 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
+九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -1045,7 +1046,7 @@ TCL科技	TCL ke ji	100
 佳沃食品	jx wo ui pb	100
 佳电股份	jx dm gu ff	100
 佳禾智能	jx he vi ng	100
-佳禾食	jx he ui	100
+佳禾食品	jx he ui pb	100
 佳讯飞鸿	jx xy fw hs	100
 佳都科技	jx du ke ji	100
 佳隆股份	jx ls gu ff	100
