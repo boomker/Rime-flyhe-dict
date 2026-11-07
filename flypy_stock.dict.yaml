@@ -3,7 +3,7 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-11-06
+# 更新时间：2026-11-07
 # 股票数量：5382
 # ST/*ST 注释数量：197
 #
@@ -13,11 +13,11 @@
 #
 ---
 name: flypy_stock
-version: "2026-11-06"
+version: "2026-11-07"
 sort: by_weight
 ...
 
-# *ST三六五	sj lq wu	100
+# *ST三六	sj lq	100
 # *ST三房	sj fh	100
 # *ST东智	ds vi	100
 # *ST东珠	ds vu	100
@@ -1482,7 +1482,7 @@ TCL科技	TCL ke ji	100
 华润三九	hx ry sj jq	100
 华润双鹤	hx ry ul he	100
 华润微	hx ry ww	100
-华润新能源	hx ry xb ng yr	100
+华润新能	hx ry xb ng	100
 华润材料	hx ry cd ln	100
 华润江中	hx ry jl vs	100
 华源控股	hx yr ks gu	100
@@ -3429,7 +3429,7 @@ TCL科技	TCL ke ji	100
 正邦科技	vg bh ke ji	100
 步步高	bu bu gc	100
 步科股份	bu ke gu ff	100
-步长制	bu ih vi	100
+步长制药	bu ih vi yc	100
 武商集团	wu uh ji tr	100
 武汉凡谷	wu hj fj gu	100
 武汉天源	wu hj tm yr	100
@@ -3958,7 +3958,7 @@ TCL科技	TCL ke ji	100
 爱尔眼科	ai er yj ke	100
 爱建集团	ai jm ji tr	100
 爱得科技	ai de ke ji	100
-爱慕股	ai mu gu	100
+爱慕股份	ai mu gu ff	100
 爱施德	ai ui de	100
 爱旭股份	ai xu gu ff	100
 爱普股份	ai pu gu ff	100
@@ -4378,7 +4378,7 @@ TCL科技	TCL ke ji	100
 粤传媒	yt ir mw	100
 粤桂股份	yt gv gu ff	100
 粤海饲料	yt hd si ln	100
-粤芯半导体	yt xb bj dc ti	100
+粤芯半导	yt xb bj dc	100
 精创电气	jk il dm qi	100
 精华制药	jk hx vi yc	100
 精工科技	jk gs ke ji	100
