@@ -3,7 +3,7 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-11-08
+# 更新时间：2026-11-10
 # 股票数量：5382
 # ST/*ST 注释数量：197
 #
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-11-08"
+version: "2026-11-10"
 sort: by_weight
 ...
 
@@ -240,8 +240,6 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C皇冠新材	C hl gr xb cd	100
-N森峰	N sf fg	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -899,7 +897,7 @@ TCL科技	TCL ke ji	100
 五芳斋	wu fh vd	100
 井松智能	jk ss vi ng	100
 亚世光电	ya ui gl dm	100
-亚信安全	ya xb an qr	100
+亚信集团	ya xb ji tr	100
 亚光股份	ya gl gu ff	100
 亚华电子	ya hx dm zi	100
 亚厦股份	ya ua gu ff	100
@@ -1213,7 +1211,6 @@ TCL科技	TCL ke ji	100
 农尚环境	ns uh hr jk	100
 农心科技	ns xb ke ji	100
 冠中生态	gr vs ug td	100
-冠农股份	gr ns gu ff	100
 冠城新材	gr ig xb cd	100
 冠捷科技	gr jp ke ji	100
 冠昊生物	gr hc ug wu	100
@@ -3032,6 +3029,7 @@ TCL科技	TCL ke ji	100
 新特电气	xb te dm qi	100
 新疆交建	xb jl jn jm	100
 新疆众和	xb jl vs he	100
+新疆冠农	xb jl gr ns	100
 新疆天业	xb jl tm ye	100
 新疆火炬	xb jl ho ju	100
 新益昌	xb yi ih	100
@@ -3361,6 +3359,7 @@ TCL科技	TCL ke ji	100
 梦百合	mg bd he	100
 梦网科技	mg wh ke ji	100
 森合高科	sf he gc ke	100
+森峰激光	sf fg ji gl	100
 森林包装	sf lb bc vl	100
 森泰股份	sf td gu ff	100
 森源电气	sf yr dm qi	100
@@ -3434,7 +3433,7 @@ TCL科技	TCL ke ji	100
 武汉凡谷	wu hj fj gu	100
 武汉天源	wu hj tm yr	100
 武汉控股	wu hj ks gu	100
-武汉蓝	wu hj lj	100
+武汉蓝电	wu hj lj dm	100
 武进不锈	wu jb bu xq	100
 殷图网联	yb tu wh lm	100
 毅昌科技	yi ih ke ji	100
@@ -4129,6 +4128,7 @@ TCL科技	TCL ke ji	100
 百邦科技	bd bh ke ji	100
 百隆东方	bd ls ds fh	100
 百龙创园	bd ls il yr	100
+皇冠新材	hl gr xb cd	100
 皇台酒业	hl td jq ye	100
 皇氏集团	hl ui ji tr	100
 皇马科技	hl ma ke ji	100
