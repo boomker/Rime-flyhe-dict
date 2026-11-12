@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-11-11
-# 股票数量：5383
-# ST/*ST 注释数量：197
+# 更新时间：2026-11-12
+# 股票数量：5384
+# ST/*ST 注释数量：196
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,11 +13,11 @@
 #
 ---
 name: flypy_stock
-version: "2026-11-11"
+version: "2026-11-12"
 sort: by_weight
 ...
 
-# *ST三六五	sj lq wu	100
+# *ST三六	sj lq	100
 # *ST三房	sj fh	100
 # *ST东智	ds vi	100
 # *ST东珠	ds vu	100
@@ -154,7 +154,6 @@ sort: by_weight
 # ST富煌	ST fu hl	100
 # ST帕瓦	ST pa wa	100
 # ST得润	ST de ry	100
-# ST思科瑞	ST si ke rv	100
 # ST恒信	ST hg xb	100
 # ST惠伦	ST hv ly	100
 # ST惠程	ST hv ig	100
@@ -240,7 +239,7 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-N钶锐	N ke rv	100
+C钶锐	C ke rv	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -733,7 +732,7 @@ TCL科技	TCL ke ji	100
 中红医疗	vs hs yi ln	100
 中纺标	vs fh bn	100
 中联重科	vs lm vs ke	100
-中胤时尚	vs yb ui uh	100
+中胤科技	vs yb ke ji	100
 中能电气	vs ng dm qi	100
 中自科技	vs zi ke ji	100
 中航光电	vs hh gl dm	100
@@ -1480,7 +1479,7 @@ TCL科技	TCL ke ji	100
 华润三九	hx ry sj jq	100
 华润双鹤	hx ry ul he	100
 华润微	hx ry ww	100
-华润新能源	hx ry xb ng yr	100
+华润新能	hx ry xb ng	100
 华润材料	hx ry cd ln	100
 华润江中	hx ry jl vs	100
 华源控股	hx yr ks gu	100
@@ -2762,6 +2761,7 @@ TCL科技	TCL ke ji	100
 思特威	si te ww	100
 思瑞浦	si rv pu	100
 思看科技	si kj ke ji	100
+思科瑞	si ke rv	100
 思维列控	si ww lp ks	100
 思美传媒	si mw ir mw	100
 思进智能	si jb vi ng	100
@@ -2977,7 +2977,7 @@ TCL科技	TCL ke ji	100
 新华保险	xb hx bc xm	100
 新华制药	xb hx vi yc	100
 新华医疗	xb hx yi ln	100
-新华文	xb hx wf	100
+新华文轩	xb hx wf xr	100
 新华百货	xb hx bd ho	100
 新华网	xb hx wh	100
 新华都	xb hx du	100
@@ -4112,7 +4112,7 @@ TCL科技	TCL ke ji	100
 百川股份	bd ir gu ff	100
 百川能源	bd ir ng yr	100
 百普赛斯	bd pu sd si	100
-百洋医药	bd yh yi yc	100
+百洋制药	bd yh vi yc	100
 百洋股份	bd yh gu ff	100
 百济神州	bd ji uf vz	100
 百润股份	bd ry gu ff	100
@@ -4137,7 +4137,7 @@ TCL科技	TCL ke ji	100
 皓宸医疗	hc if yi ln	100
 皖仪科技	wj yi ke ji	100
 皖天然气	wj tm rj qi	100
-皖新传	wj xb ir	100
+皖新传媒	wj xb ir mw	100
 皖维高新	wj ww gc xb	100
 皖能电力	wj ng dm li	100
 皖通科技	wj ts ke ji	100
@@ -4379,7 +4379,7 @@ TCL科技	TCL ke ji	100
 粤传媒	yt ir mw	100
 粤桂股份	yt gv gu ff	100
 粤海饲料	yt hd si ln	100
-粤芯半导体	yt xb bj dc ti	100
+粤芯半导	yt xb bj dc	100
 精创电气	jk il dm qi	100
 精华制药	jk hx vi yc	100
 精工科技	jk gs ke ji	100
@@ -4441,7 +4441,7 @@ TCL科技	TCL ke ji	100
 继峰股份	ji fg gu ff	100
 维业股份	ww ye gu ff	100
 维信诺	ww xb no	100
-维力医	ww li yi	100
+维力医疗	ww li yi ln	100
 维宏股份	ww hs gu ff	100
 维尔利	ww er li	100
 维峰电子	ww fg dm zi	100
@@ -4512,7 +4512,7 @@ TCL科技	TCL ke ji	100
 美迪西	mw di xi	100
 美邦服饰	mw bh fu ui	100
 美邦科技	mw bh ke ji	100
-美邦股	mw bh gu	100
+美邦股份	mw bh gu ff	100
 美锦能源	mw jb ng yr	100
 羚锐制药	lk rv vi yc	100
 群兴玩具	qy xk wj ju	100
@@ -5322,7 +5322,7 @@ TCL科技	TCL ke ji	100
 长青科技	ih qk ke ji	100
 长青股份	ih qk gu ff	100
 长青集团	ih qk ji tr	100
-长飞光	ih fw gl	100
+长飞光纤	ih fw gl xm	100
 长高电气	ih gc dm qi	100
 长鸿高科	ih hs gc ke	100
 长鹰硬科	ih yk yk ke	100
