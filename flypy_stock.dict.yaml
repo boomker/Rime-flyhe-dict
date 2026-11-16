@@ -3,8 +3,8 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-11-15
-# 股票数量：5383
+# 更新时间：2026-11-16
+# 股票数量：5382
 # ST/*ST 注释数量：196
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-11-15"
+version: "2026-11-16"
 sort: by_weight
 ...
 
@@ -616,7 +616,7 @@ TCL科技	TCL ke ji	100
 中国铁建	vs go tp jm	100
 中国铁物	vs go tp wu	100
 中国铝业	vs go lv ye	100
-中国银河	vs go yb he	100
+中国银	vs go yb	100
 中国银行	vs go yb hh	100
 中国长城	vs go ih ig	100
 中国黄金	vs go hl jb	100
@@ -846,7 +846,6 @@ TCL科技	TCL ke ji	100
 九丰能源	jq fg ng yr	100
 九典制药	jq dm vi yc	100
 九华旅游	jq hx lv yz	100
-九号公司	jq hc gs si	100
 九安医疗	jq an yi ln	100
 九州一轨	jq vz yi gv	100
 九州通	jq vz ts	100
@@ -2068,7 +2067,7 @@ TCL科技	TCL ke ji	100
 天保基建	tm bc ji jm	100
 天健集团	tm jm ji tr	100
 天元宠物	tm yr is wu	100
-天元智能	tm yr vi ng	100
+天元智	tm yr vi	100
 天元股份	tm yr gu ff	100
 天元重工	tm yr vs gs	100
 天准科技	tm vy ke ji	100
@@ -3324,7 +3323,7 @@ TCL科技	TCL ke ji	100
 林海股份	lb hd gu ff	100
 果麦文化	go md wf hx	100
 柏星龙	bd xk ls	100
-柏楚电子	bd iu dm zi	100
+柏楚电	bd iu dm	100
 柏诚股份	bd ig gu ff	100
 柘中股份	ve vs gu ff	100
 柯力传感	ke li ir gj	100
