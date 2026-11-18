@@ -3,7 +3,7 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-11-17
+# 更新时间：2026-11-18
 # 股票数量：5384
 # ST/*ST 注释数量：196
 #
@@ -13,11 +13,11 @@
 #
 ---
 name: flypy_stock
-version: "2026-11-17"
+version: "2026-11-18"
 sort: by_weight
 ...
 
-# *ST三六五	sj lq wu	100
+# *ST三六	sj lq	100
 # *ST三房	sj fh	100
 # *ST东智	ds vi	100
 # *ST东珠	ds vu	100
@@ -239,8 +239,6 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-C钶锐	C ke rv	100
-N菊乐	N ju le	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -617,7 +615,7 @@ TCL科技	TCL ke ji	100
 中国铁建	vs go tp jm	100
 中国铁物	vs go tp wu	100
 中国铝业	vs go lv ye	100
-中国银	vs go yb	100
+中国银河	vs go yb he	100
 中国银行	vs go yb hh	100
 中国长城	vs go ih ig	100
 中国黄金	vs go hl jb	100
@@ -1480,7 +1478,7 @@ TCL科技	TCL ke ji	100
 华润三九	hx ry sj jq	100
 华润双鹤	hx ry ul he	100
 华润微	hx ry ww	100
-华润新能源	hx ry xb ng yr	100
+华润新能	hx ry xb ng	100
 华润材料	hx ry cd ln	100
 华润江中	hx ry jl vs	100
 华源控股	hx yr ks gu	100
@@ -2069,7 +2067,7 @@ TCL科技	TCL ke ji	100
 天保基建	tm bc ji jm	100
 天健集团	tm jm ji tr	100
 天元宠物	tm yr is wu	100
-天元智	tm yr vi	100
+天元智能	tm yr vi ng	100
 天元股份	tm yr gu ff	100
 天元重工	tm yr vs gs	100
 天准科技	tm vy ke ji	100
@@ -3325,7 +3323,7 @@ TCL科技	TCL ke ji	100
 林海股份	lb hd gu ff	100
 果麦文化	go md wf hx	100
 柏星龙	bd xk ls	100
-柏楚电	bd iu dm	100
+柏楚电子	bd iu dm zi	100
 柏诚股份	bd ig gu ff	100
 柘中股份	ve vs gu ff	100
 柯力传感	ke li ir gj	100
@@ -4380,7 +4378,7 @@ TCL科技	TCL ke ji	100
 粤传媒	yt ir mw	100
 粤桂股份	yt gv gu ff	100
 粤海饲料	yt hd si ln	100
-粤芯半导体	yt xb bj dc ti	100
+粤芯半导	yt xb bj dc	100
 精创电气	jk il dm qi	100
 精华制药	jk hx vi yc	100
 精工科技	jk gs ke ji	100
@@ -4760,6 +4758,7 @@ TCL科技	TCL ke ji	100
 莱茵生物	ld yb ug wu	100
 莱赛激光	ld sd ji gl	100
 莲花控股	lm hx ks gu	100
+菊乐股份	ju le gu ff	100
 菜百股份	cd bd gu ff	100
 菱电电控	lk dm dm ks	100
 菲利华	fw li hx	100
@@ -5215,6 +5214,7 @@ TCL科技	TCL ke ji	100
 钱江摩托	qm jl mo to	100
 钱江水利	qm jl uv li	100
 钱江生化	qm jl ug hx	100
+钶锐锶	ke rv si	100
 铁大科技	tp da ke ji	100
 铁建重工	tp jm vs gs	100
 铁拓机械	tp to ji xp	100
