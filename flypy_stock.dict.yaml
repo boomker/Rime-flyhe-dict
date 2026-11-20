@@ -3,7 +3,7 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-11-19
+# 更新时间：2026-11-20
 # 股票数量：5384
 # ST/*ST 注释数量：196
 #
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-11-19"
+version: "2026-11-20"
 sort: by_weight
 ...
 
@@ -4446,7 +4446,7 @@ TCL科技	TCL ke ji	100
 维峰电子	ww fg dm zi	100
 维康药业	ww kh yc ye	100
 维海德	ww hd de	100
-维琪科技	ww qi ke ji	100
+维琪科	ww qi ke	100
 维科技术	ww ke ji uu	100
 维科精密	ww ke jk mi	100
 维维股份	ww ww gu ff	100
