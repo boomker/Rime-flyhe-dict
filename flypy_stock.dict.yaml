@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-11-22
-# 股票数量：5384
-# ST/*ST 注释数量：196
+# 更新时间：2026-11-23
+# 股票数量：5386
+# ST/*ST 注释数量：195
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-11-22"
+version: "2026-11-23"
 sort: by_weight
 ...
 
@@ -169,7 +169,6 @@ sort: by_weight
 # ST标准	ST bn vy	100
 # ST棕榈	ST zs lv	100
 # ST椰岛	ST ye dc	100
-# ST汇洲	ST hv vz	100
 # ST沈化	ST uf hx	100
 # ST洲际	ST vz ji	100
 # ST派瑞	ST pd rv	100
@@ -239,6 +238,7 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
+N华晟	N hx ig	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -2016,7 +2016,6 @@ TCL科技	TCL ke ji	100
 大元泵业	da yr bg ye	100
 大全能源	da qr ng yr	100
 大北农	da bw ns	100
-大千生态	da qm ug td	100
 大华股份	da hx gu ff	100
 大博医疗	da bo yi ln	100
 大参林	da cj lb	100
@@ -3486,7 +3485,7 @@ TCL科技	TCL ke ji	100
 永臻股份	ys vf gu ff	100
 永艺股份	ys yi gu ff	100
 永茂泰	ys mc td	100
-永贵电器	ys gv dm qi	100
+永贵智能	ys gv vi ng	100
 永辉超市	ys hv ic ui	100
 永达股份	ys da gu ff	100
 永顺泰	ys uy td	100
@@ -3501,6 +3500,7 @@ TCL科技	TCL ke ji	100
 汇成真空	hv ig vf ks	100
 汇成股份	hv ig gu ff	100
 汇洁股份	hv jp gu ff	100
+汇洲智能	hv vz vi ng	100
 汇源通信	hv yr ts xb	100
 汇纳科技	hv na ke ji	100
 汇绿生态	hv lv ug td	100
@@ -3917,6 +3917,7 @@ TCL科技	TCL ke ji	100
 瀛通通讯	yk ts ts xy	100
 火星人	ho xk rf	100
 火炬电子	ho ju dm zi	100
+灵动股份	lk ds gu ff	100
 灵康药业	lk kh yc ye	100
 灵鸽科技	lk ge ke ji	100
 灿勤科技	cj qb ke ji	100
@@ -4446,7 +4447,7 @@ TCL科技	TCL ke ji	100
 维峰电子	ww fg dm zi	100
 维康药业	ww kh yc ye	100
 维海德	ww hd de	100
-维琪科	ww qi ke	100
+维琪科技	ww qi ke ji	100
 维科技术	ww ke ji uu	100
 维科精密	ww ke jk mi	100
 维维股份	ww ww gu ff	100
@@ -4842,7 +4843,7 @@ TCL科技	TCL ke ji	100
 西麦食品	xi md ui pb	100
 观想科技	gr xl ke ji	100
 觅睿科技	mi rv ke ji	100
-视声智能	ui ug vi ng	100
+视声智	ui ug vi	100
 视涯科技	ui ya ke ji	100
 视源股份	ui yr gu ff	100
 视觉中国	ui jt vs go	100
