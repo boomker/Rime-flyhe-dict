@@ -3,9 +3,9 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-11-23
-# 股票数量：5386
-# ST/*ST 注释数量：195
+# 更新时间：2026-11-25
+# 股票数量：5445
+# ST/*ST 注释数量：245
 #
 # 使用方法：在 cn_dicts/ext/ 目录下放置此文件
 # 并在 import_tables 中添加：
@@ -13,12 +13,15 @@
 #
 ---
 name: flypy_stock
-version: "2026-11-23"
+version: "2026-11-25"
 sort: by_weight
 ...
 
+# *ST万方	wj fh	100
 # *ST三六	sj lq	100
 # *ST三房	sj fh	100
+# *ST世茂	ui mc	100
+# *ST东方	ds fh	100
 # *ST东智	ds vi	100
 # *ST东珠	ds vu	100
 # *ST中基	vs ji	100
@@ -26,10 +29,14 @@ sort: by_weight
 # *ST中设	vs ue	100
 # *ST中迪	vs di	100
 # *ST九鼎	jq dk	100
+# *ST云创	yy il	100
 # *ST亚士	ya ui	100
+# *ST亚星	ya xk	100
 # *ST京化	jk hx	100
 # *ST亿晶	yi jk	100
 # *ST仕净	ui jk	100
+# *ST保力	bc li	100
+# *ST元成	yr ig	100
 # *ST八钢	ba gh	100
 # *ST冀凯	ji kd	100
 # *ST准油	vy yz	100
@@ -38,32 +45,47 @@ sort: by_weight
 # *ST动力	ds li	100
 # *ST华幸	hx xk	100
 # *ST华西	hx xi	100
+# *ST华铁	hx tp	100
 # *ST华鹏	hx pg	100
 # *ST卓然	vo rj	100
 # *ST南置	nj vi	100
+# *ST博信	bo xb	100
 # *ST发展	fa vj	100
+# *ST吉药	ji yc	100
 # *ST同辉	ts hv	100
 # *ST启环	qi hr	100
 # *ST和科	he ke	100
+# *ST嘉寓	jx yu	100
 # *ST国中	go vs	100
+# *ST大药	da yc	100
 # *ST天喻	tm yu	100
 # *ST天宜	tm yi	100
+# *ST天成	tm ig	100
 # *ST天箭	tm jm	100
+# *ST天茂	tm mc	100
+# *ST奥维	ao ww	100
+# *ST威创	ww il	100
 # *ST威领	ww lk	100
 # *ST宁视	nk ui	100
 # *ST宝馨	bc xb	100
 # *ST实达	ui da	100
+# *ST富润	fu ry	100
 # *ST尔雅	er ya	100
 # *ST尼雅	ni ya	100
 # *ST岭南	lk nj	100
+# *ST巴安	ba an	100
 # *ST帅电	uk dm	100
 # *ST广糖	gl th	100
+# *ST广道	gl dc	100
 # *ST康乐	kh le	100
+# *ST康佳A	kh jx	100
 # *ST建艺	jm yi	100
 # *ST开元	kd yr	100
 # *ST数源	uu yr	100
+# *ST旭蓝	xu lj	100
 # *ST明德	mk de	100
 # *ST易录	yi lu	100
+# *ST易连	yi lm	100
 # *ST春兴	iy xk	100
 # *ST春天	iy tm	100
 # *ST景谷	jk gu	100
@@ -72,12 +94,16 @@ sort: by_weight
 # *ST棒杰	bh jp	100
 # *ST正平	vg pk	100
 # *ST步森	bu sf	100
+# *ST民控	mb ks	100
 # *ST沐邦	mu bh	100
 # *ST泉为	qr ww	100
+# *ST洪涛	hs tc	100
 # *ST海利	hd li	100
 # *ST海华	hd hx	100
+# *ST深天	uf tm	100
 # *ST清越	qk yt	100
 # *ST湘邮	xl yz	100
+# *ST爱迪	ai di	100
 # *ST特迅	te xy	100
 # *ST瑞和	rv he	100
 # *ST瑞茂	rv mc	100
@@ -86,10 +112,15 @@ sort: by_weight
 # *ST益通	yi ts	100
 # *ST福成	fu ig	100
 # *ST禾信	he xb	100
+# *ST精伦	jk ly	100
 # *ST纳川	na ir	100
 # *ST网达	wh da	100
 # *ST美丽	mw li	100
+# *ST美吉	mw ji	100
+# *ST美尚	mw uh	100
+# *ST美盛	mw ug	100
 # *ST美芝	mw vi	100
+# *ST美讯	mw xy	100
 # *ST美谷	mw gu	100
 # *ST联翔	lm xl	100
 # *ST航图	hh tu	100
@@ -99,6 +130,7 @@ sort: by_weight
 # *ST西旅	xi lv	100
 # *ST赛为	sd ww	100
 # *ST起步	qi bu	100
+# *ST超华	ic hx	100
 # *ST金灵	jb lk	100
 # *ST长投	ih tz	100
 # *ST闻泰	wf td	100
@@ -106,11 +138,14 @@ sort: by_weight
 # *ST集友	ji yz	100
 # *ST顾地	gu di	100
 # *ST香雪	xl xt	100
+# *ST高升	gc ug	100
 # *ST高科	gc ke	100
+# *ST高鸿	gc hs	100
 # ST万邦	ST wj bh	100
 # ST三木	ST sj mu	100
 # ST东尼	ST ds ni	100
 # ST东时	ST ds ui	100
+# ST中南	ST vs nj	100
 # ST中珠	ST vs vu	100
 # ST中装	ST vs vl	100
 # ST中路	ST vs lu	100
@@ -121,6 +156,7 @@ sort: by_weight
 # ST交昂	ST jn ah	100
 # ST京机	ST jk ji	100
 # ST人福	ST rf fu	100
+# ST亿利	ST yi li	100
 # ST佳缘	ST jx yr	100
 # ST信安	ST xb an	100
 # ST信源	ST xb yr	100
@@ -140,18 +176,19 @@ sort: by_weight
 # ST合力泰	ST he li td	100
 # ST合纵	ST he zs	100
 # ST同德	ST ts de	100
+# ST启设	ST qi ue	100
 # ST喜临门	ST xi lb mf	100
 # ST嘉应	ST jx yk	100
 # ST嘉必优	ST jx bi yz	100
 # ST嘉澳	ST jx ao	100
 # ST复华	ST fu hx	100
-# ST天圣	ST tm ug	100
 # ST天玑	ST tm ji	100
 # ST天际	ST tm ji	100
 # ST太重	ST td vs	100
 # ST如意	ST ru yi	100
 # ST宏达	ST hs da	100
 # ST富煌	ST fu hl	100
+# ST富通	ST fu ts	100
 # ST帕瓦	ST pa wa	100
 # ST得润	ST de ry	100
 # ST恒信	ST hg xb	100
@@ -160,15 +197,19 @@ sort: by_weight
 # ST文峰	ST wf fg	100
 # ST新元	ST xb yr	100
 # ST新华锦	ST xb hx jb	100
+# ST新纶	ST xb ly	100
+# ST旭电	ST xu dm	100
 # ST明诚	ST mk ig	100
 # ST易购	ST yi gz	100
 # ST星农	ST xk ns	100
+# ST星源	ST xk yr	100
 # ST晨鸣	ST if mk	100
 # ST智知	ST vi vi	100
 # ST朗进	ST lh jb	100
 # ST标准	ST bn vy	100
 # ST棕榈	ST zs lv	100
 # ST椰岛	ST ye dc	100
+# ST欢瑞	ST hr rv	100
 # ST沈化	ST uf hx	100
 # ST洲际	ST vz ji	100
 # ST派瑞	ST pd rv	100
@@ -178,6 +219,7 @@ sort: by_weight
 # ST海钦	ST hd qb	100
 # ST海龙	ST hd ls	100
 # ST瀚川	ST hj ir	100
+# ST爱康	ST ai kh	100
 # ST瑞贝卡	ST rv bw ka	100
 # ST百利	ST bd li	100
 # ST百灵	ST bd lk	100
@@ -185,30 +227,38 @@ sort: by_weight
 # ST章鼓	ST vh gu	100
 # ST美克	ST mw ke	100
 # ST联光	ST lm gl	100
+# ST联络	ST lm lo	100
 # ST能特	ST ng te	100
 # ST臻镭	ST vf lw	100
+# ST航高	ST hh gc	100
 # ST荃银	ST qr yb	100
 # ST荣科	ST rs ke	100
 # ST葫芦娃	ST hu lu wa	100
 # ST西王	ST xi wh	100
 # ST诺泰	ST no td	100
 # ST豆神	ST dz uf	100
+# ST贵人	ST gv rf	100
 # ST路通	ST lu ts	100
 # ST达华	ST da hx	100
 # ST远智	ST yr vi	100
 # ST迪威迅	ST di ww xy	100
 # ST迪瑞	ST di rv	100
+# ST迪马	ST di ma	100
 # ST通葡	ST ts pu	100
 # ST金花	ST jb hx	100
 # ST金顶	ST jb dk	100
 # ST金鸿	ST jb hs	100
 # ST金鸿顺	ST jb hs uy	100
 # ST银江	ST yb jl	100
+# ST长康	ST ih kh	100
 # ST长方	ST ih fh	100
+# ST阳光	ST yh gl	100
 # ST际华	ST ji hx	100
 # ST雪发	ST xt fa	100
 # ST雪浪	ST xt lh	100
+# ST鸿达	ST hs da	100
 # ST麦趣	ST md qu	100
+# ST鼎龙	ST dk ls	100
 # ST龙元	ST ls yr	100
 # ST龙大	ST ls da	100
 # ST龙韵	ST ls yy	100
@@ -238,7 +288,6 @@ sort: by_weight
 苏常柴A	su ih id	100
 陕国投A	uj go tz	100
 鲁泰A	lu td	100
-N华晟	N hx ig	100
 S佳通	S jx ts	100
 TCL中环	TCL vs hr	100
 TCL智家	TCL vi jx	100
@@ -351,6 +400,7 @@ TCL科技	TCL ke ji	100
 三环集团	sj hr ji tr	100
 三瑞智能	sj rv vi ng	100
 三生国健	sj ug go jm	100
+三盛退	sj ug tv	100
 三祥新材	sj xl xb cd	100
 三祥科技	sj xl ke ji	100
 三维化学	sj ww hx xt	100
@@ -434,6 +484,7 @@ TCL科技	TCL ke ji	100
 丛麟科技	cs lb ke ji	100
 东亚药业	ds ya yc ye	100
 东信和平	ds xb he pk	100
+东兴证券	ds xk vg qr	100
 东利机械	ds li ji xp	100
 东北制药	ds bw vi yc	100
 东北证券	ds bw vg qr	100
@@ -501,6 +552,7 @@ TCL科技	TCL ke ji	100
 东贝集团	ds bw ji tr	100
 东软载波	ds rr zd bo	100
 东软集团	ds rr ji tr	100
+东通退	ds ts tv	100
 东阳光	ds yh gl	100
 东阿阿胶	ds ee ee jn	100
 东风科技	ds fg ke ji	100
@@ -610,6 +662,7 @@ TCL科技	TCL ke ji	100
 中国西电	vs go xi dm	100
 中国软件	vs go rr jm	100
 中国通号	vs go ts hc	100
+中国重工	vs go vs gs	100
 中国重汽	vs go vs qi	100
 中国铀业	vs go yz ye	100
 中国铁建	vs go tp jm	100
@@ -664,6 +717,7 @@ TCL科技	TCL ke ji	100
 中晶科技	vs jk ke ji	100
 中曼石油	vs mj ui yz	100
 中望软件	vs wh rr jm	100
+中期退	vs qi tv	100
 中机认检	vs ji rf jm	100
 中材国际	vs cd go ji	100
 中材科技	vs cd ke ji	100
@@ -722,6 +776,7 @@ TCL科技	TCL ke ji	100
 中科金财	vs ke jb cd	100
 中科飞测	vs ke fw ce	100
 中稀有色	vs xi yz se	100
+中程退	vs ig tv	100
 中策橡胶	vs ce xl jn	100
 中简科技	vs jm ke ji	100
 中粮科工	vs ll ke gs	100
@@ -734,11 +789,13 @@ TCL科技	TCL ke ji	100
 中胤科技	vs yb ke ji	100
 中能电气	vs ng dm qi	100
 中自科技	vs zi ke ji	100
+中航产融	vs hh ij rs	100
 中航光电	vs hh gl dm	100
 中航成飞	vs hh ig fw	100
 中航机载	vs hh ji zd	100
 中航沈飞	vs hh uf fw	100
 中航泰达	vs hh td da	100
+中航电测	vs hh dm ce	100
 中航西飞	vs hh xi fw	100
 中航重机	vs hh vs ji	100
 中航高科	vs hh gc ke	100
@@ -786,6 +843,7 @@ TCL科技	TCL ke ji	100
 中铁特货	vs tp te ho	100
 中铁装配	vs tp vl pw	100
 中铝国际	vs lv go ji	100
+中银绒业	vs yb rs ye	100
 中银证券	vs yb vg qr	100
 中锐股份	vs rv gu ff	100
 中闽能源	vs mb ng yr	100
@@ -883,6 +941,7 @@ TCL科技	TCL ke ji	100
 云铝股份	yy lv gu ff	100
 云鼎科技	yy dk ke ji	100
 五新智能	wu xb vi ng	100
+五新隧装	wu xb sv vl	100
 五方光电	wu fh gl dm	100
 五洋自控	wu yh zi ks	100
 五洲交通	wu vz jn ts	100
@@ -949,6 +1008,7 @@ TCL科技	TCL ke ji	100
 京能置业	jk ng vi ye	100
 京蓝科技	jk lj ke ji	100
 京运通	jk yy ts	100
+人乐退	rf le tv	100
 人民同泰	rf mb ts td	100
 人民网	rf mb wh	100
 亿利达	yi li da	100
@@ -1072,10 +1132,11 @@ TCL科技	TCL ke ji	100
 信科移动	xb ke yi ds	100
 信立泰	xb li td	100
 信维通信	xb ww ts xb	100
-信胜科技	xb ug ke ji	100
+信胜科	xb ug ke	100
 信诺维	xb no ww	100
 信质集团	xb vi ji tr	100
 信达地产	xb da di ij	100
+信达证券	xb da vg qr	100
 信通电子	xb ts dm zi	100
 信邦制药	xb bh vi yc	100
 信邦智能	xb bh vi ng	100
@@ -1104,6 +1165,7 @@ TCL科技	TCL ke ji	100
 元力股份	yr li gu ff	100
 元琛科技	yr if ke ji	100
 元祖股份	yr zu gu ff	100
+元道退	yr dc tv	100
 元隆雅图	yr ls ya tu	100
 兄弟科技	xs di ke ji	100
 兆丰股份	vc fg gu ff	100
@@ -1460,6 +1522,7 @@ TCL科技	TCL ke ji	100
 华星创业	hx xk il ye	100
 华映科技	hx yk ke ji	100
 华是科技	hx ui ke ji	100
+华晟智能	hx ig vi ng	100
 华智数媒	hx vi uu mw	100
 华曙高科	hx uu gc ke	100
 华林证券	hx lb vg qr	100
@@ -1478,7 +1541,7 @@ TCL科技	TCL ke ji	100
 华润三九	hx ry sj jq	100
 华润双鹤	hx ry ul he	100
 华润微	hx ry ww	100
-华润新能	hx ry xb ng	100
+华润新能源	hx ry xb ng yr	100
 华润材料	hx ry cd ln	100
 华润江中	hx ry jl vs	100
 华源控股	hx yr ks gu	100
@@ -1768,6 +1831,7 @@ TCL科技	TCL ke ji	100
 同益中	ts yi vs	100
 同益股份	ts yi gu ff	100
 同花顺	ts hx uy	100
+同辉信息	ts hv xb xi	100
 同飞股份	ts fw gu ff	100
 名家汇	mk jx hv	100
 名臣健康	mk if jm kh	100
@@ -1781,7 +1845,6 @@ TCL科技	TCL ke ji	100
 君逸数码	jy yi uu ma	100
 启明信息	qi mk xb xi	100
 启明星辰	qi mk xk if	100
-启迪设计	qi di ue ji	100
 吴通控股	wu ts ks gu	100
 呈和科技	ig he ke ji	100
 周大生	vz da ug	100
@@ -1880,6 +1943,7 @@ TCL科技	TCL ke ji	100
 国光连锁	go gl lm so	100
 国创高新	go il gc xb	100
 国力电子	go li dm zi	100
+国华退	go hx tv	100
 国博电子	go bo dm zi	100
 国发股份	go fa gu ff	100
 国城矿业	go ig kl ye	100
@@ -1887,10 +1951,10 @@ TCL科技	TCL ke ji	100
 国安股份	go an gu ff	100
 国安达	go an da	100
 国恩股份	go en gu ff	100
-国投中鲁	go tz vs lu	100
 国投丰乐	go tz fg le	100
 国投智能	go tz vi ng	100
 国投电力	go tz dm li	100
+国投电子	go tz dm zi	100
 国投资本	go tz zi bf	100
 国新健康	go xb jm kh	100
 国新能源	go xb ng yr	100
@@ -2081,6 +2145,7 @@ TCL科技	TCL ke ji	100
 天味食品	tm ww ui pb	100
 天和磁材	tm he ci cd	100
 天和防务	tm he fh wu	100
+天圣制药	tm ug vi yc	100
 天地在线	tm di zd xm	100
 天地数码	tm di uu ma	100
 天地源	tm di yr	100
@@ -2169,8 +2234,10 @@ TCL科技	TCL ke ji	100
 天鹅股份	tm ee gu ff	100
 天齐锂业	tm qi li ye	100
 天龙股份	tm ls gu ff	100
+天龙退	tm ls tv	100
 天龙集团	tm ls ji tr	100
 太力科技	td li ke ji	100
+太安退	td an tv	100
 太平洋	td pk yh	100
 太平鸟	td pk nn	100
 太极实业	td ji ui ye	100
@@ -2513,6 +2580,8 @@ TCL科技	TCL ke ji	100
 工商银行	gs uh yb hh	100
 工大科雅	gs da ke ya	100
 工大高科	gs da gc ke	100
+工智退	gs vi tv	100
+左江退	zo jl tv	100
 巨一科技	ju yi ke ji	100
 巨人网络	ju rf wh lo	100
 巨力索具	ju li so ju	100
@@ -2572,6 +2641,7 @@ TCL科技	TCL ke ji	100
 广康生化	gl kh ug hx	100
 广弘控股	gl hs ks gu	100
 广日股份	gl ri gu ff	100
+广汇汽车	gl hv qi ie	100
 广汇物流	gl hv wu lq	100
 广汇能源	gl hv ng yr	100
 广汽集团	gl qi ji tr	100
@@ -2595,6 +2665,7 @@ TCL科技	TCL ke ji	100
 庄园牧场	vl yr mu ih	100
 应流股份	yk lq gu ff	100
 康为世纪	kh ww ui ji	100
+康乐卫士	kh le ww ui	100
 康众科技	kh vs ke ji	100
 康农种业	kh ns vs ye	100
 康冠科技	kh gr ke ji	100
@@ -2735,6 +2806,7 @@ TCL科技	TCL ke ji	100
 德赛西威	de sd xi ww	100
 德迈仕	de md ui	100
 德邦科技	de bh ke ji	100
+德邦股份	de bh gu ff	100
 德马科技	de ma ke ji	100
 德龙汇能	de ls hv ng	100
 德龙激光	de ls ji gl	100
@@ -2769,6 +2841,7 @@ TCL科技	TCL ke ji	100
 怡达股份	yi da gu ff	100
 恒丰纸业	hg fg vi ye	100
 恒为科技	hg ww ke ji	100
+恒久退	hg jq tv	100
 恒光股份	hg gl gu ff	100
 恒兴新材	hg xk xb cd	100
 恒兴股份	hg xk gu ff	100
@@ -2798,6 +2871,7 @@ TCL科技	TCL ke ji	100
 恒申新材	hg uf xb cd	100
 恒盛能源	hg ug ng yr	100
 恒立液压	hg li ye ya	100
+恒立退	hg li tv	100
 恒立钻具	hg li zr ju	100
 恒而达	hg er da	100
 恒誉科技	hg yu ke ji	100
@@ -3020,6 +3094,7 @@ TCL科技	TCL ke ji	100
 新泉股份	xb qr gu ff	100
 新洁能	xb jp ng	100
 新洋丰	xb yh fg	100
+新海退	xb hd tv	100
 新潮能源	xb ic ng yr	100
 新澳股份	xb ao gu ff	100
 新瀚新材	xb hj xb cd	100
@@ -3036,6 +3111,7 @@ TCL科技	TCL ke ji	100
 新睿电子	xb rv dm zi	100
 新研股份	xb yj gu ff	100
 新筑股份	xb vu gu ff	100
+新纺退	xb fh tv	100
 新经典	xb jk dm	100
 新美星	xb mw xk	100
 新联电子	xb lm dm zi	100
@@ -3199,6 +3275,7 @@ TCL科技	TCL ke ji	100
 普元信息	pu yr xb xi	100
 普冉股份	pu rj gu ff	100
 普利特	pu li te	100
+普利退	pu li tv	100
 普天科技	pu tm ke ji	100
 普昂医疗	pu ah yi ln	100
 普洛药业	pu lo yc ye	100
@@ -3382,7 +3459,6 @@ TCL科技	TCL ke ji	100
 横店影视	hg dm yk ui	100
 横河精密	hg he jk mi	100
 欢乐家	hr le jx	100
-欢瑞世纪	hr rv ui ji	100
 欣兴工具	xb xk gs ju	100
 欣天科技	xb tm ke ji	100
 欣旺达	xb wh da	100
@@ -3422,6 +3498,7 @@ TCL科技	TCL ke ji	100
 正泰电源	vg td dm yr	100
 正海生物	vg hd ug wu	100
 正海磁材	vg hd ci cd	100
+正源股份	vg yr gu ff	100
 正虹科技	vg hs ke ji	100
 正裕工业	vg yu gs ye	100
 正邦科技	vg bh ke ji	100
@@ -3744,6 +3821,7 @@ TCL科技	TCL ke ji	100
 海南矿业	hd nj kl ye	100
 海南高速	hd nj gc su	100
 海博思创	hd bo si il	100
+海印股份	hd yb gu ff	100
 海圣医疗	hd ug yi ln	100
 海大集团	hd da ji tr	100
 海天味业	hd tm ww ye	100
@@ -3810,6 +3888,7 @@ TCL科技	TCL ke ji	100
 海达尔	hd da er	100
 海达股份	hd da gu ff	100
 海通发展	hd ts fa vj	100
+海通证券	hd ts vg qr	100
 海量数据	hd ll uu ju	100
 海锅股份	hd go gu ff	100
 海阳科技	hd yh ke ji	100
@@ -3987,6 +4066,7 @@ TCL科技	TCL ke ji	100
 獐子岛	vh zi dc	100
 玉禾田	yu he tm	100
 玉马科技	yu ma ke ji	100
+玉龙股份	yu ls gu ff	100
 王力安防	wh li an fh	100
 王子新材	wh zi xb cd	100
 王府井	wh fu jk	100
@@ -4062,6 +4142,7 @@ TCL科技	TCL ke ji	100
 甬矽电子	ys xi dm zi	100
 甬金股份	ys jb gu ff	100
 田中精机	tm vs jk ji	100
+田野股份	tm ye gu ff	100
 申万宏源	uf wj hs yr	100
 申华控股	uf hx ks gu	100
 申昊科技	uf hc ke ji	100
@@ -4361,6 +4442,7 @@ TCL科技	TCL ke ji	100
 立新能源	li xb ng yr	100
 立方制药	li fh vi yc	100
 立方控股	li fh ks gu	100
+立方退	li fh tv	100
 立昂微	li ah ww	100
 立昂技术	li ah ji uu	100
 立航科技	li hh ke ji	100
@@ -4379,7 +4461,7 @@ TCL科技	TCL ke ji	100
 粤传媒	yt ir mw	100
 粤桂股份	yt gv gu ff	100
 粤海饲料	yt hd si ln	100
-粤芯半导	yt xb bj dc	100
+粤芯半导体	yt xb bj dc ti	100
 精创电气	jk il dm qi	100
 精华制药	jk hx vi yc	100
 精工科技	jk gs ke ji	100
@@ -4398,6 +4480,7 @@ TCL科技	TCL ke ji	100
 索通发展	so ts fa vj	100
 紫光国微	zi gl go ww	100
 紫光股份	zi gl gu ff	100
+紫天退	zi tm tv	100
 紫建电子	zi jm dm zi	100
 紫江企业	zi jl qi ye	100
 紫燕食品	zi yj ui pb	100
@@ -4767,6 +4850,7 @@ TCL科技	TCL ke ji	100
 菲沃泰	fw wo td	100
 菲菱科思	fw lk ke si	100
 菲达环保	fw da hr bc	100
+萃华退	cv hx tv	100
 萤石网络	yk ui wh lo	100
 葵花药业	kv hx yc ye	100
 蒙娜丽莎	mg na li ua	100
@@ -4843,7 +4927,7 @@ TCL科技	TCL ke ji	100
 西麦食品	xi md ui pb	100
 观想科技	gr xl ke ji	100
 觅睿科技	mi rv ke ji	100
-视声智	ui ug vi	100
+视声智能	ui ug vi ng	100
 视涯科技	ui ya ke ji	100
 视源股份	ui yr gu ff	100
 视觉中国	ui jt vs go	100
@@ -4931,6 +5015,7 @@ TCL科技	TCL ke ji	100
 赛诺医疗	sd no yi ln	100
 赛象科技	sd xl ke ji	100
 赛轮轮胎	sd ly ly td	100
+赛隆退	sd ls tv	100
 赞宇科技	zj yu ke ji	100
 赢合科技	yk he ke ji	100
 赢时胜	yk ui ug	100
@@ -4952,6 +5037,7 @@ TCL科技	TCL ke ji	100
 超频三	ic pb sj	100
 超颖电子	ic yk dm zi	100
 越剑智能	yt jm vi ng	100
+越博退	yt bo tv	100
 越秀资本	yt xq zi bf	100
 趣睡科技	qu uv ke ji	100
 跃岭股份	yt lk gu ff	100
@@ -5027,6 +5113,26 @@ TCL科技	TCL ke ji	100
 迪生力	di ug li	100
 迪贝电气	di bw dm qi	100
 迪阿股份	di aa gu ff	100
+退市九有	tv ui jq yz	100
+退市创兴	tv ui il xk	100
+退市华嵘	tv ui hx rs	100
+退市卓朗	tv ui vo lh	100
+退市博天	tv ui bo tm	100
+退市同达	tv ui ts da	100
+退市商城	tv ui uh ig	100
+退市园城	tv ui yr ig	100
+退市国化	tv ui go hx	100
+退市太和	tv ui td he	100
+退市岩石	tv ui yj ui	100
+退市沪科	tv ui hu ke	100
+退市海越	tv ui hd yt	100
+退市熊猫	tv ui xs mc	100
+退市碳元	tv ui tj yr	100
+退市苏吴	tv ui su wu	100
+退市观典	tv ui gr dm	100
+退市锦港	tv ui jb gh	100
+退市鹏博	tv ui pg bo	100
+退市龙宇	tv ui ls yu	100
 透景生命	tz jk ug mk	100
 通业科技	ts ye ke ji	100
 通光线缆	ts gl xm lj	100
@@ -5313,6 +5419,7 @@ TCL科技	TCL ke ji	100
 长联科技	ih lm ke ji	100
 长芯博创	ih xb bo il	100
 长荣股份	ih rs gu ff	100
+长药退	ih yc tv	100
 长虹华意	ih hs hx yi	100
 长虹美菱	ih hs mw lk	100
 长虹能源	ih hs ng yr	100
@@ -5534,6 +5641,7 @@ TCL科技	TCL ke ji	100
 鹏欣资源	pg xb zi yr	100
 鹏翎股份	pg lk gu ff	100
 鹏辉能源	pg hv ng yr	100
+鹏都农牧	pg du ns mu	100
 鹏飞绿能	pg fw lv ng	100
 鹏鹞环保	pg yc hr bc	100
 鹏鼎控股	pg dk ks gu	100
@@ -5583,6 +5691,7 @@ TCL科技	TCL ke ji	100
 龙星科技	ls xk ke ji	100
 龙江交通	ls jl jn ts	100
 龙泉股份	ls qr gu ff	100
+龙津退	ls jb tv	100
 龙洲股份	ls vz gu ff	100
 龙源技术	ls yr ji uu	100
 龙源电力	ls yr dm li	100
