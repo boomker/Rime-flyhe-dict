@@ -3,7 +3,7 @@
 #
 # 股票名称词库（沪深北A股）
 # 数据来源：AKShare / 交易所股票列表
-# 更新时间：2026-11-26
+# 更新时间：2026-11-27
 # 股票数量：5384
 # ST/*ST 注释数量：197
 #
@@ -13,7 +13,7 @@
 #
 ---
 name: flypy_stock
-version: "2026-11-26"
+version: "2026-11-27"
 sort: by_weight
 ...
 
@@ -1405,7 +1405,7 @@ TCL科技	TCL ke ji	100
 华勤技术	hx qb ji uu	100
 华北制药	hx bw vi yc	100
 华升股份	hx ug gu ff	100
-华原股份	hx yr gu ff	100
+华原股	hx yr gu	100
 华厦眼科	hx ua yj ke	100
 华友钴业	hx yz gu ye	100
 华发股份	hx fa gu ff	100
@@ -2773,7 +2773,7 @@ TCL科技	TCL ke ji	100
 恒为科技	hg ww ke ji	100
 恒光股份	hg gl gu ff	100
 恒兴新材	hg xk xb cd	100
-恒兴股	hg xk gu	100
+恒兴股份	hg xk gu ff	100
 恒力石化	hg li ui hx	100
 恒勃股份	hg bo gu ff	100
 恒华科技	hg hx ke ji	100
@@ -5254,7 +5254,7 @@ TCL科技	TCL ke ji	100
 锐新科技	rv xb ke ji	100
 锐明技术	rv mk ji uu	100
 锐科激光	rv ke ji gl	100
-锐翔智能	rv xl vi ng	100
+锐翔智	rv xl vi	100
 锡业股份	xi ye gu ff	100
 锡华科技	xi hx ke ji	100
 锡南科技	xi nj ke ji	100
